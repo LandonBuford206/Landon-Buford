@@ -21,6 +21,7 @@ export function NewsletterEmbed({ variant = 'inline' }: NewsletterEmbedProps) {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!endpoint) return; // narrows the closure; unreachable at runtime
     setState('submitting');
     try {
       const fd = new FormData();
