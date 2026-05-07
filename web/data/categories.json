@@ -1,0 +1,117 @@
+[
+  {
+    "slug": "business",
+    "name": "Business",
+    "parentSlug": null
+  },
+  {
+    "slug": "fashion",
+    "name": "Fashion",
+    "parentSlug": null
+  },
+  {
+    "slug": "gaming",
+    "name": "Gaming",
+    "parentSlug": null
+  },
+  {
+    "slug": "interviews",
+    "name": "Interviews",
+    "parentSlug": null
+  },
+  {
+    "slug": "news",
+    "name": "News",
+    "parentSlug": null
+  },
+  {
+    "slug": "sports",
+    "name": "Sports",
+    "parentSlug": null
+  },
+  {
+    "slug": "technology",
+    "name": "Technology",
+    "parentSlug": null
+  },
+  {
+    "slug": "uncategorized",
+    "name": "Uncategorized",
+    "parentSlug": null
+  },
+  {
+    "slug": "wnba",
+    "name": "WNBA",
+    "parentSlug": "sports"
+  },
+  {
+    "slug": "wnba-sports",
+    "name": "WNBA",
+    "parentSlug": "sports"
+  },
+  {
+    "slug": "wwe",
+    "name": "WWE",
+    "parentSlug": "sports"
+  },
+  {
+    "slug": "business-news-2",
+    "name": "Business",
+    "parentSlug": "news"
+  },
+  {
+    "slug": "education",
+    "name": "Education",
+    "parentSlug": "news"
+  },
+  {
+    "slug": "entertainment",
+    "name": "Entertainment",
+    "parentSlug": "news"
+  },
+  {
+    "slug": "music",
+    "name": "Music",
+    "parentSlug": "news"
+  },
+  {
+    "slug": "music-news",
+    "name": "Music",
+    "parentSlug": "news"
+  },
+  {
+    "slug": "music-news-2",
+    "name": "Music",
+    "parentSlug": "news"
+  },
+  {
+    "slug": "music-news-3",
+    "name": "Music",
+    "parentSlug": "news"
+  },
+  {
+    "slug": "nba",
+    "name": "NBA",
+    "parentSlug": "sports"
+  },
+  {
+    "slug": "nfl",
+    "name": "NFL",
+    "parentSlug": "sports"
+  },
+  {
+    "slug": "pop",
+    "name": "Pop",
+    "parentSlug": "music"
+  },
+  {
+    "slug": "youtube",
+    "name": "Youtube",
+    "parentSlug": "music-news"
+  },
+  {
+    "slug": "youtube-music",
+    "name": "Youtube",
+    "parentSlug": "music"
+  }
+]

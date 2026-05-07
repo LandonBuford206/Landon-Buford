@@ -1,0 +1,19 @@
+{
+  "name": "landonbuford-rebuild",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "import": "tsx scripts/import-wxr.ts",
+    "scrape-images": "tsx scripts/scrape-wayback-images.ts",
+    "import:report": "tsx scripts/import-wxr.ts --report"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.5.0"
+  }
+}

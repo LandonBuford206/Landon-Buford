@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Surface palette — modern editorial */
+  --color-paper: #faf9f6;
+  --color-ink: #14161a;
+  --color-ink-soft: #4a4f57;
+  --color-ink-mute: #7a8089;
+  --color-line: #e7e4dc;
+  --color-line-strong: #d6d2c6;
+  --color-card: #ffffff;
+  --color-accent: #b91c1c;          /* deep red — "sports authority" */
+  --color-accent-ink: #ffffff;
+  --color-accent-soft: #fef2f2;
+
+  /* Type */
+  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Layout */
+  --container-prose: 38rem;          /* article body width */
+  --container-page: 76rem;           /* page max width */
+}
+
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* Article prose tuning — overrides @tailwindcss/typography defaults */
+.prose {
+  --tw-prose-body: var(--color-ink);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-lead: var(--color-ink-soft);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-counters: var(--color-ink-mute);
+  --tw-prose-bullets: var(--color-line-strong);
+  --tw-prose-hr: var(--color-line);
+  --tw-prose-quotes: var(--color-ink);
+  --tw-prose-quote-borders: var(--color-accent);
+  --tw-prose-captions: var(--color-ink-mute);
+  --tw-prose-code: var(--color-ink);
+  --tw-prose-pre-code: #fafafa;
+  --tw-prose-pre-bg: #1a1d23;
+  --tw-prose-th-borders: var(--color-line-strong);
+  --tw-prose-td-borders: var(--color-line);
+
+  font-family: var(--font-serif);
+  font-size: 1.1875rem;
+  line-height: 1.7;
+  max-width: none;
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote {
+  font-family: var(--font-serif);
+}
+
+.prose a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-line-strong);
+  transition: border-color 120ms ease;
+}
+
+.prose a:hover {
+  border-bottom-color: var(--color-accent);
+}
+
+.prose img {
+  border-radius: 4px;
+}
+
+.prose figcaption {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+}
+
+/* WordPress block-comment artifacts: hide them, never render */
+.prose [data-wp-block-comment] {
+  display: none;
+}
+
+/* Strip default WP caption shortcode wrappers if any survived */
+.prose .wp-caption {
+  margin: 1.5rem 0;
+}
