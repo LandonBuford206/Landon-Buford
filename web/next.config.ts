@@ -6,6 +6,14 @@ const nextConfig: NextConfig = {
   // package-lock.json (the parent has scripts/ for the WXR importer).
   outputFileTracingRoot: path.join(process.cwd()),
 
+  // The post pages read JSON files via dynamic paths (`${slug}.json`), which
+  // Next's static analyzer cannot trace. Without this, the data/ files do not
+  // ship with the serverless functions and on-demand-rendered posts (the
+  // 7,000 outside the pre-built top 500) return ENOENT in production.
+  outputFileTracingIncludes: {
+    '/**/*': ['./data/**/*.json'],
+  },
+
   // Pin Turbopack's filesystem root to this dir explicitly. Without this,
   // auto-detection can walk up to the parent (which contains a 59 MB WXR
   // file and a separate node_modules), ballooning the dev-server file

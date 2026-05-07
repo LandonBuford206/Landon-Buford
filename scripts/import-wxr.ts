@@ -330,10 +330,17 @@ async function main() {
 
   for (const { item, postType } of collectedPosts) {
     try {
-      const rawSlug = readField(item, 'wp:post_name') || slugify(readField(item, 'title'));
-      const count = (slugCounts.get(rawSlug) ?? 0) + 1;
-      slugCounts.set(rawSlug, count);
-      const slug = count === 1 ? rawSlug : `${rawSlug}-${count}`;
+      // Normalize the slug to the filesystem-safe form used for filenames.
+      // WordPress sometimes stores URL-encoded post_name values for posts
+      // with non-ASCII titles (Hebrew, CJK, etc.) — keeping those raw would
+      // produce a slug in index.json that no file on disk matches, breaking
+      // the build at static-render time. fsSlug is idempotent on ordinary
+      // ASCII slugs, so this is a no-op for the vast majority of posts.
+      const rawPostName = readField(item, 'wp:post_name') || slugify(readField(item, 'title'));
+      const normalized = fsSlug(rawPostName);
+      const count = (slugCounts.get(normalized) ?? 0) + 1;
+      slugCounts.set(normalized, count);
+      const slug = count === 1 ? normalized : `${normalized}-${count}`;
 
       const title = readField(item, 'title') || '(untitled)';
       const link = readField(item, 'link');
