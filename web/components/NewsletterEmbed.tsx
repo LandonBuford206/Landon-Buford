@@ -9,20 +9,18 @@ interface NewsletterEmbedProps {
 /**
  * Newsletter capture. Posts to whatever endpoint is configured via
  * NEXT_PUBLIC_NEWSLETTER_ENDPOINT (Beehiiv / ConvertKit / Substack — all
- * accept a simple form post). Renders a labeled placeholder if no
- * endpoint is configured.
+ * accept a simple form post). Renders nothing if no endpoint is set,
+ * so we never silently drop submissions on a fake-success placeholder.
  */
 export function NewsletterEmbed({ variant = 'inline' }: NewsletterEmbedProps) {
   const endpoint = process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT;
   const [email, setEmail] = useState('');
   const [state, setState] = useState<'idle' | 'submitting' | 'ok' | 'err'>('idle');
 
+  if (!endpoint) return null;
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!endpoint) {
-      setState('ok');
-      return;
-    }
     setState('submitting');
     try {
       const fd = new FormData();

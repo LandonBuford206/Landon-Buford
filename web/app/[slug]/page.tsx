@@ -117,11 +117,13 @@ export default async function ArticlePage(props: PageProps<'/[slug]'>) {
         </section>
       )}
 
-      <section className="mx-auto my-24 w-full max-w-[var(--container-page)] px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl">
-          <NewsletterEmbed />
-        </div>
-      </section>
+      {process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT && (
+        <section className="mx-auto my-24 w-full max-w-[var(--container-page)] px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl">
+            <NewsletterEmbed />
+          </div>
+        </section>
+      )}
     </article>
   );
 }

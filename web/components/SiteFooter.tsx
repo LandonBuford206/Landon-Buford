@@ -60,9 +60,11 @@ export async function SiteFooter() {
             </ul>
           </div>
         </div>
-        <div className="mt-14">
-          <NewsletterEmbed variant="footer" />
-        </div>
+        {process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT && (
+          <div className="mt-14">
+            <NewsletterEmbed variant="footer" />
+          </div>
+        )}
         <div className="mt-12 border-t border-[var(--color-ink-soft)]/40 pt-6 text-xs text-[var(--color-ink-mute)]">
           © {year} LandonBuford.com. All rights reserved.
         </div>

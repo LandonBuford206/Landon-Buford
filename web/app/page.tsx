@@ -53,9 +53,11 @@ export default async function HomePage() {
         </section>
       ))}
 
-      <section className="my-24">
-        <NewsletterEmbed />
-      </section>
+      {process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT && (
+        <section className="my-24">
+          <NewsletterEmbed />
+        </section>
+      )}
     </div>
   );
 }
