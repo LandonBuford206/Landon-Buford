@@ -25,6 +25,37 @@ const nextConfig: NextConfig = {
 
   // The site has thousands of legacy URLs. Trailing slashes were never used.
   trailingSlash: false,
+
+  // Map old WordPress URL patterns onto the new App Router routes so Google's
+  // existing index transitions cleanly. Trailing-slash variants are handled
+  // automatically by Next via `trailingSlash: false`.
+  async redirects() {
+    return [
+      // Homepage and archive pagination
+      { source: '/page/:n(\\d+)', destination: '/?page=:n', permanent: true },
+      {
+        source: '/category/:slug/page/:n(\\d+)',
+        destination: '/category/:slug?page=:n',
+        permanent: true,
+      },
+      {
+        source: '/tag/:slug/page/:n(\\d+)',
+        destination: '/tag/:slug?page=:n',
+        permanent: true,
+      },
+      {
+        source: '/author/:slug/page/:n(\\d+)',
+        destination: '/author/:slug?page=:n',
+        permanent: true,
+      },
+      // RSS — WordPress used /feed/ and /<archive>/feed/. Point everything
+      // at the single /feed.xml route.
+      { source: '/feed', destination: '/feed.xml', permanent: true },
+      { source: '/category/:slug/feed', destination: '/feed.xml', permanent: true },
+      { source: '/tag/:slug/feed', destination: '/feed.xml', permanent: true },
+      { source: '/author/:slug/feed', destination: '/feed.xml', permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

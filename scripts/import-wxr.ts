@@ -270,6 +270,15 @@ async function main() {
       return;
     }
 
+    // WordPress sometimes leaves orphan posts whose slug starts with
+    // `__trashed` — soft-deleted items that never got purged. Skip them
+    // even when status reports as 'publish'.
+    const rawPostName = readField(item, 'wp:post_name') || '';
+    if (rawPostName.startsWith('__trashed')) {
+      stats.nonPublished++;
+      return;
+    }
+
     if (postType === 'post') stats.posts++;
     else stats.pages++;
 
