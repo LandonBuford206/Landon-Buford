@@ -62,6 +62,17 @@ const nextConfig: NextConfig = {
       { source: '/category/:slug/feed', destination: '/feed.xml', permanent: true },
       { source: '/tag/:slug/feed', destination: '/feed.xml', permanent: true },
       { source: '/author/:slug/feed', destination: '/feed.xml', permanent: true },
+
+      // Category consolidation (2026-05-07) — duplicate WordPress slugs
+      // collapsed onto canonical ones. Mirrors SLUG_MAP in
+      // scripts/consolidate-categories.ts.
+      { source: '/category/music-news', destination: '/category/music', permanent: true },
+      { source: '/category/music-news-2', destination: '/category/music', permanent: true },
+      { source: '/category/music-news-3', destination: '/category/music', permanent: true },
+      { source: '/category/wnba-sports', destination: '/category/wnba', permanent: true },
+      { source: '/category/business-news-2', destination: '/category/business', permanent: true },
+      { source: '/category/youtube-music', destination: '/category/youtube', permanent: true },
+      { source: '/category/uncategorized', destination: '/category/general', permanent: true },
     ];
   },
 };

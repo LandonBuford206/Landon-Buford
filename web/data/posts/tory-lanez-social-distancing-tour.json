@@ -1,1 +1,33 @@
-{"slug":"tory-lanez-social-distancing-tour","postId":72577,"title":"Tory Lanez Social Distancing Tour","htmlContent":"https://www.youtube.com/watch?v=L_VxcL36GH0\n\nTory Lanez Social Distancing Tour","excerpt":"https://www.youtube.com/watch?v=L_VxcL36GH0 Tory Lanez Social Distancing Tour","publishedAt":"2020-05-04T05:00:00Z","modifiedAt":"2026-04-15T19:37:03Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"},{"slug":"youtube-music","name":"Youtube"}],"tags":[],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/tory-lanez-social-distancing-tour/"}
+{
+  "slug": "tory-lanez-social-distancing-tour",
+  "postId": 72577,
+  "title": "Tory Lanez Social Distancing Tour",
+  "htmlContent": "https://www.youtube.com/watch?v=L_VxcL36GH0\n\nTory Lanez Social Distancing Tour",
+  "excerpt": "https://www.youtube.com/watch?v=L_VxcL36GH0 Tory Lanez Social Distancing Tour",
+  "publishedAt": "2020-05-04T05:00:00Z",
+  "modifiedAt": "2026-04-15T19:37:03Z",
+  "author": {
+    "slug": "chad-hughes",
+    "displayName": "Chad Hughes"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    },
+    {
+      "slug": "youtube",
+      "name": "Youtube"
+    }
+  ],
+  "tags": [],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/tory-lanez-social-distancing-tour/"
+}

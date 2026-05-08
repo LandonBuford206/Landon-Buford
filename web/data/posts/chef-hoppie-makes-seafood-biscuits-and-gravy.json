@@ -1,1 +1,62 @@
-{"slug":"chef-hoppie-makes-seafood-biscuits-and-gravy","postId":74835,"title":"Chef Hoppie Makes Seafood, Biscuits And Gravy","htmlContent":"<!-- wp:image {\"id\":517637,\"sizeSlug\":\"full\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-full\"><img src=\"http://landonbuford.com/wp-content/uploads/2022/08/0xc8hc3m_400x400-1.jpg\" alt=\"\" class=\"wp-image-517637\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:paragraph -->\n<p>'This is Chef Hoppie; I'm back in the kitchen cooking up some seafood, biscuits &amp; gravy. 'Today we got some seafood, biscuits &amp; gravy for you. Once the cheddar biscuits are in the oven, it takes ten to twelve minutes to cook.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://www.youtube.com/watch?v=5iPj5qRl9tcu0026t=4s\",\"type\":\"video\",\"providerNameSlug\":\"youtube\",\"responsive\":true,\"className\":\"wp-embed-aspect-16-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://www.youtube.com/watch?v=5iPj5qRl9tc&amp;t=4s\n</div></figure>\n<!-- /wp:embed -->\n\n<!-- wp:paragraph -->\n<p>\"Ay, that the biscuits we got them in the oven. The cheddar biscuits are bout to be done soon, ten to twelve minutes... Let's go!\" Yes, sir, I got the sauces, bell peppers, and onions working, and this is the beginning of the gravy. Boom, we got the dressing done. Now, it's time to get some of the toppings right. The crab claws, shrimp, salmon, I don't know; we got it all.\" </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Make sure you catch the rest of the video and tune into the upcoming episode on my YouTube page Chef Hoppie TV.</p>\n<!-- /wp:paragraph -->","excerpt":"'This is Chef Hoppie; I'm back in the kitchen cooking up some seafood, biscuits & gravy. 'Today we got some seafood, biscuits & gravy for you. Once the cheddar biscuits are in the oven, it takes ten…","publishedAt":"2022-08-24T05:00:00Z","modifiedAt":"2022-08-24T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"uncategorized","name":"Uncategorized"}],"tags":[{"slug":"biscuits","name":"Biscuits"},{"slug":"chef-hoppie","name":"Chef Hoppie"},{"slug":"chef-hoppie-tv","name":"Chef Hoppie TV"},{"slug":"entertainment-news","name":"Entertainment news"},{"slug":"food","name":"Food"},{"slug":"gravy","name":"Gravy"},{"slug":"landon-buford","name":"Landon Buford"},{"slug":"seafood","name":"Seafood"}],"heroImage":{"originalUrl":"http://landonbuford.com/wp-content/uploads/2022/08/0xc8hc3m_400x400-1.jpg"},"inlineImageUrls":["http://landonbuford.com/wp-content/uploads/2022/08/0xc8hc3m_400x400-1.jpg"],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/chef-hoppie-makes-seafood-biscuits-and-gravy/"}
+{
+  "slug": "chef-hoppie-makes-seafood-biscuits-and-gravy",
+  "postId": 74835,
+  "title": "Chef Hoppie Makes Seafood, Biscuits And Gravy",
+  "htmlContent": "<!-- wp:image {\"id\":517637,\"sizeSlug\":\"full\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-full\"><img src=\"http://landonbuford.com/wp-content/uploads/2022/08/0xc8hc3m_400x400-1.jpg\" alt=\"\" class=\"wp-image-517637\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:paragraph -->\n<p>'This is Chef Hoppie; I'm back in the kitchen cooking up some seafood, biscuits &amp; gravy. 'Today we got some seafood, biscuits &amp; gravy for you. Once the cheddar biscuits are in the oven, it takes ten to twelve minutes to cook.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://www.youtube.com/watch?v=5iPj5qRl9tcu0026t=4s\",\"type\":\"video\",\"providerNameSlug\":\"youtube\",\"responsive\":true,\"className\":\"wp-embed-aspect-16-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://www.youtube.com/watch?v=5iPj5qRl9tc&amp;t=4s\n</div></figure>\n<!-- /wp:embed -->\n\n<!-- wp:paragraph -->\n<p>\"Ay, that the biscuits we got them in the oven. The cheddar biscuits are bout to be done soon, ten to twelve minutes... Let's go!\" Yes, sir, I got the sauces, bell peppers, and onions working, and this is the beginning of the gravy. Boom, we got the dressing done. Now, it's time to get some of the toppings right. The crab claws, shrimp, salmon, I don't know; we got it all.\" </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Make sure you catch the rest of the video and tune into the upcoming episode on my YouTube page Chef Hoppie TV.</p>\n<!-- /wp:paragraph -->",
+  "excerpt": "'This is Chef Hoppie; I'm back in the kitchen cooking up some seafood, biscuits & gravy. 'Today we got some seafood, biscuits & gravy for you. Once the cheddar biscuits are in the oven, it takes ten…",
+  "publishedAt": "2022-08-24T05:00:00Z",
+  "modifiedAt": "2022-08-24T05:00:00Z",
+  "author": {
+    "slug": "chad-hughes",
+    "displayName": "Chad Hughes"
+  },
+  "categories": [
+    {
+      "slug": "general",
+      "name": "General"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "biscuits",
+      "name": "Biscuits"
+    },
+    {
+      "slug": "chef-hoppie",
+      "name": "Chef Hoppie"
+    },
+    {
+      "slug": "chef-hoppie-tv",
+      "name": "Chef Hoppie TV"
+    },
+    {
+      "slug": "entertainment-news",
+      "name": "Entertainment news"
+    },
+    {
+      "slug": "food",
+      "name": "Food"
+    },
+    {
+      "slug": "gravy",
+      "name": "Gravy"
+    },
+    {
+      "slug": "landon-buford",
+      "name": "Landon Buford"
+    },
+    {
+      "slug": "seafood",
+      "name": "Seafood"
+    }
+  ],
+  "heroImage": {
+    "originalUrl": "http://landonbuford.com/wp-content/uploads/2022/08/0xc8hc3m_400x400-1.jpg"
+  },
+  "inlineImageUrls": [
+    "http://landonbuford.com/wp-content/uploads/2022/08/0xc8hc3m_400x400-1.jpg"
+  ],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/chef-hoppie-makes-seafood-biscuits-and-gravy/"
+}
