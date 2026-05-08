@@ -4,13 +4,15 @@ import { formatDate, resolveImageSrc } from '@/lib/format';
 import { decodeEntities } from '@/lib/html';
 import { CategoryArt, type CategoryArtSize } from './CategoryArt';
 
-type Variant = 'lead' | 'feature' | 'card' | 'compact';
+type Variant = 'lead' | 'feature-large' | 'feature' | 'card' | 'compact' | 'headline';
 
 const ART_SIZE: Record<Variant, CategoryArtSize> = {
   lead: 'lead',
+  'feature-large': 'feature',
   feature: 'feature',
   card: 'card',
   compact: 'compact',
+  headline: 'compact',
 };
 
 interface PostCardProps {
@@ -59,6 +61,62 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
             )}
             <Meta post={post} />
           </div>
+        </Link>
+      </article>
+    );
+  }
+
+  if (variant === 'feature-large') {
+    return (
+      <article className="group">
+        <Link href={href} className="block">
+          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md bg-[var(--color-line)]">
+            {imgSrc ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={imgSrc}
+                alt={title}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+              />
+            ) : (
+              <CategoryArt title={post.title} category={cat?.name} size="feature" />
+            )}
+          </div>
+          <div className="mt-4">
+            {cat && (
+              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
+                {cat.name}
+              </span>
+            )}
+            <h3 className="mt-2 font-serif text-2xl leading-[1.15] tracking-tight md:text-3xl">
+              {title}
+            </h3>
+            {excerpt && (
+              <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[var(--color-ink-soft)]">
+                {excerpt}
+              </p>
+            )}
+            <Meta post={post} compact />
+          </div>
+        </Link>
+      </article>
+    );
+  }
+
+  if (variant === 'headline') {
+    return (
+      <article className="group border-t border-[var(--color-line)] py-3.5 first:border-t-0 first:pt-0">
+        <Link href={href} className="block">
+          {cat && (
+            <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
+              {cat.name}
+            </span>
+          )}
+          <h4 className="mt-1 font-serif text-base leading-snug tracking-tight transition group-hover:text-[var(--color-accent)] md:text-lg">
+            {title}
+          </h4>
+          <Meta post={post} compact />
         </Link>
       </article>
     );

@@ -203,27 +203,36 @@ export async function getAllAuthors(): Promise<AuthorRecord[]> {
   return loadAuthors();
 }
 
+export interface HomepageCategoryBlock {
+  category: CategoryRecord & { count: number };
+  posts: PostListEntry[];
+}
+
 /**
  * Used by homepage and category landings. Picks a featured/lead post
  * and a set of secondary stories from the most recent posts.
+ *
+ * `byCategory` is a slug-keyed Map (insertion-ordered by post count). The
+ * homepage reads specific slugs from it for slotted layouts and iterates
+ * the rest for a default fallback grid.
  */
 export async function getHomepageFeed(): Promise<{
   lead: PostListEntry | null;
   secondary: PostListEntry[];
-  byCategory: { category: CategoryRecord & { count: number }; posts: PostListEntry[] }[];
+  byCategory: Map<string, HomepageCategoryBlock>;
 }> {
   const all = await loadIndex();
   const cats = await getCategoriesWithCounts();
   const lead = all[0] ?? null;
   const secondary = all.slice(1, 9);
-  const byCategory: { category: CategoryRecord & { count: number }; posts: PostListEntry[] }[] = [];
+  const byCategory = new Map<string, HomepageCategoryBlock>();
   const used = new Set<string>([lead?.slug ?? '', ...secondary.map((p) => p.slug)]);
-  for (const cat of cats.slice(0, 4)) {
+  for (const cat of cats.slice(0, 8)) {
     const posts = all
       .filter((p) => p.primaryCategory?.slug === cat.slug && !used.has(p.slug))
-      .slice(0, 4);
+      .slice(0, 5);
     posts.forEach((p) => used.add(p.slug));
-    if (posts.length > 0) byCategory.push({ category: cat, posts });
+    if (posts.length > 0) byCategory.set(cat.slug, { category: cat, posts });
   }
   return { lead, secondary, byCategory };
 }
