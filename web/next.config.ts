@@ -2,10 +2,6 @@ import type { NextConfig } from 'next';
 import path from 'node:path';
 
 const nextConfig: NextConfig = {
-  // Pin trace root to this dir so Next doesn't warn about the parent's
-  // package-lock.json (the parent has scripts/ for the WXR importer).
-  outputFileTracingRoot: path.join(process.cwd()),
-
   // The post pages read JSON files via dynamic paths (`${slug}.json`), which
   // Next's static analyzer cannot trace. Without this, the data/ files do not
   // ship with the serverless functions and on-demand-rendered posts (the
