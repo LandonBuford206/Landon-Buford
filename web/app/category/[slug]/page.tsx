@@ -4,6 +4,7 @@ import { PostCard } from '@/components/PostCard';
 import { PaginationNav } from '@/components/PaginationNav';
 import { AdSlot } from '@/components/AdSlot';
 import { getAllCategories, getCategory, listPosts } from '@/lib/content';
+import { accentColor } from '@/lib/category-style';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://landonbuford.com';
 
@@ -41,11 +42,23 @@ export default async function CategoryPage(props: PageProps<'/category/[slug]'>)
   return (
     <div className="mx-auto w-full max-w-[var(--container-page)] px-4 pt-12 sm:px-6 lg:px-8">
       <header className="mb-10 border-b border-[var(--color-line)] pb-6">
-        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">
-          Category
-        </span>
-        <h1 className="mt-2 font-serif text-4xl tracking-tight md:text-5xl">{cat.name}</h1>
-        <p className="mt-2 text-sm text-[var(--color-ink-mute)]">
+        <div className="flex items-center gap-3">
+          <span
+            aria-hidden
+            className="block h-9 w-[3px] md:h-12"
+            style={{ backgroundColor: accentColor(cat.slug) }}
+          />
+          <div>
+            <span
+              className="text-xs font-semibold uppercase tracking-[0.16em]"
+              style={{ color: accentColor(cat.slug) }}
+            >
+              Category
+            </span>
+            <h1 className="mt-1 font-serif text-4xl tracking-tight md:text-5xl">{cat.name}</h1>
+          </div>
+        </div>
+        <p className="mt-3 text-sm text-[var(--color-ink-mute)]">
           {totalPosts} {totalPosts === 1 ? 'story' : 'stories'}
         </p>
       </header>

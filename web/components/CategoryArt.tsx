@@ -4,50 +4,19 @@
  * thin accent rule. Looks intentional, not "image failed to load".
  *
  * Used by PostCard (as the image fallback) and ArticleHeader (as the hero
- * fallback). Colors are deterministic per category so the same category
- * always reads the same.
+ * fallback). Colors come from lib/category-style — same palette feeds the
+ * card badge and section eyebrow bar so identity is consistent.
  */
 
 import { decodeEntities } from '@/lib/html';
+import { paletteFor } from '@/lib/category-style';
 
 export type CategoryArtSize = 'card' | 'feature' | 'lead' | 'hero' | 'compact';
 
 interface CategoryArtProps {
   title: string;
-  category?: string | null;
+  category?: { slug: string; name: string } | string | null;
   size?: CategoryArtSize;
-}
-
-interface Palette {
-  bg: string;
-  ink: string;
-  rule: string;
-}
-
-// Editorial palette — deep, desaturated, magazine-y. None compete with the
-// brand's accent red. Each pair is bg + readable text + a subtle rule color.
-const PALETTES: Palette[] = [
-  { bg: '#1f2a44', ink: '#f4ede0', rule: '#d8a657' }, // deep navy / cream / amber
-  { bg: '#2d2a26', ink: '#f3ece1', rule: '#c66e4f' }, // espresso / oat / clay
-  { bg: '#2b3a36', ink: '#eef2ec', rule: '#9bb59a' }, // forest / mist / sage
-  { bg: '#3a2b3d', ink: '#f0e7ee', rule: '#c89bb8' }, // aubergine / blush / mauve
-  { bg: '#1c2a2a', ink: '#e7eded', rule: '#7fa7a3' }, // teal-noir / fog / seaglass
-  { bg: '#3b2c1e', ink: '#f3e8d8', rule: '#d4a26a' }, // cocoa / cream / honey
-  { bg: '#26282d', ink: '#ebebee', rule: '#9ca0ad' }, // charcoal / paper / steel
-  { bg: '#3d2926', ink: '#f1e6df', rule: '#cf8a6a' }, // brick / sand / terracotta
-];
-
-function hashString(s: string): number {
-  let h = 0;
-  for (let i = 0; i < s.length; i++) {
-    h = (h * 31 + s.charCodeAt(i)) | 0;
-  }
-  return Math.abs(h);
-}
-
-function paletteFor(category: string | null | undefined): Palette {
-  if (!category) return PALETTES[6];
-  return PALETTES[hashString(category) % PALETTES.length];
 }
 
 const TITLE_TRUNCATE: Record<CategoryArtSize, number> = {
@@ -75,14 +44,15 @@ const PADDING: Record<CategoryArtSize, string> = {
 };
 
 export function CategoryArt({ title, category, size = 'card' }: CategoryArtProps) {
-  const p = paletteFor(category);
+  const slug = typeof category === 'string' ? null : category?.slug ?? null;
+  const name = typeof category === 'string' ? category : category?.name ?? null;
+  const p = paletteFor(slug);
   const decoded = decodeEntities(title);
   const truncated =
     decoded.length > TITLE_TRUNCATE[size]
       ? decoded.slice(0, TITLE_TRUNCATE[size] - 1).replace(/\s+\S*$/, '') + '…'
       : decoded;
 
-  // Compact variant: tiny square, just initials of the category
   if (size === 'compact') {
     return (
       <div
@@ -93,7 +63,7 @@ export function CategoryArt({ title, category, size = 'card' }: CategoryArtProps
           className="font-serif text-xs uppercase tracking-[0.16em]"
           style={{ color: p.rule }}
         >
-          {(category ?? 'LB').slice(0, 3)}
+          {(name ?? 'LB').slice(0, 3)}
         </span>
       </div>
     );
@@ -104,13 +74,12 @@ export function CategoryArt({ title, category, size = 'card' }: CategoryArtProps
       className={`relative flex h-full w-full flex-col justify-between ${PADDING[size]}`}
       style={{ backgroundColor: p.bg, color: p.ink }}
     >
-      {/* corner mark */}
       <div className="flex items-start justify-between gap-3">
         <span
           className="text-[10px] font-semibold uppercase tracking-[0.18em]"
           style={{ color: p.rule }}
         >
-          {category ?? 'LandonBuford'}
+          {name ?? 'LandonBuford'}
         </span>
         <span
           className="font-serif text-[10px] uppercase tracking-[0.16em] opacity-60"
@@ -120,7 +89,6 @@ export function CategoryArt({ title, category, size = 'card' }: CategoryArtProps
         </span>
       </div>
 
-      {/* the title fills the available vertical space */}
       <h3
         className={`font-serif tracking-tight ${TITLE_CLASSES[size]}`}
         style={{ color: p.ink }}
@@ -128,7 +96,6 @@ export function CategoryArt({ title, category, size = 'card' }: CategoryArtProps
         {truncated}
       </h3>
 
-      {/* baseline rule */}
       <div className="mt-4 flex items-center gap-3" aria-hidden>
         <span
           className="block h-px flex-1"

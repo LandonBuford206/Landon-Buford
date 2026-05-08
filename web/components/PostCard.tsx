@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { PostListEntry } from '@/lib/content';
 import { formatDate, resolveImageSrc } from '@/lib/format';
 import { decodeEntities } from '@/lib/html';
+import { accentColor } from '@/lib/category-style';
 import { CategoryArt, type CategoryArtSize } from './CategoryArt';
 
 type Variant = 'lead' | 'feature-large' | 'feature' | 'card' | 'compact' | 'headline';
@@ -14,6 +15,23 @@ const ART_SIZE: Record<Variant, CategoryArtSize> = {
   compact: 'compact',
   headline: 'compact',
 };
+
+type CategoryRef = NonNullable<PostListEntry['primaryCategory']>;
+
+function CategoryBadge({ cat, size = 'sm' }: { cat: CategoryRef; size?: 'sm' | 'xs' }) {
+  return (
+    <span
+      className={
+        size === 'xs'
+          ? 'text-[10px] font-semibold uppercase tracking-[0.14em]'
+          : 'text-xs font-semibold uppercase tracking-[0.14em]'
+      }
+      style={{ color: accentColor(cat.slug) }}
+    >
+      {cat.name}
+    </span>
+  );
+}
 
 interface PostCardProps {
   post: PostListEntry;
@@ -42,15 +60,11 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
               />
             ) : (
-              <CategoryArt title={post.title} category={cat?.name} size={ART_SIZE.lead} />
+              <CategoryArt title={post.title} category={cat} size={ART_SIZE.lead} />
             )}
           </div>
           <div className="mt-5">
-            {cat && (
-              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
-                {cat.name}
-              </span>
-            )}
+            {cat && <CategoryBadge cat={cat} />}
             <h2 className="mt-2 font-serif text-3xl leading-[1.1] tracking-tight md:text-4xl lg:text-[2.75rem]">
               {title}
             </h2>
@@ -80,15 +94,11 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               />
             ) : (
-              <CategoryArt title={post.title} category={cat?.name} size="feature" />
+              <CategoryArt title={post.title} category={cat} size="feature" />
             )}
           </div>
           <div className="mt-4">
-            {cat && (
-              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
-                {cat.name}
-              </span>
-            )}
+            {cat && <CategoryBadge cat={cat} />}
             <h3 className="mt-2 font-serif text-2xl leading-[1.15] tracking-tight md:text-3xl">
               {title}
             </h3>
@@ -108,11 +118,7 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
     return (
       <article className="group border-t border-[var(--color-line)] py-3.5 first:border-t-0 first:pt-0">
         <Link href={href} className="block">
-          {cat && (
-            <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
-              {cat.name}
-            </span>
-          )}
+          {cat && <CategoryBadge cat={cat} size="xs" />}
           <h4 className="mt-1 font-serif text-base leading-snug tracking-tight transition group-hover:text-[var(--color-accent)] md:text-lg">
             {title}
           </h4>
@@ -136,15 +142,11 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               />
             ) : (
-              <CategoryArt title={post.title} category={cat?.name} size={ART_SIZE.feature} />
+              <CategoryArt title={post.title} category={cat} size={ART_SIZE.feature} />
             )}
           </div>
           <div className="mt-4">
-            {cat && (
-              <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
-                {cat.name}
-              </span>
-            )}
+            {cat && <CategoryBadge cat={cat} size="xs" />}
             <h3 className="mt-1.5 font-serif text-xl leading-[1.2] tracking-tight md:text-2xl">
               {title}
             </h3>
@@ -164,15 +166,11 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
               // eslint-disable-next-line @next/next/no-img-element
               <img src={imgSrc} alt={title} loading="lazy" className="h-full w-full object-cover" />
             ) : (
-              <CategoryArt title={post.title} category={cat?.name} size={ART_SIZE.compact} />
+              <CategoryArt title={post.title} category={cat} size={ART_SIZE.compact} />
             )}
           </div>
           <div className="flex-1">
-            {cat && (
-              <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
-                {cat.name}
-              </span>
-            )}
+            {cat && <CategoryBadge cat={cat} size="xs" />}
             <h4 className="mt-1 font-serif text-base leading-snug tracking-tight">
               {title}
             </h4>
@@ -197,15 +195,11 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             />
           ) : (
-            <CategoryArt title={post.title} category={cat?.name} size={ART_SIZE.card} />
+            <CategoryArt title={post.title} category={cat} size={ART_SIZE.card} />
           )}
         </div>
         <div className="mt-3.5">
-          {cat && (
-            <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
-              {cat.name}
-            </span>
-          )}
+          {cat && <CategoryBadge cat={cat} size="xs" />}
           <h3 className="mt-1.5 font-serif text-lg leading-snug tracking-tight md:text-xl">
             {title}
           </h3>

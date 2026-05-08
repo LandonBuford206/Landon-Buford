@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { PostFull } from '@/lib/content';
 import { formatDate, resolveImageSrc } from '@/lib/format';
 import { decodeEntities } from '@/lib/html';
+import { accentColor } from '@/lib/category-style';
 import { CategoryArt } from './CategoryArt';
 
 interface ArticleHeaderProps {
@@ -32,7 +33,10 @@ export function ArticleHeader({ post }: ArticleHeaderProps) {
 
       <div className="mx-auto max-w-3xl">
         {cat && (
-          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">
+          <span
+            className="text-xs font-semibold uppercase tracking-[0.16em]"
+            style={{ color: accentColor(cat.slug) }}
+          >
             {cat.name}
           </span>
         )}
@@ -72,7 +76,7 @@ export function ArticleHeader({ post }: ArticleHeaderProps) {
       ) : (
         <div className="mx-auto mt-10 max-w-5xl">
           <div className="relative aspect-[21/9] w-full overflow-hidden rounded-md md:aspect-[24/8]">
-            <CategoryArt title={post.title} category={cat?.name} size="hero" />
+            <CategoryArt title={post.title} category={cat} size="hero" />
           </div>
         </div>
       )}

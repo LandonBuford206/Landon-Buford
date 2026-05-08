@@ -3,9 +3,7 @@ import { PostCard } from '@/components/PostCard';
 import { NewsletterEmbed } from '@/components/NewsletterEmbed';
 import { AdSlot } from '@/components/AdSlot';
 import { getHomepageFeed, type HomepageCategoryBlock } from '@/lib/content';
-
-// Slugs that get bespoke layouts on the homepage. Order = render order.
-const SLOTTED = ['sports', 'nba', 'business', 'music', 'entertainment'] as const;
+import { accentColor } from '@/lib/category-style';
 
 export default async function HomePage() {
   const { lead, secondary, byCategory } = await getHomepageFeed();
@@ -53,6 +51,7 @@ export default async function HomePage() {
         </section>
       )}
 
+
       <div className="my-16">
         <AdSlot placement="listing-mid" />
       </div>
@@ -64,6 +63,7 @@ export default async function HomePage() {
             title={sports.category.name}
             href={`/category/${sports.category.slug}`}
             cta="View all"
+            accentSlug={sports.category.slug}
           />
           <FeatureWithStack block={sports} />
         </section>
@@ -76,6 +76,7 @@ export default async function HomePage() {
             title={nba.category.name}
             href={`/category/${nba.category.slug}`}
             cta="View all"
+            accentSlug={nba.category.slug}
           />
           <CardRow block={nba} />
         </section>
@@ -88,6 +89,7 @@ export default async function HomePage() {
             title={business.category.name}
             href={`/category/${business.category.slug}`}
             cta="View all"
+            accentSlug={business.category.slug}
           />
           <FeatureMosaic block={business} />
         </section>
@@ -100,6 +102,7 @@ export default async function HomePage() {
             title={music.category.name}
             href={`/category/${music.category.slug}`}
             cta="View all"
+            accentSlug={music.category.slug}
           />
           <FeatureWithHeadlines block={music} />
         </section>
@@ -112,6 +115,7 @@ export default async function HomePage() {
             title={entertainment.category.name}
             href={`/category/${entertainment.category.slug}`}
             cta="View all"
+            accentSlug={entertainment.category.slug}
           />
           <CardRow block={entertainment} />
         </section>
@@ -124,6 +128,7 @@ export default async function HomePage() {
             title={block.category.name}
             href={`/category/${block.category.slug}`}
             cta="View all"
+            accentSlug={block.category.slug}
           />
           <CardRow block={block} />
         </section>
@@ -142,14 +147,24 @@ function SectionHead({
   title,
   href,
   cta,
+  accentSlug,
 }: {
   title: string;
   href?: string;
   cta?: string;
+  accentSlug?: string;
 }) {
+  const bar = accentSlug ? accentColor(accentSlug) : 'var(--color-accent)';
   return (
     <div className="mb-8 flex items-end justify-between gap-4 border-b border-[var(--color-line)] pb-3">
-      <h2 className="font-serif text-3xl tracking-tight md:text-4xl">{title}</h2>
+      <div className="flex items-center gap-3">
+        <span
+          aria-hidden
+          className="block h-7 w-[3px] md:h-9"
+          style={{ backgroundColor: bar }}
+        />
+        <h2 className="font-serif text-3xl tracking-tight md:text-4xl">{title}</h2>
+      </div>
       {href && cta && (
         <Link
           href={href}
