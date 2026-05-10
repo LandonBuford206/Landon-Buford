@@ -35,24 +35,24 @@ type TitleTier = { max: number; cls: string };
 
 const TITLE_TIERS: Record<Exclude<CategoryArtSize, 'compact'>, TitleTier[]> = {
   hero: [
-    { max: 50, cls: 'text-4xl md:text-6xl lg:text-7xl leading-[0.95]' },
-    { max: 90, cls: 'text-3xl md:text-5xl lg:text-6xl leading-[1.0]' },
-    { max: 140, cls: 'text-2xl md:text-4xl lg:text-5xl leading-[1.05]' },
+    { max: 35, cls: 'text-4xl md:text-6xl lg:text-7xl leading-[0.95]' },
+    { max: 60, cls: 'text-3xl md:text-5xl lg:text-6xl leading-[1.0]' },
+    { max: 100, cls: 'text-2xl md:text-4xl lg:text-5xl leading-[1.05]' },
     { max: Infinity, cls: 'text-xl md:text-3xl lg:text-4xl leading-[1.1]' },
   ],
   lead: [
-    { max: 50, cls: 'text-3xl md:text-4xl lg:text-5xl leading-[1.0]' },
-    { max: 90, cls: 'text-2xl md:text-3xl lg:text-4xl leading-[1.05]' },
+    { max: 40, cls: 'text-3xl md:text-4xl lg:text-5xl leading-[1.0]' },
+    { max: 70, cls: 'text-2xl md:text-3xl lg:text-4xl leading-[1.05]' },
     { max: Infinity, cls: 'text-xl md:text-2xl lg:text-3xl leading-[1.1]' },
   ],
   feature: [
-    { max: 45, cls: 'text-2xl md:text-3xl leading-[1.05]' },
-    { max: 70, cls: 'text-xl md:text-2xl leading-[1.1]' },
+    { max: 35, cls: 'text-2xl md:text-3xl leading-[1.05]' },
+    { max: 55, cls: 'text-xl md:text-2xl leading-[1.1]' },
     { max: Infinity, cls: 'text-lg md:text-xl leading-[1.15]' },
   ],
   card: [
-    { max: 40, cls: 'text-xl md:text-2xl leading-[1.1]' },
-    { max: 55, cls: 'text-lg md:text-xl leading-[1.15]' },
+    { max: 30, cls: 'text-xl md:text-2xl leading-[1.1]' },
+    { max: 45, cls: 'text-lg md:text-xl leading-[1.15]' },
     { max: Infinity, cls: 'text-base md:text-lg leading-[1.2]' },
   ],
 };
@@ -98,10 +98,10 @@ export function CategoryArt({ title, category, size = 'card' }: CategoryArtProps
 
   return (
     <div
-      className={`relative flex h-full w-full flex-col justify-between ${PADDING[size]}`}
+      className={`relative flex h-full w-full flex-col ${PADDING[size]}`}
       style={{ backgroundColor: p.bg, color: p.ink }}
     >
-      <div className="flex items-start justify-between gap-3">
+      <div className="flex shrink-0 items-start justify-between gap-3">
         <span
           className="text-[10px] font-semibold uppercase tracking-[0.18em]"
           style={{ color: p.rule }}
@@ -116,14 +116,16 @@ export function CategoryArt({ title, category, size = 'card' }: CategoryArtProps
         </span>
       </div>
 
-      <h3
-        className={`font-serif tracking-tight ${titleClassFor(size, truncated.length)}`}
-        style={{ color: p.ink }}
-      >
-        {truncated}
-      </h3>
+      <div className="my-4 min-h-0 flex-1 overflow-hidden">
+        <h3
+          className={`font-serif tracking-tight ${titleClassFor(size, truncated.length)}`}
+          style={{ color: p.ink }}
+        >
+          {truncated}
+        </h3>
+      </div>
 
-      <div className="mt-4 flex items-center gap-3" aria-hidden>
+      <div className="flex shrink-0 items-center gap-3" aria-hidden>
         <span
           className="block h-px flex-1"
           style={{ backgroundColor: p.rule, opacity: 0.5 }}
