@@ -57,6 +57,11 @@ export async function SiteFooter() {
                   Sitemap
                 </Link>
               </li>
+              <li>
+                <Link href="/contact" className="text-[var(--color-line)] hover:text-[var(--color-paper)]">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
