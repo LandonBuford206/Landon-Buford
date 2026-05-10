@@ -35,6 +35,15 @@ const TITLE_CLASSES: Record<CategoryArtSize, string> = {
   compact: 'text-base leading-[1.15]',
 };
 
+// Hero renders inside a wide-shallow aspect-ratio box with overflow-hidden,
+// so long titles clip at text-7xl. Tier the size down by character length.
+function heroTitleClass(length: number): string {
+  if (length <= 50) return 'text-4xl md:text-6xl lg:text-7xl leading-[0.95]';
+  if (length <= 90) return 'text-3xl md:text-5xl lg:text-6xl leading-[1.0]';
+  if (length <= 140) return 'text-2xl md:text-4xl lg:text-5xl leading-[1.05]';
+  return 'text-xl md:text-3xl lg:text-4xl leading-[1.1]';
+}
+
 const PADDING: Record<CategoryArtSize, string> = {
   hero: 'p-10 md:p-16 lg:p-20',
   lead: 'p-6 md:p-10',
@@ -90,7 +99,9 @@ export function CategoryArt({ title, category, size = 'card' }: CategoryArtProps
       </div>
 
       <h3
-        className={`font-serif tracking-tight ${TITLE_CLASSES[size]}`}
+        className={`font-serif tracking-tight ${
+          size === 'hero' ? heroTitleClass(truncated.length) : TITLE_CLASSES[size]
+        }`}
         style={{ color: p.ink }}
       >
         {truncated}
