@@ -1,1 +1,38 @@
-{"slug":"sweets-crack-baby","postId":75018,"title":"SWEETS - Crack Baby","htmlContent":"<!-- wp:paragraph -->\n<p>Newcastle-based artist SWEETS new single \"Crack Baby\"  is the perfect soundtrack to run it up to. The vibes in the music shines to the fullest and delivers a hit that you listen to, and when it’s done you want to go get more. It’s an on point record that delivers to show off his craft from the rhyming to production, but also a great record to give the listener all the game they could need.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/7hWgcUXbVJtnrGdwe6Psw9\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/7hWgcUXbVJtnrGdwe6Psw9\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Newcastle-based artist SWEETS new single \"Crack Baby\" is the perfect soundtrack to run it up to. The vibes in the music shines to the fullest and delivers a hit that you listen to, and when it’s…","publishedAt":"2022-09-11T05:00:00Z","modifiedAt":"2022-09-11T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"crack-baby","name":"Crack Baby"},{"slug":"sweets","name":"SWEETS"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/sweets-crack-baby/"}
+{
+  "slug": "sweets-crack-baby",
+  "postId": 75018,
+  "title": "SWEETS - Crack Baby",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Newcastle-based artist SWEETS new single \"Crack Baby\"  is the perfect soundtrack to run it up to. The vibes in the music shines to the fullest and delivers a hit that you listen to, and when it’s done you want to go get more. It’s an on point record that delivers to show off his craft from the rhyming to production, but also a great record to give the listener all the game they could need.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/7hWgcUXbVJtnrGdwe6Psw9\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/7hWgcUXbVJtnrGdwe6Psw9\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Newcastle-based artist SWEETS new single \"Crack Baby\" is the perfect soundtrack to run it up to. The vibes in the music shines to the fullest and delivers a hit that you listen to, and when it’s…",
+  "publishedAt": "2022-09-11T05:00:00Z",
+  "modifiedAt": "2022-09-11T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "crack-baby",
+      "name": "Crack Baby"
+    },
+    {
+      "slug": "sweets",
+      "name": "SWEETS"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/sweets-crack-baby/"
+}

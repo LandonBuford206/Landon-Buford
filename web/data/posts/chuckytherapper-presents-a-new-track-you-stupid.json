@@ -1,1 +1,34 @@
-{"slug":"chuckytherapper-presents-a-new-track-you-stupid","postId":74864,"title":"ChuckyTheRapper presents a new track \"You Stupid\"","htmlContent":"<!-- wp:paragraph -->\n<p>ChuckyTheRapper has released a new track called \"You Stupid,\" a super dope record from a super dope artist that anyone who listens to will enjoy. His confidence on the mic in infectious, and makes you enjoy the record just as much, as you can tell he had making it. The record checks the board in every category musically, to make him an artist to watch out for.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/3pxDNNgt21C2VdecLVfX8N\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/3pxDNNgt21C2VdecLVfX8N\n</div></figure>\n<!-- /wp:embed -->","excerpt":"ChuckyTheRapper has released a new track called \"You Stupid,\" a super dope record from a super dope artist that anyone who listens to will enjoy. His confidence on the mic in infectious, and makes…","publishedAt":"2022-08-25T05:00:00Z","modifiedAt":"2022-08-25T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"chuckytherapper","name":"ChuckyTheRapper"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/chuckytherapper-presents-a-new-track-you-stupid/"}
+{
+  "slug": "chuckytherapper-presents-a-new-track-you-stupid",
+  "postId": 74864,
+  "title": "ChuckyTheRapper presents a new track \"You Stupid\"",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>ChuckyTheRapper has released a new track called \"You Stupid,\" a super dope record from a super dope artist that anyone who listens to will enjoy. His confidence on the mic in infectious, and makes you enjoy the record just as much, as you can tell he had making it. The record checks the board in every category musically, to make him an artist to watch out for.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/3pxDNNgt21C2VdecLVfX8N\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/3pxDNNgt21C2VdecLVfX8N\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "ChuckyTheRapper has released a new track called \"You Stupid,\" a super dope record from a super dope artist that anyone who listens to will enjoy. His confidence on the mic in infectious, and makes…",
+  "publishedAt": "2022-08-25T05:00:00Z",
+  "modifiedAt": "2022-08-25T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "chuckytherapper",
+      "name": "ChuckyTheRapper"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/chuckytherapper-presents-a-new-track-you-stupid/"
+}

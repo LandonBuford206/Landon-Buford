@@ -1,1 +1,34 @@
-{"slug":"kevawn-oa","postId":75098,"title":"Kevawn - OA","htmlContent":"<!-- wp:paragraph -->\n<p>Up-and-coming Seattle artist Kevawn's \"OA\" is a must listen for every music lover out there. He displays excellence from beginning to end. From the sharp lyrics that shows how incredible his pen is, the signature exhilarating flow that brings excitement, and it’s all over a beat that sounds tailor made for him to snap on.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>He is brilliant in his approach, firing on all cylinders with so much power in each line carrying enough fire to burn this track down. The flow is relentless and is hard enough to deliver the sharp lyrics with the ultimate conviction that really sells his high class level of emceeing to perfection. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/6uUTVytCOjTgmib2L4IM3C\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/6uUTVytCOjTgmib2L4IM3C\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Up-and-coming Seattle artist Kevawn's \"OA\" is a must listen for every music lover out there. He displays excellence from beginning to end. From the sharp lyrics that shows how incredible his pen is,…","publishedAt":"2022-09-20T05:00:00Z","modifiedAt":"2022-09-20T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"kevawn","name":"Kevawn"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/kevawn-oa/"}
+{
+  "slug": "kevawn-oa",
+  "postId": 75098,
+  "title": "Kevawn - OA",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Up-and-coming Seattle artist Kevawn's \"OA\" is a must listen for every music lover out there. He displays excellence from beginning to end. From the sharp lyrics that shows how incredible his pen is, the signature exhilarating flow that brings excitement, and it’s all over a beat that sounds tailor made for him to snap on.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>He is brilliant in his approach, firing on all cylinders with so much power in each line carrying enough fire to burn this track down. The flow is relentless and is hard enough to deliver the sharp lyrics with the ultimate conviction that really sells his high class level of emceeing to perfection. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/6uUTVytCOjTgmib2L4IM3C\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/6uUTVytCOjTgmib2L4IM3C\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Up-and-coming Seattle artist Kevawn's \"OA\" is a must listen for every music lover out there. He displays excellence from beginning to end. From the sharp lyrics that shows how incredible his pen is,…",
+  "publishedAt": "2022-09-20T05:00:00Z",
+  "modifiedAt": "2022-09-20T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "kevawn",
+      "name": "Kevawn"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/kevawn-oa/"
+}

@@ -1,1 +1,34 @@
-{"slug":"the-reaper-it-is-what-it-is","postId":75010,"title":"The Reaper's \"It Is What It Is\" is an undeniable record","htmlContent":"<!-- wp:paragraph -->\n<p>The Reaper's \"It Is What It Is\" is an undeniable record, that doesn’t waste a single second proving it’s worth to the listener. It’s exciting and powerful, while they not only show off his impressive skill set, but makes music for the people to enjoy. As soon as the music starts, you are instantly engaged while the music grabs you and brings you into their world, that you never knew you needed to be but everything you could ask for.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/1f5DX5XI0pnjraNqHhKuji\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/1f5DX5XI0pnjraNqHhKuji\n</div></figure>\n<!-- /wp:embed -->","excerpt":"The Reaper's \"It Is What It Is\" is an undeniable record, that doesn’t waste a single second proving it’s worth to the listener. It’s exciting and powerful, while they not only show off his…","publishedAt":"2022-09-10T05:00:00Z","modifiedAt":"2022-09-10T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"the-reaper","name":"The Reaper"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/the-reaper-it-is-what-it-is/"}
+{
+  "slug": "the-reaper-it-is-what-it-is",
+  "postId": 75010,
+  "title": "The Reaper's \"It Is What It Is\" is an undeniable record",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>The Reaper's \"It Is What It Is\" is an undeniable record, that doesn’t waste a single second proving it’s worth to the listener. It’s exciting and powerful, while they not only show off his impressive skill set, but makes music for the people to enjoy. As soon as the music starts, you are instantly engaged while the music grabs you and brings you into their world, that you never knew you needed to be but everything you could ask for.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/1f5DX5XI0pnjraNqHhKuji\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/1f5DX5XI0pnjraNqHhKuji\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "The Reaper's \"It Is What It Is\" is an undeniable record, that doesn’t waste a single second proving it’s worth to the listener. It’s exciting and powerful, while they not only show off his…",
+  "publishedAt": "2022-09-10T05:00:00Z",
+  "modifiedAt": "2022-09-10T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "the-reaper",
+      "name": "The Reaper"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/the-reaper-it-is-what-it-is/"
+}

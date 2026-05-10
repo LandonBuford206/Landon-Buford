@@ -1,1 +1,34 @@
-{"slug":"drunas-shares-a-new-track-no-sympathy","postId":74807,"title":"Drunas shares a new track \"No Sympathy\"","htmlContent":"<!-- wp:paragraph -->\n<p>The new song “No Sympathy” by <strong>Drunas</strong> is amazing audio that you need to have in your life now. It’s everything that makes music special with it not only being a great display of audio, but pure musical bliss that makes life enjoyable by the one of a kind sound he gives to the world.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/73wkqW8DBJ08gmT1NMSQwv\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/73wkqW8DBJ08gmT1NMSQwv\n</div></figure>\n<!-- /wp:embed -->","excerpt":"The new song “No Sympathy” by Drunas is amazing audio that you need to have in your life now. It’s everything that makes music special with it not only being a great display of audio, but pure…","publishedAt":"2022-06-21T05:00:00Z","modifiedAt":"2022-06-21T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"no-sympathy","name":"No Sympathy"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/drunas-shares-a-new-track-no-sympathy/"}
+{
+  "slug": "drunas-shares-a-new-track-no-sympathy",
+  "postId": 74807,
+  "title": "Drunas shares a new track \"No Sympathy\"",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>The new song “No Sympathy” by <strong>Drunas</strong> is amazing audio that you need to have in your life now. It’s everything that makes music special with it not only being a great display of audio, but pure musical bliss that makes life enjoyable by the one of a kind sound he gives to the world.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/73wkqW8DBJ08gmT1NMSQwv\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/73wkqW8DBJ08gmT1NMSQwv\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "The new song “No Sympathy” by Drunas is amazing audio that you need to have in your life now. It’s everything that makes music special with it not only being a great display of audio, but pure…",
+  "publishedAt": "2022-06-21T05:00:00Z",
+  "modifiedAt": "2022-06-21T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "no-sympathy",
+      "name": "No Sympathy"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/drunas-shares-a-new-track-no-sympathy/"
+}

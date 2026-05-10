@@ -1,1 +1,34 @@
-{"slug":"dave-velk-5-star","postId":75192,"title":"Dave Velk - 5-Star","htmlContent":"<!-- wp:paragraph -->\n<p>Showcasing a different style than we are used to, Dave Velk released “5-Star” as his last track. Dave Velk is an artist that’s been known to channel his emotion into his music.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>His unique vocal style and ability to connect with his listeners have certainly set him apart from other artists. The melodic composition and energetic production of “5-Star” will surely leave you wanting to come back for more.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream the song below and be sure to follow Dave Velk on all social media platforms.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/5hCfUsUxaWPbPU5pzPEJn2\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/5hCfUsUxaWPbPU5pzPEJn2\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Showcasing a different style than we are used to, Dave Velk released “5-Star” as his last track. Dave Velk is an artist that’s been known to channel his emotion into his music. His unique vocal…","publishedAt":"2022-10-05T05:00:00Z","modifiedAt":"2022-10-05T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"dave-velk","name":"Dave Velk"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/dave-velk-5-star/"}
+{
+  "slug": "dave-velk-5-star",
+  "postId": 75192,
+  "title": "Dave Velk - 5-Star",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Showcasing a different style than we are used to, Dave Velk released “5-Star” as his last track. Dave Velk is an artist that’s been known to channel his emotion into his music.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>His unique vocal style and ability to connect with his listeners have certainly set him apart from other artists. The melodic composition and energetic production of “5-Star” will surely leave you wanting to come back for more.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream the song below and be sure to follow Dave Velk on all social media platforms.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/5hCfUsUxaWPbPU5pzPEJn2\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/5hCfUsUxaWPbPU5pzPEJn2\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Showcasing a different style than we are used to, Dave Velk released “5-Star” as his last track. Dave Velk is an artist that’s been known to channel his emotion into his music. His unique vocal…",
+  "publishedAt": "2022-10-05T05:00:00Z",
+  "modifiedAt": "2022-10-05T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "dave-velk",
+      "name": "Dave Velk"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/dave-velk-5-star/"
+}

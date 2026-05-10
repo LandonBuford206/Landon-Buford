@@ -1,1 +1,34 @@
-{"slug":"talii-more-than-friends","postId":74883,"title":"Talii - More Than Friends","htmlContent":"<!-- wp:paragraph -->\n<p>Talii releases a new single \"More Than Friends,\" a record that captures the full scope of music, with each element shining to the fullest to make something strong that can last the times. She brings a must hear sound, that feels good to hear as the soul in the music touches you, to make you keep going and live through the culture that we all love.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Talii shines light on the world in a real way on her new song called “More Than Friends”. The song is packed with appeal and a message that you feel in your spirit, as each element comes together to give us the more that music is known for, as it pushes us forward in a real way. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/4mROUR22BSJu4FoVni8mFp\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/4mROUR22BSJu4FoVni8mFp\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Talii releases a new single \"More Than Friends,\" a record that captures the full scope of music, with each element shining to the fullest to make something strong that can last the times. She brings…","publishedAt":"2022-08-26T05:00:00Z","modifiedAt":"2022-08-26T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"talii","name":"Talii"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/talii-more-than-friends/"}
+{
+  "slug": "talii-more-than-friends",
+  "postId": 74883,
+  "title": "Talii - More Than Friends",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Talii releases a new single \"More Than Friends,\" a record that captures the full scope of music, with each element shining to the fullest to make something strong that can last the times. She brings a must hear sound, that feels good to hear as the soul in the music touches you, to make you keep going and live through the culture that we all love.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Talii shines light on the world in a real way on her new song called “More Than Friends”. The song is packed with appeal and a message that you feel in your spirit, as each element comes together to give us the more that music is known for, as it pushes us forward in a real way. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/4mROUR22BSJu4FoVni8mFp\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/4mROUR22BSJu4FoVni8mFp\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Talii releases a new single \"More Than Friends,\" a record that captures the full scope of music, with each element shining to the fullest to make something strong that can last the times. She brings…",
+  "publishedAt": "2022-08-26T05:00:00Z",
+  "modifiedAt": "2022-08-26T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "talii",
+      "name": "Talii"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/talii-more-than-friends/"
+}

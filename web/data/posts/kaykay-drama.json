@@ -1,1 +1,34 @@
-{"slug":"kaykay-drama","postId":75114,"title":"KayKay - DRAMA","htmlContent":"<!-- wp:paragraph -->\n<p>KayKay's \"DRAMA\" is that raw menacing Hip Hop that paints the pictures people dive into. It’s a super dope record packed with must hear vibes, as he takes control of the music and commands the ultimate respect for his craft, while making digestible Hip Hop the masses can buy into in a real way.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>KayKay doesn’t get lost in the music, but pushes it forward with a super exhilarating flow, thats fluid in it’s approach to deliver the raw writing at every tune to make the streets go crazy.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/2oDnpasLOT3GzvlkErHsmb\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/2oDnpasLOT3GzvlkErHsmb\n</div><figcaption>Connect With <strong>KayKay</strong>: <strong><a href=\"https://instagram.com/kolbe_jack_cheese/\">Instagram</a></strong></figcaption></figure>\n<!-- /wp:embed -->","excerpt":"KayKay's \"DRAMA\" is that raw menacing Hip Hop that paints the pictures people dive into. It’s a super dope record packed with must hear vibes, as he takes control of the music and commands the…","publishedAt":"2022-09-23T05:00:00Z","modifiedAt":"2022-09-23T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"kaykay","name":"KayKay"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/kaykay-drama/"}
+{
+  "slug": "kaykay-drama",
+  "postId": 75114,
+  "title": "KayKay - DRAMA",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>KayKay's \"DRAMA\" is that raw menacing Hip Hop that paints the pictures people dive into. It’s a super dope record packed with must hear vibes, as he takes control of the music and commands the ultimate respect for his craft, while making digestible Hip Hop the masses can buy into in a real way.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>KayKay doesn’t get lost in the music, but pushes it forward with a super exhilarating flow, thats fluid in it’s approach to deliver the raw writing at every tune to make the streets go crazy.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/2oDnpasLOT3GzvlkErHsmb\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/2oDnpasLOT3GzvlkErHsmb\n</div><figcaption>Connect With <strong>KayKay</strong>: <strong><a href=\"https://instagram.com/kolbe_jack_cheese/\">Instagram</a></strong></figcaption></figure>\n<!-- /wp:embed -->",
+  "excerpt": "KayKay's \"DRAMA\" is that raw menacing Hip Hop that paints the pictures people dive into. It’s a super dope record packed with must hear vibes, as he takes control of the music and commands the…",
+  "publishedAt": "2022-09-23T05:00:00Z",
+  "modifiedAt": "2022-09-23T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "kaykay",
+      "name": "KayKay"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/kaykay-drama/"
+}

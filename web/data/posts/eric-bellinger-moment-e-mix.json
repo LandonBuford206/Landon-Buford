@@ -1,1 +1,29 @@
-{"slug":"eric-bellinger-moment-e-mix","postId":72578,"title":"Eric Bellinger - Moment (E-Mix)","htmlContent":"https://www.youtube.com/watch?v=IVVO5sLeBoc\n\nEric Bellinger - Moment (E-Mix)","excerpt":"https://www.youtube.com/watch?v=IVVO5sLeBoc Eric Bellinger - Moment (E-Mix)","publishedAt":"2020-05-04T05:00:00Z","modifiedAt":"2026-04-15T19:37:03Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/eric-bellinger-moment-e-mix/"}
+{
+  "slug": "eric-bellinger-moment-e-mix",
+  "postId": 72578,
+  "title": "Eric Bellinger - Moment (E-Mix)",
+  "htmlContent": "https://www.youtube.com/watch?v=IVVO5sLeBoc\n\nEric Bellinger - Moment (E-Mix)",
+  "excerpt": "https://www.youtube.com/watch?v=IVVO5sLeBoc Eric Bellinger - Moment (E-Mix)",
+  "publishedAt": "2020-05-04T05:00:00Z",
+  "modifiedAt": "2026-04-15T19:37:03Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/eric-bellinger-moment-e-mix/"
+}

@@ -1,1 +1,34 @@
-{"slug":"redacted-mcfly-panic","postId":75441,"title":"Redacted McFly - Panic!","htmlContent":"<!-- wp:paragraph -->\n<p>Bay Area, CA-based rapper, and songwriter Redacted McFly shares a new single, \"Panic!\" a dynamic that is arrived by a simple yet hard-grooving bassline.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The single \"Panic!\" displays an interpretation of real-life fears and anxieties that come deep from Redacted's mind and are transcribed into a vigorous anthem you will surely replay.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream \"Panic!\" on Spotify.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/1BD9ut7GXOSgncbLsa89FV\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/1BD9ut7GXOSgncbLsa89FV\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Bay Area, CA-based rapper, and songwriter Redacted McFly shares a new single, \"Panic!\" a dynamic that is arrived by a simple yet hard-grooving bassline. The single \"Panic!\" displays an…","publishedAt":"2022-12-10T06:00:00Z","modifiedAt":"2022-12-10T06:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"redacted-mcfly","name":"Redacted McFly"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/redacted-mcfly-panic/"}
+{
+  "slug": "redacted-mcfly-panic",
+  "postId": 75441,
+  "title": "Redacted McFly - Panic!",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Bay Area, CA-based rapper, and songwriter Redacted McFly shares a new single, \"Panic!\" a dynamic that is arrived by a simple yet hard-grooving bassline.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The single \"Panic!\" displays an interpretation of real-life fears and anxieties that come deep from Redacted's mind and are transcribed into a vigorous anthem you will surely replay.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream \"Panic!\" on Spotify.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/1BD9ut7GXOSgncbLsa89FV\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/1BD9ut7GXOSgncbLsa89FV\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Bay Area, CA-based rapper, and songwriter Redacted McFly shares a new single, \"Panic!\" a dynamic that is arrived by a simple yet hard-grooving bassline. The single \"Panic!\" displays an…",
+  "publishedAt": "2022-12-10T06:00:00Z",
+  "modifiedAt": "2022-12-10T06:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "redacted-mcfly",
+      "name": "Redacted McFly"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/redacted-mcfly-panic/"
+}

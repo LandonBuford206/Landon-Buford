@@ -1,1 +1,34 @@
-{"slug":"jae-lowkey","postId":75112,"title":"Jae - Lowkey","htmlContent":"<!-- wp:paragraph -->\n<p>Australia-based artist Jae's \"Lowkey\" featuring Joseph Garcia is one of those amazing records that can conquer the world. Anyone who listens will enjoy the music coming out their speaker, with him giving his all to make his new and established fans go crazy for his super sound that will travel the world.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The vocal tone is masterful in it’s approach, and feels good to hear as he balances a cadence, between R&amp;B and alternative hip hop to a genius level. Lyrically its fun and relatable and shows his knack for writing hit music to the fullest.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/4GHsdeTbKdh6kuM6XyCXi8\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/4GHsdeTbKdh6kuM6XyCXi8\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Australia-based artist Jae's \"Lowkey\" featuring Joseph Garcia is one of those amazing records that can conquer the world. Anyone who listens will enjoy the music coming out their speaker, with him…","publishedAt":"2022-09-23T05:00:00Z","modifiedAt":"2022-09-23T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"jae","name":"Jae"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/jae-lowkey/"}
+{
+  "slug": "jae-lowkey",
+  "postId": 75112,
+  "title": "Jae - Lowkey",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Australia-based artist Jae's \"Lowkey\" featuring Joseph Garcia is one of those amazing records that can conquer the world. Anyone who listens will enjoy the music coming out their speaker, with him giving his all to make his new and established fans go crazy for his super sound that will travel the world.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The vocal tone is masterful in it’s approach, and feels good to hear as he balances a cadence, between R&amp;B and alternative hip hop to a genius level. Lyrically its fun and relatable and shows his knack for writing hit music to the fullest.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/4GHsdeTbKdh6kuM6XyCXi8\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/4GHsdeTbKdh6kuM6XyCXi8\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Australia-based artist Jae's \"Lowkey\" featuring Joseph Garcia is one of those amazing records that can conquer the world. Anyone who listens will enjoy the music coming out their speaker, with him…",
+  "publishedAt": "2022-09-23T05:00:00Z",
+  "modifiedAt": "2022-09-23T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "jae",
+      "name": "Jae"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/jae-lowkey/"
+}

@@ -1,1 +1,34 @@
-{"slug":"coops-essence","postId":74880,"title":"Coops's \"Essence\" is that fresh music that sounds like the soundtrack to a city","htmlContent":"<!-- wp:paragraph -->\n<p>Coops's \"Essence\" is that fresh music that sounds like the soundtrack to a city, with a sound you can hear bumping out of speakers everywhere. He’s relentless in his approach to make something for the people to enjoy, but also showcase his high caliber talent, to hit every mark on what is a must hear release from this amazing talent.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/6ieRqSjGPzlzwN2Mvcld8x\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/6ieRqSjGPzlzwN2Mvcld8x\n</div><figcaption><br><strong>Watch music video: </strong></figcaption></figure>\n<!-- /wp:embed -->\n\n<!-- wp:embed {\"url\":\"https://www.youtube.com/watch?v=qsfyihZgJEs\",\"type\":\"video\",\"providerNameSlug\":\"youtube\",\"responsive\":true,\"className\":\"wp-embed-aspect-4-3 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://www.youtube.com/watch?v=qsfyihZgJEs\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Coops's \"Essence\" is that fresh music that sounds like the soundtrack to a city, with a sound you can hear bumping out of speakers everywhere. He’s relentless in his approach to make something for…","publishedAt":"2022-08-26T05:00:00Z","modifiedAt":"2022-08-26T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"coops","name":"Coops"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/coops-essence/"}
+{
+  "slug": "coops-essence",
+  "postId": 74880,
+  "title": "Coops's \"Essence\" is that fresh music that sounds like the soundtrack to a city",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Coops's \"Essence\" is that fresh music that sounds like the soundtrack to a city, with a sound you can hear bumping out of speakers everywhere. He’s relentless in his approach to make something for the people to enjoy, but also showcase his high caliber talent, to hit every mark on what is a must hear release from this amazing talent.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/6ieRqSjGPzlzwN2Mvcld8x\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/6ieRqSjGPzlzwN2Mvcld8x\n</div><figcaption><br><strong>Watch music video: </strong></figcaption></figure>\n<!-- /wp:embed -->\n\n<!-- wp:embed {\"url\":\"https://www.youtube.com/watch?v=qsfyihZgJEs\",\"type\":\"video\",\"providerNameSlug\":\"youtube\",\"responsive\":true,\"className\":\"wp-embed-aspect-4-3 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://www.youtube.com/watch?v=qsfyihZgJEs\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Coops's \"Essence\" is that fresh music that sounds like the soundtrack to a city, with a sound you can hear bumping out of speakers everywhere. He’s relentless in his approach to make something for…",
+  "publishedAt": "2022-08-26T05:00:00Z",
+  "modifiedAt": "2022-08-26T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "coops",
+      "name": "Coops"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/coops-essence/"
+}

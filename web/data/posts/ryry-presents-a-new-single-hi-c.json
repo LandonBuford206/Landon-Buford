@@ -1,1 +1,29 @@
-{"slug":"ryry-presents-a-new-single-hi-c","postId":74798,"title":"RyRy presents a new single \"Hi-C!\"","htmlContent":"<!-- wp:paragraph -->\n<p>RyRy's \"Hi-C!\" is the perfect record to show the magic of when artist lays it all on the line and why it’s something that will forever resonate with the people. The writing is relatable and something we all can feel, with each line being delivered in a tone full of heart to make us feel the man behind the music.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream Hi-C! by RyRy </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/6d51jYl30EhkLZHxipX46N\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/6d51jYl30EhkLZHxipX46N\n</div></figure>\n<!-- /wp:embed -->","excerpt":"RyRy's \"Hi-C!\" is the perfect record to show the magic of when artist lays it all on the line and why it’s something that will forever resonate with the people. The writing is relatable and…","publishedAt":"2022-08-19T05:00:00Z","modifiedAt":"2022-08-19T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/ryry-presents-a-new-single-hi-c/"}
+{
+  "slug": "ryry-presents-a-new-single-hi-c",
+  "postId": 74798,
+  "title": "RyRy presents a new single \"Hi-C!\"",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>RyRy's \"Hi-C!\" is the perfect record to show the magic of when artist lays it all on the line and why it’s something that will forever resonate with the people. The writing is relatable and something we all can feel, with each line being delivered in a tone full of heart to make us feel the man behind the music.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream Hi-C! by RyRy </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/6d51jYl30EhkLZHxipX46N\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/6d51jYl30EhkLZHxipX46N\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "RyRy's \"Hi-C!\" is the perfect record to show the magic of when artist lays it all on the line and why it’s something that will forever resonate with the people. The writing is relatable and…",
+  "publishedAt": "2022-08-19T05:00:00Z",
+  "modifiedAt": "2022-08-19T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/ryry-presents-a-new-single-hi-c/"
+}

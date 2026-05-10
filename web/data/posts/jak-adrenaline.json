@@ -1,1 +1,34 @@
-{"slug":"jak-adrenaline","postId":75014,"title":"JAK - Adrenaline","htmlContent":"<!-- wp:paragraph -->\n<p>JAK drops a new track called \"Adrenaline\". The music is instantly engaging with creative production, that’s layered to perfection, as each groove plays it’s on special part to make it must hear, that makes for the perfect contrast to the dark writing. The vocals are just right, as the tones are delivered just right to make you feel everything, and get lost in the music.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>JAK's \"Adrenaline” embodies the art that music can be. It’s a fearless piece of work, that lets it’s creativity shine to the fullest. It’s music you can hear and know it only cared about making the best music possible, and that’s what it does in every way.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/7oMDXkFR7zGL2hjr580nkm\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/7oMDXkFR7zGL2hjr580nkm\n</div></figure>\n<!-- /wp:embed -->","excerpt":"JAK drops a new track called \"Adrenaline\". The music is instantly engaging with creative production, that’s layered to perfection, as each groove plays it’s on special part to make it must hear,…","publishedAt":"2022-09-10T05:00:00Z","modifiedAt":"2022-09-10T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"jak","name":"JAK"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/jak-adrenaline/"}
+{
+  "slug": "jak-adrenaline",
+  "postId": 75014,
+  "title": "JAK - Adrenaline",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>JAK drops a new track called \"Adrenaline\". The music is instantly engaging with creative production, that’s layered to perfection, as each groove plays it’s on special part to make it must hear, that makes for the perfect contrast to the dark writing. The vocals are just right, as the tones are delivered just right to make you feel everything, and get lost in the music.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>JAK's \"Adrenaline” embodies the art that music can be. It’s a fearless piece of work, that lets it’s creativity shine to the fullest. It’s music you can hear and know it only cared about making the best music possible, and that’s what it does in every way.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/7oMDXkFR7zGL2hjr580nkm\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/7oMDXkFR7zGL2hjr580nkm\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "JAK drops a new track called \"Adrenaline\". The music is instantly engaging with creative production, that’s layered to perfection, as each groove plays it’s on special part to make it must hear,…",
+  "publishedAt": "2022-09-10T05:00:00Z",
+  "modifiedAt": "2022-09-10T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "jak",
+      "name": "JAK"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/jak-adrenaline/"
+}

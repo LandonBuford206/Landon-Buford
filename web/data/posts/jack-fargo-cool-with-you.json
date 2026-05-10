@@ -1,1 +1,34 @@
-{"slug":"jack-fargo-cool-with-you","postId":75124,"title":"Jack Fargo - Cool With You","htmlContent":"<!-- wp:paragraph -->\n<p><strong>Jack Fargo</strong> makes an anthem for the dreamers on his new song “<strong>Cool With You</strong>”. It’s music that is entertaining, daring, and enjoyable as he put together a record that feels good to hear, as it’s laced with a creative sound and melodies that are pure magic. The sound is complimented by a great vocal performance and the inspiring lyrics, to make it all come together to make it that special must hear anthem.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://www.youtube.com/watch?v=oQ-FhQLv2q4\",\"type\":\"video\",\"providerNameSlug\":\"youtube\",\"responsive\":true,\"className\":\"wp-embed-aspect-4-3 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://www.youtube.com/watch?v=oQ-FhQLv2q4\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Jack Fargo makes an anthem for the dreamers on his new song “ Cool With You ”. It’s music that is entertaining, daring, and enjoyable as he put together a record that feels good to hear, as it’s…","publishedAt":"2022-09-25T05:00:00Z","modifiedAt":"2022-09-25T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"jack-fargo","name":"Jack Fargo"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/jack-fargo-cool-with-you/"}
+{
+  "slug": "jack-fargo-cool-with-you",
+  "postId": 75124,
+  "title": "Jack Fargo - Cool With You",
+  "htmlContent": "<!-- wp:paragraph -->\n<p><strong>Jack Fargo</strong> makes an anthem for the dreamers on his new song “<strong>Cool With You</strong>”. It’s music that is entertaining, daring, and enjoyable as he put together a record that feels good to hear, as it’s laced with a creative sound and melodies that are pure magic. The sound is complimented by a great vocal performance and the inspiring lyrics, to make it all come together to make it that special must hear anthem.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://www.youtube.com/watch?v=oQ-FhQLv2q4\",\"type\":\"video\",\"providerNameSlug\":\"youtube\",\"responsive\":true,\"className\":\"wp-embed-aspect-4-3 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://www.youtube.com/watch?v=oQ-FhQLv2q4\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Jack Fargo makes an anthem for the dreamers on his new song “ Cool With You ”. It’s music that is entertaining, daring, and enjoyable as he put together a record that feels good to hear, as it’s…",
+  "publishedAt": "2022-09-25T05:00:00Z",
+  "modifiedAt": "2022-09-25T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "jack-fargo",
+      "name": "Jack Fargo"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/jack-fargo-cool-with-you/"
+}

@@ -1,1 +1,34 @@
-{"slug":"kala-distracted","postId":75310,"title":"Kala - Distracted","htmlContent":"<!-- wp:paragraph -->\n<p>LA-based rapper Kala shares a new song, \"Distracted.\" Distracted is Kala's latest single. It tells the story of a complicated relationship breaking up at a party. The lyrics are passionate, and across-the-board the song gives off some energy.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The music \"Distracted\" is a great listen, with an anthemic chorus and excellent vocals that make you want to sing to the tune. The production is modern, with every instrument taking its own space in the room and mixing nicely to build one of these songs you want to listen to on repeat all day. Be sure to stream \"Distracted\" on Spotify.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream HERE:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/45UTMKlfzaYjI14sG3iSUU\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/45UTMKlfzaYjI14sG3iSUU\n</div></figure>\n<!-- /wp:embed -->","excerpt":"LA-based rapper Kala shares a new song, \"Distracted.\" Distracted is Kala's latest single. It tells the story of a complicated relationship breaking up at a party. The lyrics are passionate, and…","publishedAt":"2022-10-30T05:00:00Z","modifiedAt":"2022-10-30T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"kala","name":"Kala"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/kala-distracted/"}
+{
+  "slug": "kala-distracted",
+  "postId": 75310,
+  "title": "Kala - Distracted",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>LA-based rapper Kala shares a new song, \"Distracted.\" Distracted is Kala's latest single. It tells the story of a complicated relationship breaking up at a party. The lyrics are passionate, and across-the-board the song gives off some energy.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The music \"Distracted\" is a great listen, with an anthemic chorus and excellent vocals that make you want to sing to the tune. The production is modern, with every instrument taking its own space in the room and mixing nicely to build one of these songs you want to listen to on repeat all day. Be sure to stream \"Distracted\" on Spotify.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream HERE:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/45UTMKlfzaYjI14sG3iSUU\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/45UTMKlfzaYjI14sG3iSUU\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "LA-based rapper Kala shares a new song, \"Distracted.\" Distracted is Kala's latest single. It tells the story of a complicated relationship breaking up at a party. The lyrics are passionate, and…",
+  "publishedAt": "2022-10-30T05:00:00Z",
+  "modifiedAt": "2022-10-30T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "kala",
+      "name": "Kala"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/kala-distracted/"
+}

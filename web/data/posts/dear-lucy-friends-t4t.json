@@ -1,1 +1,34 @@
-{"slug":"dear-lucy-friends-t4t","postId":75181,"title":"Dear, Lucy & Friends - t4t is everything music supposed to be","htmlContent":"<!-- wp:paragraph -->\n<p>Dear, Lucy &amp; Friends's \"<strong>t4t</strong>\" is everything music supposed to be. The music is creative and innovative, with their own sound being on full bloom. The production is beyond great as well as the mixing, the lyrics tell an incredible story, and the right vocal performance that delivers the message perfectly, that makes this record stand out in every way.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream Here:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/1u0VLHH5sTHxFiaGhS3XgU\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/1u0VLHH5sTHxFiaGhS3XgU\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Dear, Lucy & Friends's \" t4t \" is everything music supposed to be. The music is creative and innovative, with their own sound being on full bloom. The production is beyond great as well as the…","publishedAt":"2022-10-05T05:00:00Z","modifiedAt":"2022-10-05T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"dear-lucy-friends","name":"Dear Lucy &amp; Friends"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/dear-lucy-friends-t4t/"}
+{
+  "slug": "dear-lucy-friends-t4t",
+  "postId": 75181,
+  "title": "Dear, Lucy & Friends - t4t is everything music supposed to be",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Dear, Lucy &amp; Friends's \"<strong>t4t</strong>\" is everything music supposed to be. The music is creative and innovative, with their own sound being on full bloom. The production is beyond great as well as the mixing, the lyrics tell an incredible story, and the right vocal performance that delivers the message perfectly, that makes this record stand out in every way.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream Here:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/1u0VLHH5sTHxFiaGhS3XgU\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/1u0VLHH5sTHxFiaGhS3XgU\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Dear, Lucy & Friends's \" t4t \" is everything music supposed to be. The music is creative and innovative, with their own sound being on full bloom. The production is beyond great as well as the…",
+  "publishedAt": "2022-10-05T05:00:00Z",
+  "modifiedAt": "2022-10-05T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "dear-lucy-friends",
+      "name": "Dear Lucy &amp; Friends"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/dear-lucy-friends-t4t/"
+}

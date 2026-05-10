@@ -1,1 +1,34 @@
-{"slug":"leo-lotus-skywalk","postId":75270,"title":"Leo Lotus - Skywalk","htmlContent":"<!-- wp:paragraph -->\n<p>Canada-based artist Leo Lotus returned with a new single called \"Skywalk.\" The music is so catchy and enjoyable and gives a better listening experience.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Leo Lotus is a soulful urban singer/rapper residing in Brampton, Ontario, Canada. His voice is affluent, and his melodies are so beautiful. The unique song is thoughtful, the production is skilled, and the lyrics are catchy and well written, a great style Hip Hop approach that ornaments, with a freshness to it that purists and casuals can enjoy alike must-hear tune.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream HERE:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/05JAow2ZbYTlf8O6PkMi0B\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/05JAow2ZbYTlf8O6PkMi0B\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Canada-based artist Leo Lotus returned with a new single called \"Skywalk.\" The music is so catchy and enjoyable and gives a better listening experience. Leo Lotus is a soulful urban singer/rapper…","publishedAt":"2022-10-17T05:00:00Z","modifiedAt":"2022-10-17T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"leo-lotus","name":"Leo Lotus"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/leo-lotus-skywalk/"}
+{
+  "slug": "leo-lotus-skywalk",
+  "postId": 75270,
+  "title": "Leo Lotus - Skywalk",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Canada-based artist Leo Lotus returned with a new single called \"Skywalk.\" The music is so catchy and enjoyable and gives a better listening experience.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Leo Lotus is a soulful urban singer/rapper residing in Brampton, Ontario, Canada. His voice is affluent, and his melodies are so beautiful. The unique song is thoughtful, the production is skilled, and the lyrics are catchy and well written, a great style Hip Hop approach that ornaments, with a freshness to it that purists and casuals can enjoy alike must-hear tune.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream HERE:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/05JAow2ZbYTlf8O6PkMi0B\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/05JAow2ZbYTlf8O6PkMi0B\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Canada-based artist Leo Lotus returned with a new single called \"Skywalk.\" The music is so catchy and enjoyable and gives a better listening experience. Leo Lotus is a soulful urban singer/rapper…",
+  "publishedAt": "2022-10-17T05:00:00Z",
+  "modifiedAt": "2022-10-17T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "leo-lotus",
+      "name": "Leo Lotus"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/leo-lotus-skywalk/"
+}

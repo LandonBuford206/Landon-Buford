@@ -1,1 +1,34 @@
-{"slug":"rockstar-killing-me-slowly","postId":75022,"title":"RockStar - Killing Me Slowly","htmlContent":"<!-- wp:paragraph -->\n<p>Washington-based artist RockStar has released a new track called \"Killing Me Slowly\". \"Killing Me Slowly\" is a a catchy record with endless smooth vibes. The music is laced with infectious grooves and dreamy pad work to make you want to move, as you get lost in the sound.&nbsp;The vocal performance is packed with a signature swagger full of conviction, with his incredible display of emceeing that makes his presence felt on this smash.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://soundcloud.com/rockstar616/kms\",\"type\":\"rich\",\"providerNameSlug\":\"soundcloud\",\"responsive\":true} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-soundcloud wp-block-embed-soundcloud\"><div class=\"wp-block-embed__wrapper\">\nhttps://soundcloud.com/rockstar616/kms\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Washington-based artist RockStar has released a new track called \"Killing Me Slowly\". \"Killing Me Slowly\" is a a catchy record with endless smooth vibes. The music is laced with infectious grooves…","publishedAt":"2022-09-11T05:00:00Z","modifiedAt":"2022-09-11T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"rockstar","name":"Rockstar"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/rockstar-killing-me-slowly/"}
+{
+  "slug": "rockstar-killing-me-slowly",
+  "postId": 75022,
+  "title": "RockStar - Killing Me Slowly",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Washington-based artist RockStar has released a new track called \"Killing Me Slowly\". \"Killing Me Slowly\" is a a catchy record with endless smooth vibes. The music is laced with infectious grooves and dreamy pad work to make you want to move, as you get lost in the sound.&nbsp;The vocal performance is packed with a signature swagger full of conviction, with his incredible display of emceeing that makes his presence felt on this smash.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://soundcloud.com/rockstar616/kms\",\"type\":\"rich\",\"providerNameSlug\":\"soundcloud\",\"responsive\":true} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-soundcloud wp-block-embed-soundcloud\"><div class=\"wp-block-embed__wrapper\">\nhttps://soundcloud.com/rockstar616/kms\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Washington-based artist RockStar has released a new track called \"Killing Me Slowly\". \"Killing Me Slowly\" is a a catchy record with endless smooth vibes. The music is laced with infectious grooves…",
+  "publishedAt": "2022-09-11T05:00:00Z",
+  "modifiedAt": "2022-09-11T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "rockstar",
+      "name": "Rockstar"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/rockstar-killing-me-slowly/"
+}

@@ -1,1 +1,42 @@
-{"slug":"its-time-short-trailer-by-nexz-inc","postId":72582,"title":"ITS TIME!! (Short Trailer) by NEXZ inc.","htmlContent":"https://www.youtube.com/watch?v=YWJzpWxoNFc\n\nITS TIME!! (Short Trailer) by NEXZ inc.","excerpt":"https://www.youtube.com/watch?v=YWJzpWxoNFc ITS TIME!! (Short Trailer) by NEXZ inc.","publishedAt":"2020-05-08T05:00:00Z","modifiedAt":"2026-04-15T19:37:03Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"technology","name":"Technology"}],"tags":[{"slug":"hosting","name":"hosting"},{"slug":"nexz","name":"nexz"},{"slug":"nexzinc","name":"nexzinc"},{"slug":"web-design","name":"web design"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/its-time-short-trailer-by-nexz-inc/"}
+{
+  "slug": "its-time-short-trailer-by-nexz-inc",
+  "postId": 72582,
+  "title": "ITS TIME!! (Short Trailer) by NEXZ inc.",
+  "htmlContent": "https://www.youtube.com/watch?v=YWJzpWxoNFc\n\nITS TIME!! (Short Trailer) by NEXZ inc.",
+  "excerpt": "https://www.youtube.com/watch?v=YWJzpWxoNFc ITS TIME!! (Short Trailer) by NEXZ inc.",
+  "publishedAt": "2020-05-08T05:00:00Z",
+  "modifiedAt": "2026-04-15T19:37:03Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "technology",
+      "name": "Technology"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "hosting",
+      "name": "hosting"
+    },
+    {
+      "slug": "nexz",
+      "name": "nexz"
+    },
+    {
+      "slug": "nexzinc",
+      "name": "nexzinc"
+    },
+    {
+      "slug": "web-design",
+      "name": "web design"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/its-time-short-trailer-by-nexz-inc/"
+}

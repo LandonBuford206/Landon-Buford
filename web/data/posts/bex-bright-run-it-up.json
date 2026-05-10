@@ -1,1 +1,30 @@
-{"slug":"bex-bright-run-it-up","postId":75148,"title":"Bex &amp; Bright - Run It Up","htmlContent":"<!-- wp:paragraph -->\n<p>Bex &amp; Bright and 1L1L's \"Run It Up\" is an amazing piece of music that shows how to make authentic music, that has a message with a big sound that can go far. It’s a master class of musicianship in every way of music making, to make something enjoyable for the masses. The song is the perfect storm of heavy writing, and feel good production to make one cohesive masterpiece. The writing is delivered by a vocal performance that mastered the art, of putting the right amount of emotion to it, to make it all felt on this soulful piece of art.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream Here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/02sKDhxErm6E63rrim1EGi\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/02sKDhxErm6E63rrim1EGi\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Bex & Bright and 1L1L's \"Run It Up\" is an amazing piece of music that shows how to make authentic music, that has a message with a big sound that can go far. It’s a master class of musicianship in…","publishedAt":"2022-10-01T05:00:00Z","modifiedAt":"2022-10-01T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"interviews","name":"Interviews"}],"tags":[{"slug":"bex-bright","name":"Bex &amp; Bright"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/bex-bright-run-it-up/"}
+{
+  "slug": "bex-bright-run-it-up",
+  "postId": 75148,
+  "title": "Bex &amp; Bright - Run It Up",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Bex &amp; Bright and 1L1L's \"Run It Up\" is an amazing piece of music that shows how to make authentic music, that has a message with a big sound that can go far. It’s a master class of musicianship in every way of music making, to make something enjoyable for the masses. The song is the perfect storm of heavy writing, and feel good production to make one cohesive masterpiece. The writing is delivered by a vocal performance that mastered the art, of putting the right amount of emotion to it, to make it all felt on this soulful piece of art.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream Here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/02sKDhxErm6E63rrim1EGi\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/02sKDhxErm6E63rrim1EGi\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Bex & Bright and 1L1L's \"Run It Up\" is an amazing piece of music that shows how to make authentic music, that has a message with a big sound that can go far. It’s a master class of musicianship in…",
+  "publishedAt": "2022-10-01T05:00:00Z",
+  "modifiedAt": "2022-10-01T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "interviews",
+      "name": "Interviews"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "bex-bright",
+      "name": "Bex &amp; Bright"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/bex-bright-run-it-up/"
+}

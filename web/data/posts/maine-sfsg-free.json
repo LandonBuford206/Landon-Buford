@@ -1,1 +1,34 @@
-{"slug":"maine-sfsg-free","postId":74874,"title":"Maine SFSG - Free","htmlContent":"<!-- wp:paragraph -->\n<p>Maine SFSG drops a new track \"Free\". The music brings a sound that works to perfection. This single \"Free\" is that supreme music you get from him with every release. For new fans you will be able to get a fresh introduction for this amazing talent, but established fans get everything we love from him and more, with the growth in his artistry being on full bloom to make you admire every second of audio he gives us to enjoy to the fullest.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/18hbx4DyyMxyMYan1S0kqh\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/18hbx4DyyMxyMYan1S0kqh\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Maine SFSG drops a new track \"Free\". The music brings a sound that works to perfection. This single \"Free\" is that supreme music you get from him with every release. For new fans you will be able to…","publishedAt":"2022-08-26T05:00:00Z","modifiedAt":"2022-08-26T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"maine-sfsg","name":"Maine SFSG"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/maine-sfsg-free/"}
+{
+  "slug": "maine-sfsg-free",
+  "postId": 74874,
+  "title": "Maine SFSG - Free",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Maine SFSG drops a new track \"Free\". The music brings a sound that works to perfection. This single \"Free\" is that supreme music you get from him with every release. For new fans you will be able to get a fresh introduction for this amazing talent, but established fans get everything we love from him and more, with the growth in his artistry being on full bloom to make you admire every second of audio he gives us to enjoy to the fullest.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/18hbx4DyyMxyMYan1S0kqh\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/18hbx4DyyMxyMYan1S0kqh\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Maine SFSG drops a new track \"Free\". The music brings a sound that works to perfection. This single \"Free\" is that supreme music you get from him with every release. For new fans you will be able to…",
+  "publishedAt": "2022-08-26T05:00:00Z",
+  "modifiedAt": "2022-08-26T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "maine-sfsg",
+      "name": "Maine SFSG"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/maine-sfsg-free/"
+}

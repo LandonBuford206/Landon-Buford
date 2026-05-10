@@ -1,1 +1,34 @@
-{"slug":"yuniverse-fck-how-i-feel","postId":75121,"title":"yuniVERSE - F*ck How I Feel","htmlContent":"<!-- wp:paragraph -->\n<p><strong>yuniVERSE</strong> releases a new single \"<strong>F*ck How I Fee</strong>l,\" a song you owe it to yourself to hear if you love music. From beginning to end this talented collective gives you a high class display of musicianship, from the production and instrumentation, high vocal performance, and creative songwriting that makes this record a song you can’t go without.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/3zt7P0i0zFmNHyTSXOxQQW\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/3zt7P0i0zFmNHyTSXOxQQW\n</div></figure>\n<!-- /wp:embed -->","excerpt":"yuniVERSE releases a new single \" F*ck How I Fee l,\" a song you owe it to yourself to hear if you love music. From beginning to end this talented collective gives you a high class display of…","publishedAt":"2022-09-25T05:00:00Z","modifiedAt":"2022-09-25T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"yuniverse","name":"yuniVERSE"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/yuniverse-fck-how-i-feel/"}
+{
+  "slug": "yuniverse-fck-how-i-feel",
+  "postId": 75121,
+  "title": "yuniVERSE - F*ck How I Feel",
+  "htmlContent": "<!-- wp:paragraph -->\n<p><strong>yuniVERSE</strong> releases a new single \"<strong>F*ck How I Fee</strong>l,\" a song you owe it to yourself to hear if you love music. From beginning to end this talented collective gives you a high class display of musicianship, from the production and instrumentation, high vocal performance, and creative songwriting that makes this record a song you can’t go without.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/3zt7P0i0zFmNHyTSXOxQQW\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/3zt7P0i0zFmNHyTSXOxQQW\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "yuniVERSE releases a new single \" F*ck How I Fee l,\" a song you owe it to yourself to hear if you love music. From beginning to end this talented collective gives you a high class display of…",
+  "publishedAt": "2022-09-25T05:00:00Z",
+  "modifiedAt": "2022-09-25T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "yuniverse",
+      "name": "yuniVERSE"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/yuniverse-fck-how-i-feel/"
+}

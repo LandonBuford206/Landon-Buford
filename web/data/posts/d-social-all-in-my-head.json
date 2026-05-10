@@ -1,1 +1,29 @@
-{"slug":"d-social-all-in-my-head","postId":74984,"title":"D.Social - All in My Head","htmlContent":"<!-- wp:paragraph -->\n<p>D.Social's \"All in My Head\" is a creative work of art that captures the true magic of music. It’s doesn’t follow any trend or guidelines, and uses that to it’s full advantage to make something stand out you will love. It excels in every in the music as each element compliments the next, on this record with unlimited replay value for the world to enjoy. As soon as you hit play you’re hooked with a creative abstract sound takes you away, to enjoy his vocals to the fullest that melt you with every note, to make a record that feels so good to hear you’ll be coming back for more instantly.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/2LWOuCT5n4SAqOCul9vIra\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/2LWOuCT5n4SAqOCul9vIra\n</div></figure>\n<!-- /wp:embed -->","excerpt":"D.Social's \"All in My Head\" is a creative work of art that captures the true magic of music. It’s doesn’t follow any trend or guidelines, and uses that to it’s full advantage to make something stand…","publishedAt":"2022-09-08T05:00:00Z","modifiedAt":"2022-09-08T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/d-social-all-in-my-head/"}
+{
+  "slug": "d-social-all-in-my-head",
+  "postId": 74984,
+  "title": "D.Social - All in My Head",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>D.Social's \"All in My Head\" is a creative work of art that captures the true magic of music. It’s doesn’t follow any trend or guidelines, and uses that to it’s full advantage to make something stand out you will love. It excels in every in the music as each element compliments the next, on this record with unlimited replay value for the world to enjoy. As soon as you hit play you’re hooked with a creative abstract sound takes you away, to enjoy his vocals to the fullest that melt you with every note, to make a record that feels so good to hear you’ll be coming back for more instantly.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/2LWOuCT5n4SAqOCul9vIra\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/2LWOuCT5n4SAqOCul9vIra\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "D.Social's \"All in My Head\" is a creative work of art that captures the true magic of music. It’s doesn’t follow any trend or guidelines, and uses that to it’s full advantage to make something stand…",
+  "publishedAt": "2022-09-08T05:00:00Z",
+  "modifiedAt": "2022-09-08T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/d-social-all-in-my-head/"
+}

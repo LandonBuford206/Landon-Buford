@@ -1,1 +1,30 @@
-{"slug":"google-keynote-google-i-o19-2","postId":72659,"title":"Google Keynote (Google I/O'19)","htmlContent":"https://www.youtube.com/watch?v=lyRPyRKHO8M\n\nGoogle Keynote (Google I/O'19)","excerpt":"https://www.youtube.com/watch?v=lyRPyRKHO8M Google Keynote (Google I/O'19)","publishedAt":"2020-05-04T05:00:00Z","modifiedAt":"2026-04-15T19:37:14Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"technology","name":"Technology"}],"tags":[{"slug":"landon-buford","name":"Landon Buford"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/google-keynote-google-i-o19-2/"}
+{
+  "slug": "google-keynote-google-i-o19-2",
+  "postId": 72659,
+  "title": "Google Keynote (Google I/O'19)",
+  "htmlContent": "https://www.youtube.com/watch?v=lyRPyRKHO8M\n\nGoogle Keynote (Google I/O'19)",
+  "excerpt": "https://www.youtube.com/watch?v=lyRPyRKHO8M Google Keynote (Google I/O'19)",
+  "publishedAt": "2020-05-04T05:00:00Z",
+  "modifiedAt": "2026-04-15T19:37:14Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "technology",
+      "name": "Technology"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "landon-buford",
+      "name": "Landon Buford"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/google-keynote-google-i-o19-2/"
+}

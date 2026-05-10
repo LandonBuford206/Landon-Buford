@@ -1,1 +1,34 @@
-{"slug":"kasper-juul-alene","postId":74966,"title":"Kasper - Juul Alene","htmlContent":"<!-- wp:paragraph -->\n<p>Kasper's \"Juul Alene\" is the perfect song for music lovers to enjoy everywhere. The music is in a class of it’s own and packed with soul as well as class, that makes this track as enjoyable as music can be. Enjoy the unlimited vibes that <strong>Kasper</strong> gives you on this record. The european Artist has a lot of projects he plans on releasing in 2022. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/7xFY2OQLXecAxqbXhtlH5P\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/7xFY2OQLXecAxqbXhtlH5P\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Kasper's \"Juul Alene\" is the perfect song for music lovers to enjoy everywhere. The music is in a class of it’s own and packed with soul as well as class, that makes this track as enjoyable as music…","publishedAt":"2022-09-07T05:00:00Z","modifiedAt":"2022-09-07T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"kasper","name":"Kasper"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/kasper-juul-alene/"}
+{
+  "slug": "kasper-juul-alene",
+  "postId": 74966,
+  "title": "Kasper - Juul Alene",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Kasper's \"Juul Alene\" is the perfect song for music lovers to enjoy everywhere. The music is in a class of it’s own and packed with soul as well as class, that makes this track as enjoyable as music can be. Enjoy the unlimited vibes that <strong>Kasper</strong> gives you on this record. The european Artist has a lot of projects he plans on releasing in 2022. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/7xFY2OQLXecAxqbXhtlH5P\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/7xFY2OQLXecAxqbXhtlH5P\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Kasper's \"Juul Alene\" is the perfect song for music lovers to enjoy everywhere. The music is in a class of it’s own and packed with soul as well as class, that makes this track as enjoyable as music…",
+  "publishedAt": "2022-09-07T05:00:00Z",
+  "modifiedAt": "2022-09-07T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "kasper",
+      "name": "Kasper"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/kasper-juul-alene/"
+}

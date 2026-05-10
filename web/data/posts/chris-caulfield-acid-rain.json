@@ -1,1 +1,34 @@
-{"slug":"chris-caulfield-acid-rain","postId":74926,"title":"Chris Caulfield - Acid Rain","htmlContent":"<!-- wp:paragraph -->\n<p><strong>Chris Caulfield </strong>brings a song with unlimited replay value on the new song “<strong>Acid Rain</strong> ”. The music is big time and has a commanding presence in the sound, that makes it impossible to pass up. For every second he brings exciting music, that is engaging for every second to take in. For the big time sound, he matches it with a big time vocal performance that will blow you away, as you enjoy the exciting experience he gives the world to enjoy.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/4621hhZfKBNlsIqhfumWRt\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/4621hhZfKBNlsIqhfumWRt\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Chris Caulfield brings a song with unlimited replay value on the new song “ Acid Rain ”. The music is big time and has a commanding presence in the sound, that makes it impossible to pass up. For…","publishedAt":"2022-09-01T05:00:00Z","modifiedAt":"2022-09-01T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"chris-caulfield","name":"Chris Caulfield"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/chris-caulfield-acid-rain/"}
+{
+  "slug": "chris-caulfield-acid-rain",
+  "postId": 74926,
+  "title": "Chris Caulfield - Acid Rain",
+  "htmlContent": "<!-- wp:paragraph -->\n<p><strong>Chris Caulfield </strong>brings a song with unlimited replay value on the new song “<strong>Acid Rain</strong> ”. The music is big time and has a commanding presence in the sound, that makes it impossible to pass up. For every second he brings exciting music, that is engaging for every second to take in. For the big time sound, he matches it with a big time vocal performance that will blow you away, as you enjoy the exciting experience he gives the world to enjoy.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/4621hhZfKBNlsIqhfumWRt\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/4621hhZfKBNlsIqhfumWRt\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Chris Caulfield brings a song with unlimited replay value on the new song “ Acid Rain ”. The music is big time and has a commanding presence in the sound, that makes it impossible to pass up. For…",
+  "publishedAt": "2022-09-01T05:00:00Z",
+  "modifiedAt": "2022-09-01T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "chris-caulfield",
+      "name": "Chris Caulfield"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/chris-caulfield-acid-rain/"
+}

@@ -1,1 +1,29 @@
-{"slug":"sir-will-weight-up","postId":75113,"title":"Sir Will - Weight Up","htmlContent":"<!-- wp:paragraph -->\n<p>Phoenix-based<strong> </strong>hip hop sensation artist Sir Will's \"Weight Up\" is a stellar record that brings more life to music and the world alike. It has unlimited appeal that is matched with soul to make a musical experience that you won’t be able to get enough. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The music is smooth and has a sound that feels familiar yet fresh, as he delivers a song that feels good to hear for every second. His vocal tone is magic and has such appeal and star presence to it, that you know will take this song very far. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/6pXdRWB7gPg2ZrcEAfEW7x\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/6pXdRWB7gPg2ZrcEAfEW7x\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Phoenix-based hip hop sensation artist Sir Will's \"Weight Up\" is a stellar record that brings more life to music and the world alike. It has unlimited appeal that is matched with soul to make a…","publishedAt":"2022-09-23T05:00:00Z","modifiedAt":"2022-09-23T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/sir-will-weight-up/"}
+{
+  "slug": "sir-will-weight-up",
+  "postId": 75113,
+  "title": "Sir Will - Weight Up",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Phoenix-based<strong> </strong>hip hop sensation artist Sir Will's \"Weight Up\" is a stellar record that brings more life to music and the world alike. It has unlimited appeal that is matched with soul to make a musical experience that you won’t be able to get enough. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The music is smooth and has a sound that feels familiar yet fresh, as he delivers a song that feels good to hear for every second. His vocal tone is magic and has such appeal and star presence to it, that you know will take this song very far. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/6pXdRWB7gPg2ZrcEAfEW7x\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/6pXdRWB7gPg2ZrcEAfEW7x\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Phoenix-based hip hop sensation artist Sir Will's \"Weight Up\" is a stellar record that brings more life to music and the world alike. It has unlimited appeal that is matched with soul to make a…",
+  "publishedAt": "2022-09-23T05:00:00Z",
+  "modifiedAt": "2022-09-23T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/sir-will-weight-up/"
+}

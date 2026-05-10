@@ -1,1 +1,38 @@
-{"slug":"sammy-atlas-see-you-nowhere","postId":75260,"title":"Sammy Atlas - See You Nowhere","htmlContent":"<!-- wp:paragraph -->\n<p>New York-based independent artist Sammy Atlas releases a new album, \"See You Nowhere.\" Following up with his recently released singles \"Apple Juice\" and \"Ultraviolet.\" The 10-tracks feature the right sound, accompanied by the perfect words, and a meaningful existence to the lyrics that let you accept the melody and the person behind it.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The project \"See You Nowhere\" comes from an independent artist at a specific point in his life. The title at the beginning of his tracks makes it clear to the listeners that you will hear the raw authenticity of his life and the reality he is living in. The series of ways delivers mysteriously, and it's up to the listeners to determine the conceits.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream HERE:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/1VHnFY3xLnBg4EQjXV0jKd\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/1VHnFY3xLnBg4EQjXV0jKd\n</div></figure>\n<!-- /wp:embed -->","excerpt":"New York-based independent artist Sammy Atlas releases a new album, \"See You Nowhere.\" Following up with his recently released singles \"Apple Juice\" and \"Ultraviolet.\" The 10-tracks feature the…","publishedAt":"2022-10-15T05:00:00Z","modifiedAt":"2022-10-15T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"albums","name":"Albums"},{"slug":"sammy-atlas","name":"Sammy Atlas"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/sammy-atlas-see-you-nowhere/"}
+{
+  "slug": "sammy-atlas-see-you-nowhere",
+  "postId": 75260,
+  "title": "Sammy Atlas - See You Nowhere",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>New York-based independent artist Sammy Atlas releases a new album, \"See You Nowhere.\" Following up with his recently released singles \"Apple Juice\" and \"Ultraviolet.\" The 10-tracks feature the right sound, accompanied by the perfect words, and a meaningful existence to the lyrics that let you accept the melody and the person behind it.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The project \"See You Nowhere\" comes from an independent artist at a specific point in his life. The title at the beginning of his tracks makes it clear to the listeners that you will hear the raw authenticity of his life and the reality he is living in. The series of ways delivers mysteriously, and it's up to the listeners to determine the conceits.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream HERE:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/1VHnFY3xLnBg4EQjXV0jKd\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/1VHnFY3xLnBg4EQjXV0jKd\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "New York-based independent artist Sammy Atlas releases a new album, \"See You Nowhere.\" Following up with his recently released singles \"Apple Juice\" and \"Ultraviolet.\" The 10-tracks feature the…",
+  "publishedAt": "2022-10-15T05:00:00Z",
+  "modifiedAt": "2022-10-15T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "albums",
+      "name": "Albums"
+    },
+    {
+      "slug": "sammy-atlas",
+      "name": "Sammy Atlas"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/sammy-atlas-see-you-nowhere/"
+}

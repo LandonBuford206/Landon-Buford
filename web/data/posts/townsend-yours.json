@@ -1,1 +1,34 @@
-{"slug":"townsend-yours","postId":74918,"title":"Townsend - yours","htmlContent":"<!-- wp:paragraph -->\n<p>Townsend's \"yours\" is that music that you feel on a new level. The production plays the perfect stage for the picture he brings to life in the super relatable lyrics. The flow is as focused as ever and it makes everything that much realer on some of his finest work to date. His sound is creative, abstract, and fun as he maneuvers through this bright production with ease. The melodic tone in the vocal approach is magic, and feels good to hear, while he delivers the catchy lyrics to perfection with a must hear sound people will love.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/2x5jDAYiB89r5ZpTdfsWOj\",\"providerNameSlug\":\"spotify\",\"responsive\":true} -->\n<figure class=\"wp-block-embed is-provider-spotify wp-block-embed-spotify\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/2x5jDAYiB89r5ZpTdfsWOj\n</div></figure>\n<!-- /wp:embed -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->","excerpt":"Townsend's \"yours\" is that music that you feel on a new level. The production plays the perfect stage for the picture he brings to life in the super relatable lyrics. The flow is as focused as ever…","publishedAt":"2022-08-31T05:00:00Z","modifiedAt":"2022-08-31T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"townsend","name":"Townsend"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/townsend-yours/"}
+{
+  "slug": "townsend-yours",
+  "postId": 74918,
+  "title": "Townsend - yours",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Townsend's \"yours\" is that music that you feel on a new level. The production plays the perfect stage for the picture he brings to life in the super relatable lyrics. The flow is as focused as ever and it makes everything that much realer on some of his finest work to date. His sound is creative, abstract, and fun as he maneuvers through this bright production with ease. The melodic tone in the vocal approach is magic, and feels good to hear, while he delivers the catchy lyrics to perfection with a must hear sound people will love.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/2x5jDAYiB89r5ZpTdfsWOj\",\"providerNameSlug\":\"spotify\",\"responsive\":true} -->\n<figure class=\"wp-block-embed is-provider-spotify wp-block-embed-spotify\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/2x5jDAYiB89r5ZpTdfsWOj\n</div></figure>\n<!-- /wp:embed -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->",
+  "excerpt": "Townsend's \"yours\" is that music that you feel on a new level. The production plays the perfect stage for the picture he brings to life in the super relatable lyrics. The flow is as focused as ever…",
+  "publishedAt": "2022-08-31T05:00:00Z",
+  "modifiedAt": "2022-08-31T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "townsend",
+      "name": "Townsend"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/townsend-yours/"
+}

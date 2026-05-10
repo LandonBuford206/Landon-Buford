@@ -1,1 +1,30 @@
-{"slug":"euseph-inside-out","postId":75263,"title":"Euseph - Inside Out","htmlContent":"<!-- wp:paragraph -->\n<p>&nbsp;</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Euseph unveils a brand new track, \"Inside Out,\" a narrative that genuinely connects to give the people something they must hear. The lyrics shine in their style, and the writing shines in their sense to make a whole piece of music that reaches alive for the globe to treasure.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream HERE:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/4smYtNTpuHafQ3eH6ghrJV\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\">\n<div class=\"wp-block-embed__wrapper\">https://open.spotify.com/track/4smYtNTpuHafQ3eH6ghrJV</div>\n</figure>\n<!-- /wp:embed -->","excerpt":"Euseph unveils a brand new track, \"Inside Out,\" a narrative that genuinely connects to give the people something they must hear. The lyrics shine in their style, and the writing shines in their…","publishedAt":"2022-10-16T05:00:00Z","modifiedAt":"2022-10-16T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"sports","name":"Sports"}],"tags":[{"slug":"euseph","name":"Euseph"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/euseph-inside-out/"}
+{
+  "slug": "euseph-inside-out",
+  "postId": 75263,
+  "title": "Euseph - Inside Out",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>&nbsp;</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Euseph unveils a brand new track, \"Inside Out,\" a narrative that genuinely connects to give the people something they must hear. The lyrics shine in their style, and the writing shines in their sense to make a whole piece of music that reaches alive for the globe to treasure.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream HERE:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/4smYtNTpuHafQ3eH6ghrJV\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\">\n<div class=\"wp-block-embed__wrapper\">https://open.spotify.com/track/4smYtNTpuHafQ3eH6ghrJV</div>\n</figure>\n<!-- /wp:embed -->",
+  "excerpt": "Euseph unveils a brand new track, \"Inside Out,\" a narrative that genuinely connects to give the people something they must hear. The lyrics shine in their style, and the writing shines in their…",
+  "publishedAt": "2022-10-16T05:00:00Z",
+  "modifiedAt": "2022-10-16T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "sports",
+      "name": "Sports"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "euseph",
+      "name": "Euseph"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/euseph-inside-out/"
+}

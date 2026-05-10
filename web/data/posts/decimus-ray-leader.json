@@ -1,1 +1,34 @@
-{"slug":"decimus-ray-leader","postId":75055,"title":"Decimus Ray - Leader","htmlContent":"<!-- wp:paragraph -->\n<p>Decimus Ray's \"Leader\" &nbsp;is the perfect storm of great music to enjoy. It’s a master class of artistry by him with everything musically being stellar, while also having mass appeal to the sound and content, to make sure the masses can feel and enjoy the music for every second of audio he gift us with. If you love good music, as well as music just right for the times, hit play and enjoy now!</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/7KQe71vKdYxUiQKj2qVzDe\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/7KQe71vKdYxUiQKj2qVzDe\n</div></figure>\n<!-- /wp:embed -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->","excerpt":"Decimus Ray's \"Leader\" is the perfect storm of great music to enjoy. It’s a master class of artistry by him with everything musically being stellar, while also having mass appeal to the sound and…","publishedAt":"2022-09-15T05:00:00Z","modifiedAt":"2022-09-15T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"decimus-ray","name":"Decimus Ray"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/decimus-ray-leader/"}
+{
+  "slug": "decimus-ray-leader",
+  "postId": 75055,
+  "title": "Decimus Ray - Leader",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Decimus Ray's \"Leader\" &nbsp;is the perfect storm of great music to enjoy. It’s a master class of artistry by him with everything musically being stellar, while also having mass appeal to the sound and content, to make sure the masses can feel and enjoy the music for every second of audio he gift us with. If you love good music, as well as music just right for the times, hit play and enjoy now!</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/7KQe71vKdYxUiQKj2qVzDe\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/7KQe71vKdYxUiQKj2qVzDe\n</div></figure>\n<!-- /wp:embed -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->",
+  "excerpt": "Decimus Ray's \"Leader\" is the perfect storm of great music to enjoy. It’s a master class of artistry by him with everything musically being stellar, while also having mass appeal to the sound and…",
+  "publishedAt": "2022-09-15T05:00:00Z",
+  "modifiedAt": "2022-09-15T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "decimus-ray",
+      "name": "Decimus Ray"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/decimus-ray-leader/"
+}

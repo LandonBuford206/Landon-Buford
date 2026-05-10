@@ -1,1 +1,34 @@
-{"slug":"emy-chasing","postId":74879,"title":"EMY - Chasing","htmlContent":"<!-- wp:paragraph -->\n<p>EMY has an undeniable feel good smash on her hands with the new song “Chasing”. <strong>EMY</strong> is able to tackle making a record with substance, and a record for the masses on this special tune. The song vocally is impressive, with great appeal to it. The songwriting is perfect in it’s story telling, and has a message that you can feel more than ever, as she takes on the vanity on social media to make it relatable for the masses.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/7sGKEO3p8Bcr83ije4BoFK\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/7sGKEO3p8Bcr83ije4BoFK\n</div></figure>\n<!-- /wp:embed -->","excerpt":"EMY has an undeniable feel good smash on her hands with the new song “Chasing”. EMY is able to tackle making a record with substance, and a record for the masses on this special tune. The song…","publishedAt":"2022-08-26T05:00:00Z","modifiedAt":"2022-08-26T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"emy","name":"EMY"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/emy-chasing/"}
+{
+  "slug": "emy-chasing",
+  "postId": 74879,
+  "title": "EMY - Chasing",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>EMY has an undeniable feel good smash on her hands with the new song “Chasing”. <strong>EMY</strong> is able to tackle making a record with substance, and a record for the masses on this special tune. The song vocally is impressive, with great appeal to it. The songwriting is perfect in it’s story telling, and has a message that you can feel more than ever, as she takes on the vanity on social media to make it relatable for the masses.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/7sGKEO3p8Bcr83ije4BoFK\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/7sGKEO3p8Bcr83ije4BoFK\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "EMY has an undeniable feel good smash on her hands with the new song “Chasing”. EMY is able to tackle making a record with substance, and a record for the masses on this special tune. The song…",
+  "publishedAt": "2022-08-26T05:00:00Z",
+  "modifiedAt": "2022-08-26T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "emy",
+      "name": "EMY"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/emy-chasing/"
+}

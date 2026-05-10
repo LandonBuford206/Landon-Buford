@@ -1,1 +1,29 @@
-{"slug":"ian-henry-past-life","postId":75137,"title":"Ian Henry - Past Life","htmlContent":"<!-- wp:paragraph -->\n<p>Ian Henry gives his all to his fans and music on his new song “Past Life”. He lays it all out there for the world to take in, with a melodic flow that pushes every bar right to the chest of the listener. The lyrics are heavy and he carries them to the fullest, with transparency that helps the authenticity of this genre live on through the music.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/7b2nwwjQyxKwpwBDQbPQqp\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/7b2nwwjQyxKwpwBDQbPQqp\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Ian Henry gives his all to his fans and music on his new song “Past Life”. He lays it all out there for the world to take in, with a melodic flow that pushes every bar right to the chest of the…","publishedAt":"2022-09-30T05:00:00Z","modifiedAt":"2022-09-30T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/ian-henry-past-life/"}
+{
+  "slug": "ian-henry-past-life",
+  "postId": 75137,
+  "title": "Ian Henry - Past Life",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Ian Henry gives his all to his fans and music on his new song “Past Life”. He lays it all out there for the world to take in, with a melodic flow that pushes every bar right to the chest of the listener. The lyrics are heavy and he carries them to the fullest, with transparency that helps the authenticity of this genre live on through the music.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/7b2nwwjQyxKwpwBDQbPQqp\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/7b2nwwjQyxKwpwBDQbPQqp\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Ian Henry gives his all to his fans and music on his new song “Past Life”. He lays it all out there for the world to take in, with a melodic flow that pushes every bar right to the chest of the…",
+  "publishedAt": "2022-09-30T05:00:00Z",
+  "modifiedAt": "2022-09-30T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/ian-henry-past-life/"
+}

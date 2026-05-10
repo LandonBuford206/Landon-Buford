@@ -1,1 +1,20 @@
-{"slug":"markets","postId":10,"title":"Markets","htmlContent":"","excerpt":"","publishedAt":"2026-02-22T01:35:19Z","modifiedAt":"2026-02-22T01:35:19Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[],"tags":[],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"page","link":"https://landonbuford.com/markets/"}
+{
+  "slug": "markets",
+  "postId": 10,
+  "title": "Markets",
+  "htmlContent": "",
+  "excerpt": "",
+  "publishedAt": "2026-02-22T01:35:19Z",
+  "modifiedAt": "2026-02-22T01:35:19Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [],
+  "tags": [],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "page",
+  "link": "https://landonbuford.com/markets/"
+}

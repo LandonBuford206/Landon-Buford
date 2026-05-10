@@ -1,1 +1,29 @@
-{"slug":"johari-turner-showtime","postId":74884,"title":"Johari - Turner Showtime","htmlContent":"<!-- wp:paragraph -->\n<p>Johari drops a new single called \"Turner Showtime,\" a song that lives up to the title, as it gives you a high with every listen. The music has a vibe to it that shines to the fullest, and makes you want the song to never end on this record that feels blissful for every second he gives us. If you need good music in your life, the search can end here on this record you can enjoy in every way without limits.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/0Ba5DmR1iwoRHQ6SyDUhTy\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/0Ba5DmR1iwoRHQ6SyDUhTy\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Johari drops a new single called \"Turner Showtime,\" a song that lives up to the title, as it gives you a high with every listen. The music has a vibe to it that shines to the fullest, and makes you…","publishedAt":"2022-08-26T05:00:00Z","modifiedAt":"2022-08-26T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/johari-turner-showtime/"}
+{
+  "slug": "johari-turner-showtime",
+  "postId": 74884,
+  "title": "Johari - Turner Showtime",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Johari drops a new single called \"Turner Showtime,\" a song that lives up to the title, as it gives you a high with every listen. The music has a vibe to it that shines to the fullest, and makes you want the song to never end on this record that feels blissful for every second he gives us. If you need good music in your life, the search can end here on this record you can enjoy in every way without limits.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/0Ba5DmR1iwoRHQ6SyDUhTy\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/0Ba5DmR1iwoRHQ6SyDUhTy\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Johari drops a new single called \"Turner Showtime,\" a song that lives up to the title, as it gives you a high with every listen. The music has a vibe to it that shines to the fullest, and makes you…",
+  "publishedAt": "2022-08-26T05:00:00Z",
+  "modifiedAt": "2022-08-26T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/johari-turner-showtime/"
+}

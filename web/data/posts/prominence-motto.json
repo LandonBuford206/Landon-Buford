@@ -1,1 +1,34 @@
-{"slug":"prominence-motto","postId":74837,"title":"Prominence - Motto","htmlContent":"<!-- wp:paragraph -->\n<p>Prominence releases a new track called \"Motto,\" a high energy sound that keeps you invested for every second on the new song. Its the perfect record to show off where lyrical wizardry and mass appeal meet to make something that brings people together. As you get invested in the artistry the lyrics stand out in their impressive substance, able to make a record that is fun but also still rooted in pure emceeing to make a record for every one to enjoy.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/5phKDI5PuPfbJPPJkLFx5j\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/5phKDI5PuPfbJPPJkLFx5j\n</div></figure>\n<!-- /wp:embed -->","excerpt":"Prominence releases a new track called \"Motto,\" a high energy sound that keeps you invested for every second on the new song. Its the perfect record to show off where lyrical wizardry and mass…","publishedAt":"2022-08-24T05:00:00Z","modifiedAt":"2022-08-24T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"prominence","name":"Prominence"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/prominence-motto/"}
+{
+  "slug": "prominence-motto",
+  "postId": 74837,
+  "title": "Prominence - Motto",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Prominence releases a new track called \"Motto,\" a high energy sound that keeps you invested for every second on the new song. Its the perfect record to show off where lyrical wizardry and mass appeal meet to make something that brings people together. As you get invested in the artistry the lyrics stand out in their impressive substance, able to make a record that is fun but also still rooted in pure emceeing to make a record for every one to enjoy.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/5phKDI5PuPfbJPPJkLFx5j\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/5phKDI5PuPfbJPPJkLFx5j\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "Prominence releases a new track called \"Motto,\" a high energy sound that keeps you invested for every second on the new song. Its the perfect record to show off where lyrical wizardry and mass…",
+  "publishedAt": "2022-08-24T05:00:00Z",
+  "modifiedAt": "2022-08-24T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "prominence",
+      "name": "Prominence"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/prominence-motto/"
+}

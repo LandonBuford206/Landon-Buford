@@ -1,1 +1,34 @@
-{"slug":"maven-grace-lone-star","postId":75638,"title":"Maven Grace - Lone Star","htmlContent":"<!-- wp:paragraph -->\n<p>Maven Grace released a new single, \"Lone Star,\" a follow-up to his recently released single \"Lost Souls.\" A straightforward but well-done production that gives him a perfect stage to show off his range and charm.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/album/3oHmXnl0B8WFa2wEnJ6kEb?si=aa8d9ecdfe724ee5\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/album/3oHmXnl0B8WFa2wEnJ6kEb?si=aa8d9ecdfe724ee5\n</div></figure>\n<!-- /wp:embed -->\n\n<!-- wp:paragraph -->\n<p>The single \"Lone Star\" is demonstrated through his storytelling, underlined as a sense of hope and empowerment. His newest song 'Lone Star' delivers steamy lines over a friendly instrumental. Wordplay, delivery, and tone combined to make a unique style.&nbsp;</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream Maven Grace's \"<a target=\"_blank\" href=\"https://open.spotify.com/album/3oHmXnl0B8WFa2wEnJ6kEb?si=aa8d9ecdfe724ee5\" rel=\"noreferrer noopener\">Lone Star</a>\" on Spotify.&nbsp;</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Connect with Maven Grace: <a href=\"https://instagram.com/mavengracemusic/\">Instagram</a></p>\n<!-- /wp:paragraph -->","excerpt":"Maven Grace released a new single, \"Lone Star,\" a follow-up to his recently released single \"Lost Souls.\" A straightforward but well-done production that gives him a perfect stage to show off his…","publishedAt":"2023-01-18T06:00:00Z","modifiedAt":"2023-01-18T06:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"news","name":"News"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/maven-grace-lone-star/"}
+{
+  "slug": "maven-grace-lone-star",
+  "postId": 75638,
+  "title": "Maven Grace - Lone Star",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>Maven Grace released a new single, \"Lone Star,\" a follow-up to his recently released single \"Lost Souls.\" A straightforward but well-done production that gives him a perfect stage to show off his range and charm.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/album/3oHmXnl0B8WFa2wEnJ6kEb?si=aa8d9ecdfe724ee5\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/album/3oHmXnl0B8WFa2wEnJ6kEb?si=aa8d9ecdfe724ee5\n</div></figure>\n<!-- /wp:embed -->\n\n<!-- wp:paragraph -->\n<p>The single \"Lone Star\" is demonstrated through his storytelling, underlined as a sense of hope and empowerment. His newest song 'Lone Star' delivers steamy lines over a friendly instrumental. Wordplay, delivery, and tone combined to make a unique style.&nbsp;</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream Maven Grace's \"<a target=\"_blank\" href=\"https://open.spotify.com/album/3oHmXnl0B8WFa2wEnJ6kEb?si=aa8d9ecdfe724ee5\" rel=\"noreferrer noopener\">Lone Star</a>\" on Spotify.&nbsp;</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Connect with Maven Grace: <a href=\"https://instagram.com/mavengracemusic/\">Instagram</a></p>\n<!-- /wp:paragraph -->",
+  "excerpt": "Maven Grace released a new single, \"Lone Star,\" a follow-up to his recently released single \"Lost Souls.\" A straightforward but well-done production that gives him a perfect stage to show off his…",
+  "publishedAt": "2023-01-18T06:00:00Z",
+  "modifiedAt": "2023-01-18T06:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/maven-grace-lone-star/"
+}

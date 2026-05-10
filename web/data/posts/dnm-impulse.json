@@ -1,1 +1,34 @@
-{"slug":"dnm-impulse","postId":75163,"title":"DNM's \"IMPULSE\" is amazing music","htmlContent":"<!-- wp:paragraph -->\n<p>DNM's \"IMPULSE\" is amazing music that shows what happens when an artist decides to not only focus on making dope music, but making music with power. It’s a standout song with unlimited replay value. His presence is undeniable and his message is one the world needs to hear, as he gives realism and positivity to help get us through.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/1YZvWc8sVXKoxzfqD5E50N\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/1YZvWc8sVXKoxzfqD5E50N\n</div></figure>\n<!-- /wp:embed -->","excerpt":"DNM's \"IMPULSE\" is amazing music that shows what happens when an artist decides to not only focus on making dope music, but making music with power. It’s a standout song with unlimited replay value.…","publishedAt":"2022-10-04T05:00:00Z","modifiedAt":"2022-10-04T05:00:00Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[{"slug":"music","name":"Music"},{"slug":"news","name":"News"}],"tags":[{"slug":"dnm","name":"DNM"}],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"post","link":"https://landonbuford.com/dnm-impulse/"}
+{
+  "slug": "dnm-impulse",
+  "postId": 75163,
+  "title": "DNM's \"IMPULSE\" is amazing music",
+  "htmlContent": "<!-- wp:paragraph -->\n<p>DNM's \"IMPULSE\" is amazing music that shows what happens when an artist decides to not only focus on making dope music, but making music with power. It’s a standout song with unlimited replay value. His presence is undeniable and his message is one the world needs to hear, as he gives realism and positivity to help get us through.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Stream here: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://open.spotify.com/track/1YZvWc8sVXKoxzfqD5E50N\",\"type\":\"rich\",\"providerNameSlug\":\"spotify\",\"responsive\":true,\"className\":\"wp-embed-aspect-21-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://open.spotify.com/track/1YZvWc8sVXKoxzfqD5E50N\n</div></figure>\n<!-- /wp:embed -->",
+  "excerpt": "DNM's \"IMPULSE\" is amazing music that shows what happens when an artist decides to not only focus on making dope music, but making music with power. It’s a standout song with unlimited replay value.…",
+  "publishedAt": "2022-10-04T05:00:00Z",
+  "modifiedAt": "2022-10-04T05:00:00Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "dnm",
+      "name": "DNM"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/dnm-impulse/"
+}

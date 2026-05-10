@@ -1,1 +1,20 @@
-{"slug":"blog","postId":9,"title":"Blog","htmlContent":"","excerpt":"","publishedAt":"2026-02-22T01:35:15Z","modifiedAt":"2026-02-22T01:35:15Z","author":{"slug":"chad-hughes","displayName":"Chad Hughes"},"categories":[],"tags":[],"heroImage":null,"inlineImageUrls":[],"readingTimeMin":1,"type":"page","link":"https://landonbuford.com/blog/"}
+{
+  "slug": "blog",
+  "postId": 9,
+  "title": "Blog",
+  "htmlContent": "",
+  "excerpt": "",
+  "publishedAt": "2026-02-22T01:35:15Z",
+  "modifiedAt": "2026-02-22T01:35:15Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [],
+  "tags": [],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "page",
+  "link": "https://landonbuford.com/blog/"
+}
