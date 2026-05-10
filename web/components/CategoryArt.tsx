@@ -35,10 +35,10 @@ type TitleTier = { max: number; cls: string };
 
 const TITLE_TIERS: Record<Exclude<CategoryArtSize, 'compact'>, TitleTier[]> = {
   hero: [
-    { max: 50, cls: 'text-4xl md:text-6xl lg:text-7xl leading-[0.95]' },
-    { max: 90, cls: 'text-3xl md:text-5xl lg:text-6xl leading-[1.0]' },
-    { max: 140, cls: 'text-2xl md:text-4xl lg:text-5xl leading-[1.05]' },
-    { max: Infinity, cls: 'text-xl md:text-3xl lg:text-4xl leading-[1.1]' },
+    { max: 50, cls: 'text-3xl md:text-6xl lg:text-7xl leading-[1.0]' },
+    { max: 90, cls: 'text-2xl md:text-5xl lg:text-6xl leading-[1.05]' },
+    { max: 140, cls: 'text-xl md:text-4xl lg:text-5xl leading-[1.1]' },
+    { max: Infinity, cls: 'text-lg md:text-3xl lg:text-4xl leading-[1.15]' },
   ],
   lead: [
     { max: 50, cls: 'text-3xl md:text-4xl lg:text-5xl leading-[1.0]' },
@@ -63,11 +63,18 @@ function titleClassFor(size: CategoryArtSize, length: number): string {
 }
 
 const PADDING: Record<CategoryArtSize, string> = {
-  hero: 'p-10 md:p-16 lg:p-20',
-  lead: 'p-6 md:p-10',
-  feature: 'p-5 md:p-7',
+  hero: 'p-6 md:p-16 lg:p-20',
+  lead: 'p-4 md:p-10',
+  feature: 'p-4 md:p-7',
   card: 'p-4 md:p-5',
   compact: 'p-2',
+};
+
+const LINE_CLAMP: Record<Exclude<CategoryArtSize, 'compact'>, string> = {
+  hero: 'line-clamp-5',
+  lead: 'line-clamp-4',
+  feature: 'line-clamp-4',
+  card: 'line-clamp-3',
 };
 
 export function CategoryArt({ title, category, size = 'card' }: CategoryArtProps) {
@@ -116,9 +123,9 @@ export function CategoryArt({ title, category, size = 'card' }: CategoryArtProps
         </span>
       </div>
 
-      <div className="my-4 flex min-h-0 flex-1 items-center overflow-hidden">
+      <div className="my-2 flex min-h-0 flex-1 items-center overflow-hidden md:my-4">
         <h3
-          className={`font-serif tracking-tight ${titleClassFor(size, truncated.length)}`}
+          className={`font-serif tracking-tight ${LINE_CLAMP[size as Exclude<CategoryArtSize, 'compact'>]} ${titleClassFor(size, truncated.length)}`}
           style={{ color: p.ink }}
         >
           {truncated}

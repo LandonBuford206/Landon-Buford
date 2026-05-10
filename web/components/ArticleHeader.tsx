@@ -75,7 +75,7 @@ export function ArticleHeader({ post }: ArticleHeaderProps) {
         </figure>
       ) : (
         <div className="mx-auto mt-10 max-w-5xl">
-          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-md md:aspect-[16/9]">
             <CategoryArt title={post.title} category={cat} size="hero" />
           </div>
         </div>
