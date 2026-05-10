@@ -69,6 +69,10 @@ const nextConfig: NextConfig = {
       { source: '/category/business-news-2', destination: '/category/business', permanent: true },
       { source: '/category/youtube-music', destination: '/category/youtube', permanent: true },
       { source: '/category/uncategorized', destination: '/category/general', permanent: true },
+
+      // Author consolidation (2026-05-10) — Chad Hughes's posts were reassigned
+      // to Landon Buford; preserve any inbound links to the old author page.
+      { source: '/author/chad-hughes', destination: '/author/landon-buford', permanent: true },
     ];
   },
 };
