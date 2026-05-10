@@ -27,21 +27,39 @@ const TITLE_TRUNCATE: Record<CategoryArtSize, number> = {
   compact: 50,
 };
 
-const TITLE_CLASSES: Record<CategoryArtSize, string> = {
-  hero: 'text-4xl md:text-6xl lg:text-7xl leading-[0.95]',
-  lead: 'text-3xl md:text-4xl lg:text-5xl leading-[1.0]',
-  feature: 'text-2xl md:text-3xl leading-[1.05]',
-  card: 'text-xl md:text-2xl leading-[1.1]',
-  compact: 'text-base leading-[1.15]',
+// Every non-compact size renders the title inside a fixed-aspect-ratio box
+// with overflow-hidden. Long titles wrap past the available height and clip,
+// so we tier the font size down by character length. Tier 1 of each size
+// matches the original static font, so short-title cards are unchanged.
+type TitleTier = { max: number; cls: string };
+
+const TITLE_TIERS: Record<Exclude<CategoryArtSize, 'compact'>, TitleTier[]> = {
+  hero: [
+    { max: 50, cls: 'text-4xl md:text-6xl lg:text-7xl leading-[0.95]' },
+    { max: 90, cls: 'text-3xl md:text-5xl lg:text-6xl leading-[1.0]' },
+    { max: 140, cls: 'text-2xl md:text-4xl lg:text-5xl leading-[1.05]' },
+    { max: Infinity, cls: 'text-xl md:text-3xl lg:text-4xl leading-[1.1]' },
+  ],
+  lead: [
+    { max: 50, cls: 'text-3xl md:text-4xl lg:text-5xl leading-[1.0]' },
+    { max: 90, cls: 'text-2xl md:text-3xl lg:text-4xl leading-[1.05]' },
+    { max: Infinity, cls: 'text-xl md:text-2xl lg:text-3xl leading-[1.1]' },
+  ],
+  feature: [
+    { max: 45, cls: 'text-2xl md:text-3xl leading-[1.05]' },
+    { max: 70, cls: 'text-xl md:text-2xl leading-[1.1]' },
+    { max: Infinity, cls: 'text-lg md:text-xl leading-[1.15]' },
+  ],
+  card: [
+    { max: 40, cls: 'text-xl md:text-2xl leading-[1.1]' },
+    { max: 55, cls: 'text-lg md:text-xl leading-[1.15]' },
+    { max: Infinity, cls: 'text-base md:text-lg leading-[1.2]' },
+  ],
 };
 
-// Hero renders inside a wide-shallow aspect-ratio box with overflow-hidden,
-// so long titles clip at text-7xl. Tier the size down by character length.
-function heroTitleClass(length: number): string {
-  if (length <= 50) return 'text-4xl md:text-6xl lg:text-7xl leading-[0.95]';
-  if (length <= 90) return 'text-3xl md:text-5xl lg:text-6xl leading-[1.0]';
-  if (length <= 140) return 'text-2xl md:text-4xl lg:text-5xl leading-[1.05]';
-  return 'text-xl md:text-3xl lg:text-4xl leading-[1.1]';
+function titleClassFor(size: CategoryArtSize, length: number): string {
+  if (size === 'compact') return 'text-base leading-[1.15]';
+  return TITLE_TIERS[size].find((t) => length <= t.max)!.cls;
 }
 
 const PADDING: Record<CategoryArtSize, string> = {
@@ -99,9 +117,7 @@ export function CategoryArt({ title, category, size = 'card' }: CategoryArtProps
       </div>
 
       <h3
-        className={`font-serif tracking-tight ${
-          size === 'hero' ? heroTitleClass(truncated.length) : TITLE_CLASSES[size]
-        }`}
+        className={`font-serif tracking-tight ${titleClassFor(size, truncated.length)}`}
         style={{ color: p.ink }}
       >
         {truncated}
