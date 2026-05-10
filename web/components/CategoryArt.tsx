@@ -35,9 +35,9 @@ type TitleTier = { max: number; cls: string };
 
 const TITLE_TIERS: Record<Exclude<CategoryArtSize, 'compact'>, TitleTier[]> = {
   hero: [
-    { max: 35, cls: 'text-4xl md:text-6xl lg:text-7xl leading-[0.95]' },
-    { max: 60, cls: 'text-3xl md:text-5xl lg:text-6xl leading-[1.0]' },
-    { max: 100, cls: 'text-2xl md:text-4xl lg:text-5xl leading-[1.05]' },
+    { max: 50, cls: 'text-4xl md:text-6xl lg:text-7xl leading-[0.95]' },
+    { max: 90, cls: 'text-3xl md:text-5xl lg:text-6xl leading-[1.0]' },
+    { max: 140, cls: 'text-2xl md:text-4xl lg:text-5xl leading-[1.05]' },
     { max: Infinity, cls: 'text-xl md:text-3xl lg:text-4xl leading-[1.1]' },
   ],
   lead: [
