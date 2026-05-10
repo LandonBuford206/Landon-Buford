@@ -41,18 +41,18 @@ const TITLE_TIERS: Record<Exclude<CategoryArtSize, 'compact'>, TitleTier[]> = {
     { max: Infinity, cls: 'text-xl md:text-3xl lg:text-4xl leading-[1.1]' },
   ],
   lead: [
-    { max: 40, cls: 'text-3xl md:text-4xl lg:text-5xl leading-[1.0]' },
-    { max: 70, cls: 'text-2xl md:text-3xl lg:text-4xl leading-[1.05]' },
+    { max: 50, cls: 'text-3xl md:text-4xl lg:text-5xl leading-[1.0]' },
+    { max: 90, cls: 'text-2xl md:text-3xl lg:text-4xl leading-[1.05]' },
     { max: Infinity, cls: 'text-xl md:text-2xl lg:text-3xl leading-[1.1]' },
   ],
   feature: [
-    { max: 35, cls: 'text-2xl md:text-3xl leading-[1.05]' },
-    { max: 55, cls: 'text-xl md:text-2xl leading-[1.1]' },
+    { max: 45, cls: 'text-2xl md:text-3xl leading-[1.05]' },
+    { max: 70, cls: 'text-xl md:text-2xl leading-[1.1]' },
     { max: Infinity, cls: 'text-lg md:text-xl leading-[1.15]' },
   ],
   card: [
-    { max: 30, cls: 'text-xl md:text-2xl leading-[1.1]' },
-    { max: 45, cls: 'text-lg md:text-xl leading-[1.15]' },
+    { max: 40, cls: 'text-xl md:text-2xl leading-[1.1]' },
+    { max: 55, cls: 'text-lg md:text-xl leading-[1.15]' },
     { max: Infinity, cls: 'text-base md:text-lg leading-[1.2]' },
   ],
 };
@@ -116,7 +116,7 @@ export function CategoryArt({ title, category, size = 'card' }: CategoryArtProps
         </span>
       </div>
 
-      <div className="my-4 min-h-0 flex-1 overflow-hidden">
+      <div className="my-4 flex min-h-0 flex-1 items-center overflow-hidden">
         <h3
           className={`font-serif tracking-tight ${titleClassFor(size, truncated.length)}`}
           style={{ color: p.ink }}
