@@ -23,7 +23,7 @@ export function SearchClient() {
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch('/api/search-index', { cache: 'force-cache' });
+        const res = await fetch('/api/search-index');
         if (!res.ok) throw new Error(`status ${res.status}`);
         const data = (await res.json()) as IndexEntry[];
         if (!cancelled) setIndex(data);
