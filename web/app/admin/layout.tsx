@@ -19,8 +19,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <a href="/admin/new" className="hover:text-[var(--color-accent)]">
                 New post
               </a>
-              <a href="/" className="hover:text-[var(--color-accent)]">
-                View site
+              <a href="/admin/posts" className="hover:text-[var(--color-accent)]">
+                Posts
+              </a>
+              <a
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[var(--color-accent)]"
+              >
+                View site ↗
               </a>
             </nav>
           </div>

@@ -123,9 +123,17 @@ export function NewPostEditor({ categories }: { categories: Category[] }) {
           </button>
           <a
             href={published.url}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-md border border-[var(--color-line-strong)] px-4 py-2 text-sm hover:border-[var(--color-accent)]"
           >
-            Open URL
+            Open URL ↗
+          </a>
+          <a
+            href="/admin/posts"
+            className="rounded-md border border-[var(--color-line-strong)] px-4 py-2 text-sm hover:border-[var(--color-accent)]"
+          >
+            Manage posts
           </a>
         </div>
       </div>

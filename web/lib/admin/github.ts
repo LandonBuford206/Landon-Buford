@@ -1,9 +1,8 @@
 import { Octokit } from '@octokit/rest';
 
-interface FileChange {
-  path: string;
-  content: string;
-}
+export type FileChange =
+  | { path: string; content: string }
+  | { path: string; delete: true };
 
 export interface PublishToGithubArgs {
   message: string;
@@ -58,29 +57,36 @@ async function tryCommit(
     commit_sha: parentSha,
   });
 
-  const blobs = await Promise.all(
-    args.files.map((f) =>
-      octokit.git
-        .createBlob({
-          owner,
-          repo,
-          content: Buffer.from(f.content, 'utf8').toString('base64'),
-          encoding: 'base64',
-        })
-        .then((b) => ({ path: f.path, sha: b.data.sha }))
-    )
+  const treeEntries = await Promise.all(
+    args.files.map(async (f) => {
+      if ('delete' in f) {
+        return {
+          path: f.path,
+          mode: '100644' as const,
+          type: 'blob' as const,
+          sha: null,
+        };
+      }
+      const blob = await octokit.git.createBlob({
+        owner,
+        repo,
+        content: Buffer.from(f.content, 'utf8').toString('base64'),
+        encoding: 'base64',
+      });
+      return {
+        path: f.path,
+        mode: '100644' as const,
+        type: 'blob' as const,
+        sha: blob.data.sha,
+      };
+    })
   );
 
   const tree = await octokit.git.createTree({
     owner,
     repo,
     base_tree: parentCommit.data.tree.sha,
-    tree: blobs.map((b) => ({
-      path: b.path,
-      mode: '100644' as const,
-      type: 'blob' as const,
-      sha: b.sha,
-    })),
+    tree: treeEntries,
   });
 
   const commit = await octokit.git.createCommit({
