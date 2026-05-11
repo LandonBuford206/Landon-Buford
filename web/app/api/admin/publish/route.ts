@@ -4,6 +4,7 @@ import { verifySession } from '@/lib/session';
 import { buildPost } from '@/lib/admin/post-builder';
 import { publishToGithub } from '@/lib/admin/github';
 import type { FormattedPost } from '@/lib/admin/anthropic';
+import { isAllowedAdminOrigin } from '@/lib/admin/origin';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -15,20 +16,13 @@ interface PublishPayload {
   publishedAt?: string;
 }
 
-function originOk(req: Request): boolean {
-  const origin = req.headers.get('origin');
-  if (!origin) return true;
-  const expected = (process.env.NEXT_PUBLIC_SITE_URL || '').replace(/\/$/, '');
-  return origin === expected || origin.startsWith('http://localhost');
-}
-
 function isValidIsoDate(s: string): boolean {
   const d = new Date(s);
   return !Number.isNaN(d.getTime());
 }
 
 export async function POST(req: Request) {
-  if (!originOk(req)) {
+  if (!isAllowedAdminOrigin(req)) {
     return Response.json({ ok: false, error: 'Forbidden.' }, { status: 403 });
   }
 

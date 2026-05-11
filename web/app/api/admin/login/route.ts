@@ -1,5 +1,6 @@
 import { timingSafeEqual } from 'node:crypto';
 import { createSession } from '@/lib/session';
+import { isAllowedAdminOrigin } from '@/lib/admin/origin';
 
 export const runtime = 'nodejs';
 
@@ -17,13 +18,8 @@ function timingSafeStringEq(a: string, b: string): boolean {
   return timingSafeEqual(ab, bb);
 }
 
-function expectedOrigin(): string {
-  return (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/$/, '');
-}
-
 export async function POST(req: Request) {
-  const origin = req.headers.get('origin');
-  if (origin && origin !== expectedOrigin() && !origin.startsWith('http://localhost')) {
+  if (!isAllowedAdminOrigin(req)) {
     return Response.json({ ok: false, error: 'Forbidden.' }, { status: 403 });
   }
 
