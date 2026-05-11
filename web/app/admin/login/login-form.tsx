@@ -1,10 +1,8 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export function LoginForm() {
-  const router = useRouter();
   const [password, setPassword] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -25,8 +23,7 @@ export function LoginForm() {
         setBusy(false);
         return;
       }
-      router.replace('/admin/new');
-      router.refresh();
+      window.location.assign('/admin/new');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Network error.');
       setBusy(false);
