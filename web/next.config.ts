@@ -73,6 +73,15 @@ const nextConfig: NextConfig = {
       // Author consolidation (2026-05-10) — Chad Hughes's posts were reassigned
       // to Landon Buford; preserve any inbound links to the old author page.
       { source: '/author/chad-hughes', destination: '/author/landon-buford', permanent: true },
+
+      // WordPress legacy dated permalinks (2026-05-12) — the old WP install used
+      // /YYYY/MM/DD/:slug/ as its permalink structure. The new site uses /:slug/
+      // only, so forward the dated form to preserve inbound backlinks.
+      {
+        source: '/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/:slug',
+        destination: '/:slug',
+        permanent: true,
+      },
     ];
   },
 };
