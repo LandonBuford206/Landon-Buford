@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { ImageUploadWidget } from '../_components/image-upload-widget';
 
 interface Category {
   slug: string;
@@ -16,6 +17,11 @@ interface FormattedPost {
   tags: { slug: string; name: string }[];
 }
 
+interface HeroImage {
+  localPath: string;
+  alt: string;
+}
+
 interface PublishResult {
   slug: string;
   url: string;
@@ -29,10 +35,12 @@ export function NewPostEditor({ categories }: { categories: Category[] }) {
   const [rawText, setRawText] = useState('');
   const [seedTitle, setSeedTitle] = useState('');
   const [formatted, setFormatted] = useState<FormattedPost | null>(null);
+  const [heroImage, setHeroImage] = useState<HeroImage | null>(null);
   const [publishedAt, setPublishedAt] = useState<string>(toLocalInputValue(new Date()));
   const [stage, setStage] = useState<Stage>('idle');
   const [error, setError] = useState<string | null>(null);
   const [published, setPublished] = useState<PublishResult | null>(null);
+  const bodyRef = useRef<HTMLTextAreaElement>(null);
 
   async function handleFormat() {
     setError(null);
@@ -70,6 +78,7 @@ export function NewPostEditor({ categories }: { categories: Category[] }) {
         body: JSON.stringify({
           formatted,
           publishedAt: new Date(publishedAt).toISOString(),
+          heroImage,
         }),
       });
       const data = (await res.json()) as
@@ -93,6 +102,25 @@ export function NewPostEditor({ categories }: { categories: Category[] }) {
     }
   }
 
+  function insertAtCursor(html: string) {
+    if (!formatted) return;
+    const ta = bodyRef.current;
+    if (!ta) {
+      setFormatted({ ...formatted, htmlContent: formatted.htmlContent + '\n' + html });
+      return;
+    }
+    const start = ta.selectionStart ?? formatted.htmlContent.length;
+    const end = ta.selectionEnd ?? start;
+    const next =
+      formatted.htmlContent.slice(0, start) + html + formatted.htmlContent.slice(end);
+    setFormatted({ ...formatted, htmlContent: next });
+    requestAnimationFrame(() => {
+      ta.focus();
+      const caret = start + html.length;
+      ta.setSelectionRange(caret, caret);
+    });
+  }
+
   if (stage === 'done' && published) {
     return (
       <div className="rounded-lg border border-[var(--color-line)] bg-[var(--color-card)] p-6">
@@ -113,6 +141,7 @@ export function NewPostEditor({ categories }: { categories: Category[] }) {
               setRawText('');
               setSeedTitle('');
               setFormatted(null);
+              setHeroImage(null);
               setPublished(null);
               setStage('idle');
               setPublishedAt(toLocalInputValue(new Date()));
@@ -273,16 +302,66 @@ export function NewPostEditor({ categories }: { categories: Category[] }) {
                   className="mt-1 rounded border border-[var(--color-line)] bg-transparent px-2 py-1 text-xs outline-none focus:border-[var(--color-accent)]"
                 />
               </div>
+              <div className="mt-4">
+                <label className="block text-xs font-medium uppercase tracking-wider text-[var(--color-ink-mute)]">
+                  Hero image
+                </label>
+                {heroImage ? (
+                  <div className="mt-1 flex items-center gap-3">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={heroImage.localPath}
+                      alt={heroImage.alt}
+                      className="h-14 w-20 rounded border border-[var(--color-line)] object-cover"
+                    />
+                    <span className="break-all font-mono text-[10px] text-[var(--color-ink-soft)]">
+                      {heroImage.localPath}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setHeroImage(null)}
+                      className="ml-auto text-xs text-[var(--color-accent)] underline"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ) : (
+                  <p className="mt-1 text-xs text-[var(--color-ink-mute)]">
+                    None — homepage will use the category-art fallback. Use the widget below
+                    to set one.
+                  </p>
+                )}
+              </div>
             </div>
 
-            <div className="rounded-lg border border-[var(--color-line)] bg-[var(--color-card)] p-6">
-              <span className="text-xs font-medium uppercase tracking-wider text-[var(--color-ink-mute)]">
-                Body preview
-              </span>
-              <div
-                className="prose prose-lg mt-3 max-w-none"
-                dangerouslySetInnerHTML={{ __html: formatted.htmlContent }}
+            <ImageUploadWidget
+              slug={formatted.slug}
+              onInsertHtml={insertAtCursor}
+              onSetAsHero={({ path, alt }) => setHeroImage({ localPath: path, alt })}
+            />
+
+            <div className="rounded-lg border border-[var(--color-line)] bg-[var(--color-card)] p-4">
+              <label className="block text-xs font-medium uppercase tracking-wider text-[var(--color-ink-mute)]">
+                Body (raw HTML — edit before publishing)
+              </label>
+              <textarea
+                ref={bodyRef}
+                value={formatted.htmlContent}
+                onChange={(e) =>
+                  setFormatted({ ...formatted, htmlContent: e.target.value })
+                }
+                rows={18}
+                className="mt-1 w-full rounded border border-[var(--color-line)] bg-transparent px-2 py-1 font-mono text-xs outline-none focus:border-[var(--color-accent)]"
               />
+              <div className="mt-3 border-t border-[var(--color-line)] pt-3">
+                <span className="text-xs font-medium uppercase tracking-wider text-[var(--color-ink-mute)]">
+                  Rendered preview
+                </span>
+                <div
+                  className="prose prose-lg mt-3 max-w-none"
+                  dangerouslySetInnerHTML={{ __html: formatted.htmlContent }}
+                />
+              </div>
             </div>
 
             <div className="flex justify-end gap-3">

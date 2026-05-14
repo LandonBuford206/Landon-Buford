@@ -2,16 +2,22 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { NextResponse } from 'next/server';
 import { verifySession } from '@/lib/session';
-import { publishToGithub } from '@/lib/admin/github';
+import { publishToGithub, type FileChange } from '@/lib/admin/github';
 import { isAllowedAdminOrigin } from '@/lib/admin/origin';
 import { cleanWordPressHtml } from '@/lib/html';
 import { estimateReadingTime } from '@/lib/admin/post-builder';
 import { getPost } from '@/lib/content';
+import { rehostExternalImages } from '@/lib/admin/uploads';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
 const DATA_DIR = join(process.cwd(), 'data');
+
+interface HeroImagePayload {
+  localPath?: string;
+  alt?: string;
+}
 
 interface UpdatePayload {
   slug?: string;
@@ -21,6 +27,7 @@ interface UpdatePayload {
   categorySlug?: string;
   tagNames?: string[];
   publishedAt?: string;
+  heroImage?: HeroImagePayload | null;
 }
 
 interface TagRecord {
@@ -33,6 +40,13 @@ interface CategoryRecord {
   name: string;
 }
 
+interface HeroImage {
+  originalUrl: string;
+  localPath?: string;
+  blobUrl?: string;
+  alt?: string;
+}
+
 interface IndexEntry {
   slug: string;
   title: string;
@@ -40,7 +54,7 @@ interface IndexEntry {
   publishedAt: string;
   author: { slug: string; displayName: string };
   primaryCategory: { slug: string; name: string } | null;
-  heroImage: { originalUrl: string; localPath?: string; blobUrl?: string } | null;
+  heroImage: HeroImage | null;
   readingTimeMin: number;
 }
 
@@ -107,7 +121,9 @@ export async function POST(req: Request) {
   const categoryName =
     categories.find((c) => c.slug === categorySlug)?.name ?? categorySlug;
 
-  const cleanedHtml = cleanWordPressHtml(rawHtml);
+  // Rehost any external <img> before sanitizer strips them.
+  const rehost = await rehostExternalImages(rawHtml, slug, new Date(publishedAt));
+  const cleanedHtml = cleanWordPressHtml(rehost.html);
 
   const tagNames = body.tagNames ?? existing.tags.map((t) => t.name);
   const seen = new Set<string>();
@@ -123,6 +139,18 @@ export async function POST(req: Request) {
 
   const nowIso = new Date().toISOString();
 
+  // heroImage: undefined = keep existing; null = clear; object = replace.
+  let hero: HeroImage | null = existing.heroImage ?? null;
+  if (body.heroImage === null) {
+    hero = null;
+  } else if (body.heroImage && body.heroImage.localPath?.startsWith('/')) {
+    hero = {
+      originalUrl: body.heroImage.localPath,
+      localPath: body.heroImage.localPath,
+      alt: body.heroImage.alt?.trim() || '',
+    };
+  }
+
   const updatedPost = {
     ...existing,
     title,
@@ -132,6 +160,7 @@ export async function POST(req: Request) {
     modifiedAt: nowIso,
     categories: [{ slug: categorySlug, name: categoryName }],
     tags: dedupedTags,
+    heroImage: hero,
     readingTimeMin: estimateReadingTime(cleanedHtml),
   };
 
@@ -144,7 +173,7 @@ export async function POST(req: Request) {
           publishedAt,
           author: e.author,
           primaryCategory: { slug: categorySlug, name: categoryName },
-          heroImage: e.heroImage,
+          heroImage: hero,
           readingTimeMin: updatedPost.readingTimeMin,
         }
       : e
@@ -155,7 +184,7 @@ export async function POST(req: Request) {
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
 
-  const files: { path: string; content: string }[] = [
+  const files: FileChange[] = [
     {
       path: `web/data/posts/${slug}.json`,
       content: JSON.stringify(updatedPost, null, 2) + '\n',
@@ -164,6 +193,7 @@ export async function POST(req: Request) {
       path: 'web/data/index.json',
       content: JSON.stringify(updatedIndex, null, 2) + '\n',
     },
+    ...rehost.fileChanges,
   ];
 
   if (netNewTags.length > 0) {

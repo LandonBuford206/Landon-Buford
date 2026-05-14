@@ -2,6 +2,7 @@ import { Octokit } from '@octokit/rest';
 
 export type FileChange =
   | { path: string; content: string }
+  | { path: string; contentBase64: string }
   | { path: string; delete: true };
 
 export interface PublishToGithubArgs {
@@ -67,10 +68,14 @@ async function tryCommit(
           sha: null,
         };
       }
+      const base64 =
+        'contentBase64' in f
+          ? f.contentBase64
+          : Buffer.from(f.content, 'utf8').toString('base64');
       const blob = await octokit.git.createBlob({
         owner,
         repo,
-        content: Buffer.from(f.content, 'utf8').toString('base64'),
+        content: base64,
         encoding: 'base64',
       });
       return {

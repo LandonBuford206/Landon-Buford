@@ -1,19 +1,26 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { verifySession } from '@/lib/session';
-import { buildPost } from '@/lib/admin/post-builder';
-import { publishToGithub } from '@/lib/admin/github';
+import { buildPost, normalizeSlug } from '@/lib/admin/post-builder';
+import { publishToGithub, type FileChange } from '@/lib/admin/github';
 import type { FormattedPost } from '@/lib/admin/anthropic';
 import { isAllowedAdminOrigin } from '@/lib/admin/origin';
+import { rehostExternalImages } from '@/lib/admin/uploads';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
 const DATA_DIR = join(process.cwd(), 'data');
 
+interface HeroImagePayload {
+  localPath?: string;
+  alt?: string;
+}
+
 interface PublishPayload {
   formatted?: FormattedPost;
   publishedAt?: string;
+  heroImage?: HeroImagePayload | null;
 }
 
 function isValidIsoDate(s: string): boolean {
@@ -63,8 +70,21 @@ export async function POST(req: Request) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://landonbuford.com';
   const postId = Math.floor(Date.now() / 1000);
 
+  // Rehost any external <img> in the body before buildPost runs sanitizer.
+  // sanitizer strips non-local images; rehosting first preserves them by
+  // committing the bytes into our repo and rewriting the src.
+  const rehost = await rehostExternalImages(
+    f.htmlContent,
+    normalizeSlug(f.slug),
+    new Date(publishedAt)
+  );
+  const formattedWithLocalImages: FormattedPost = {
+    ...f,
+    htmlContent: rehost.html,
+  };
+
   const { postJson, indexEntry, newTags, finalSlug } = buildPost({
-    formatted: f,
+    formatted: formattedWithLocalImages,
     categories,
     existingTags,
     publishedAt,
@@ -73,6 +93,17 @@ export async function POST(req: Request) {
     postId,
     siteUrl,
   });
+
+  const heroPath = body.heroImage?.localPath?.trim();
+  if (heroPath && heroPath.startsWith('/')) {
+    const hero = {
+      originalUrl: heroPath,
+      localPath: heroPath,
+      alt: body.heroImage?.alt?.trim() || '',
+    };
+    postJson.heroImage = hero;
+    indexEntry.heroImage = hero;
+  }
 
   const publishedAtMs = new Date(publishedAt).getTime();
   let insertAt = index.length;
@@ -84,7 +115,7 @@ export async function POST(req: Request) {
   }
   const updatedIndex = [...index.slice(0, insertAt), indexEntry, ...index.slice(insertAt)];
 
-  const files: { path: string; content: string }[] = [
+  const files: FileChange[] = [
     {
       path: `web/data/posts/${finalSlug}.json`,
       content: JSON.stringify(postJson, null, 2) + '\n',
@@ -93,6 +124,7 @@ export async function POST(req: Request) {
       path: 'web/data/index.json',
       content: JSON.stringify(updatedIndex, null, 2) + '\n',
     },
+    ...rehost.fileChanges,
   ];
 
   if (newTags.length > 0) {

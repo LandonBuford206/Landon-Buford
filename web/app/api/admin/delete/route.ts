@@ -5,6 +5,7 @@ import { verifySession } from '@/lib/session';
 import { publishToGithub, type FileChange } from '@/lib/admin/github';
 import { isAllowedAdminOrigin } from '@/lib/admin/origin';
 import { getPost } from '@/lib/content';
+import { extractLocalUploadPaths } from '@/lib/admin/uploads';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -50,12 +51,18 @@ export async function POST(req: Request) {
   const index = JSON.parse(indexRaw) as IndexEntry[];
   const updatedIndex = index.filter((e) => e.slug !== slug);
 
+  const uploadPaths = extractLocalUploadPaths({
+    html: existing.htmlContent,
+    heroPath: existing.heroImage?.localPath,
+  });
+
   const files: FileChange[] = [
     { path: `web/data/posts/${slug}.json`, delete: true },
     {
       path: 'web/data/index.json',
       content: JSON.stringify(updatedIndex, null, 2) + '\n',
     },
+    ...uploadPaths.map((path) => ({ path, delete: true as const })),
   ];
 
   try {

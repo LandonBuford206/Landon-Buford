@@ -1,11 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import type { PostFull } from '@/lib/content';
+import { ImageUploadWidget } from '../../_components/image-upload-widget';
 
 interface Category {
   slug: string;
   name: string;
+}
+
+interface HeroImageState {
+  localPath: string;
+  alt: string;
 }
 
 function toLocalInputValue(iso: string): string {
@@ -14,6 +20,13 @@ function toLocalInputValue(iso: string): string {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(
     d.getHours()
   )}:${pad(d.getMinutes())}`;
+}
+
+function initialHero(post: PostFull): HeroImageState | null {
+  const h = post.heroImage;
+  if (!h?.localPath) return null;
+  if (!h.localPath.startsWith('/')) return null;
+  return { localPath: h.localPath, alt: h.alt ?? '' };
 }
 
 export function EditPostForm({
@@ -33,9 +46,28 @@ export function EditPostForm({
     post.tags.map((t) => t.name).join(', ')
   );
   const [publishedAt, setPublishedAt] = useState(toLocalInputValue(post.publishedAt));
+  const [heroImage, setHeroImage] = useState<HeroImageState | null>(() => initialHero(post));
   const [busy, setBusy] = useState<null | 'save' | 'delete'>(null);
   const [error, setError] = useState<string | null>(null);
   const [savedAt, setSavedAt] = useState<string | null>(null);
+  const bodyRef = useRef<HTMLTextAreaElement>(null);
+
+  function insertAtCursor(html: string) {
+    const ta = bodyRef.current;
+    if (!ta) {
+      setHtmlContent((prev) => prev + '\n' + html);
+      return;
+    }
+    const start = ta.selectionStart ?? htmlContent.length;
+    const end = ta.selectionEnd ?? start;
+    const next = htmlContent.slice(0, start) + html + htmlContent.slice(end);
+    setHtmlContent(next);
+    requestAnimationFrame(() => {
+      ta.focus();
+      const caret = start + html.length;
+      ta.setSelectionRange(caret, caret);
+    });
+  }
 
   async function handleSave() {
     setError(null);
@@ -56,6 +88,7 @@ export function EditPostForm({
             .map((s) => s.trim())
             .filter(Boolean),
           publishedAt: new Date(publishedAt).toISOString(),
+          heroImage,
         }),
       });
       const data = (await res.json()) as { ok: boolean; error?: string };
@@ -166,9 +199,45 @@ export function EditPostForm({
           />
         </label>
 
+        <div>
+          <span className="text-sm font-medium">Hero image</span>
+          {heroImage ? (
+            <div className="mt-1 flex items-center gap-3 rounded-md border border-[var(--color-line)] bg-[var(--color-card)] p-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={heroImage.localPath}
+                alt={heroImage.alt}
+                className="h-14 w-20 rounded border border-[var(--color-line)] object-cover"
+              />
+              <span className="break-all font-mono text-[10px] text-[var(--color-ink-soft)]">
+                {heroImage.localPath}
+              </span>
+              <button
+                type="button"
+                onClick={() => setHeroImage(null)}
+                disabled={disabled}
+                className="ml-auto text-xs text-[var(--color-accent)] underline disabled:opacity-50"
+              >
+                Remove
+              </button>
+            </div>
+          ) : (
+            <p className="mt-1 text-xs text-[var(--color-ink-mute)]">
+              None set — category-art fallback will be used. Use the widget below to set one.
+            </p>
+          )}
+        </div>
+
+        <ImageUploadWidget
+          slug={post.slug}
+          onInsertHtml={insertAtCursor}
+          onSetAsHero={({ path, alt }) => setHeroImage({ localPath: path, alt })}
+        />
+
         <label className="block">
           <span className="text-sm font-medium">Body (raw HTML)</span>
           <textarea
+            ref={bodyRef}
             value={htmlContent}
             onChange={(e) => setHtmlContent(e.target.value)}
             disabled={disabled}
