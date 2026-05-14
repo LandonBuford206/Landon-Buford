@@ -14,11 +14,6 @@ export const maxDuration = 60;
 
 const DATA_DIR = join(process.cwd(), 'data');
 
-interface HeroImagePayload {
-  localPath?: string;
-  alt?: string;
-}
-
 interface UpdatePayload {
   slug?: string;
   title?: string;
@@ -27,7 +22,6 @@ interface UpdatePayload {
   categorySlug?: string;
   tagNames?: string[];
   publishedAt?: string;
-  heroImage?: HeroImagePayload | null;
 }
 
 interface TagRecord {
@@ -139,18 +133,6 @@ export async function POST(req: Request) {
 
   const nowIso = new Date().toISOString();
 
-  // heroImage: undefined = keep existing; null = clear; object = replace.
-  let hero: HeroImage | null = existing.heroImage ?? null;
-  if (body.heroImage === null) {
-    hero = null;
-  } else if (body.heroImage && body.heroImage.localPath?.startsWith('/')) {
-    hero = {
-      originalUrl: body.heroImage.localPath,
-      localPath: body.heroImage.localPath,
-      alt: body.heroImage.alt?.trim() || '',
-    };
-  }
-
   const updatedPost = {
     ...existing,
     title,
@@ -160,7 +142,6 @@ export async function POST(req: Request) {
     modifiedAt: nowIso,
     categories: [{ slug: categorySlug, name: categoryName }],
     tags: dedupedTags,
-    heroImage: hero,
     readingTimeMin: estimateReadingTime(cleanedHtml),
   };
 
@@ -173,7 +154,7 @@ export async function POST(req: Request) {
           publishedAt,
           author: e.author,
           primaryCategory: { slug: categorySlug, name: categoryName },
-          heroImage: hero,
+          heroImage: e.heroImage,
           readingTimeMin: updatedPost.readingTimeMin,
         }
       : e

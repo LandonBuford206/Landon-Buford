@@ -12,15 +12,9 @@ export const maxDuration = 60;
 
 const DATA_DIR = join(process.cwd(), 'data');
 
-interface HeroImagePayload {
-  localPath?: string;
-  alt?: string;
-}
-
 interface PublishPayload {
   formatted?: FormattedPost;
   publishedAt?: string;
-  heroImage?: HeroImagePayload | null;
 }
 
 function isValidIsoDate(s: string): boolean {
@@ -93,17 +87,6 @@ export async function POST(req: Request) {
     postId,
     siteUrl,
   });
-
-  const heroPath = body.heroImage?.localPath?.trim();
-  if (heroPath && heroPath.startsWith('/')) {
-    const hero = {
-      originalUrl: heroPath,
-      localPath: heroPath,
-      alt: body.heroImage?.alt?.trim() || '',
-    };
-    postJson.heroImage = hero;
-    indexEntry.heroImage = hero;
-  }
 
   const publishedAtMs = new Date(publishedAt).getTime();
   let insertAt = index.length;

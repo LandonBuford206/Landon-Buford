@@ -10,15 +10,13 @@ interface UploadResult {
 
 interface Props {
   slug: string;
-  onInsertHtml: (html: string) => void;
-  onSetAsHero?: (args: { path: string; alt: string }) => void;
 }
 
 type Mode = 'file' | 'url';
 
 const ACCEPT = 'image/jpeg,image/png,image/webp,image/gif';
 
-export function ImageUploadWidget({ slug, onInsertHtml, onSetAsHero }: Props) {
+export function ImageUploadWidget({ slug }: Props) {
   const [mode, setMode] = useState<Mode>('file');
   const [url, setUrl] = useState('');
   const [alt, setAlt] = useState('');
@@ -26,6 +24,7 @@ export function ImageUploadWidget({ slug, onInsertHtml, onSetAsHero }: Props) {
   const [dragOver, setDragOver] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<UploadResult | null>(null);
+  const [copied, setCopied] = useState<'url' | 'html' | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const slugMissing = !slug;
@@ -80,24 +79,12 @@ export function ImageUploadWidget({ slug, onInsertHtml, onSetAsHero }: Props) {
     }
   }
 
-  function handleInsert() {
-    if (!result) return;
-    const safeAlt = alt.replace(/"/g, '&quot;');
-    onInsertHtml(`<img src="${result.path}" alt="${safeAlt}" />`);
-    reset();
-  }
-
-  function handleHero() {
-    if (!result || !onSetAsHero) return;
-    onSetAsHero({ path: result.path, alt });
-    reset();
-  }
-
   function reset() {
     setResult(null);
     setUrl('');
     setAlt('');
     setError(null);
+    setCopied(null);
     if (fileInputRef.current) fileInputRef.current.value = '';
   }
 
@@ -108,12 +95,25 @@ export function ImageUploadWidget({ slug, onInsertHtml, onSetAsHero }: Props) {
     if (file) void doUpload(file);
   }
 
+  async function copyText(kind: 'url' | 'html', text: string) {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(kind);
+      setTimeout(() => setCopied((c) => (c === kind ? null : c)), 1500);
+    } catch {
+      setError('Could not copy — your browser blocked clipboard access.');
+    }
+  }
+
   const filename = result ? result.path.split('/').pop() ?? result.path : null;
+  const htmlSnippet = result
+    ? `<img src="${result.path}" alt="${alt.replace(/"/g, '&quot;')}" />`
+    : '';
 
   return (
     <div className="rounded-lg border border-[var(--color-line)] bg-[var(--color-card)] p-4">
       {!result && (
-        <div className="flex gap-1 rounded-md border border-[var(--color-line)] p-0.5 text-xs w-fit">
+        <div className="flex w-fit gap-1 rounded-md border border-[var(--color-line)] p-0.5 text-xs">
           <button
             type="button"
             onClick={() => setMode('file')}
@@ -241,6 +241,7 @@ export function ImageUploadWidget({ slug, onInsertHtml, onSetAsHero }: Props) {
               </p>
             </div>
           </div>
+
           <label className="block">
             <span className="text-[10px] font-medium uppercase tracking-wider text-[var(--color-ink-mute)]">
               Alt text (recommended)
@@ -253,33 +254,67 @@ export function ImageUploadWidget({ slug, onInsertHtml, onSetAsHero }: Props) {
               className="mt-1 block w-full rounded border border-[var(--color-line)] bg-transparent px-2 py-1.5 text-sm outline-none focus:border-[var(--color-accent)]"
             />
           </label>
-          <div className="flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              onClick={handleInsert}
-              className="rounded-md bg-[var(--color-accent)] px-3 py-1.5 text-xs font-medium text-white hover:opacity-90"
-            >
-              Insert into body
-            </button>
-            {onSetAsHero && (
-              <button
-                type="button"
-                onClick={handleHero}
-                className="rounded-md border border-[var(--color-line-strong)] px-3 py-1.5 text-xs hover:border-[var(--color-accent)]"
-              >
-                Set as hero
-              </button>
-            )}
+
+          <CopyField
+            label="Image URL"
+            value={result.path}
+            copied={copied === 'url'}
+            onCopy={() => copyText('url', result.path)}
+          />
+          <CopyField
+            label={'HTML <img> tag'}
+            value={htmlSnippet}
+            copied={copied === 'html'}
+            onCopy={() => copyText('html', htmlSnippet)}
+          />
+
+          <div className="flex justify-end pt-1">
             <button
               type="button"
               onClick={reset}
-              className="ml-auto text-xs text-[var(--color-ink-soft)] underline hover:text-[var(--color-ink)]"
+              className="text-xs text-[var(--color-ink-soft)] underline hover:text-[var(--color-ink)]"
             >
-              Replace
+              Upload another
             </button>
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function CopyField({
+  label,
+  value,
+  copied,
+  onCopy,
+}: {
+  label: string;
+  value: string;
+  copied: boolean;
+  onCopy: () => void;
+}) {
+  return (
+    <div>
+      <span className="text-[10px] font-medium uppercase tracking-wider text-[var(--color-ink-mute)]">
+        {label}
+      </span>
+      <div className="mt-1 flex gap-2">
+        <input
+          type="text"
+          value={value}
+          readOnly
+          onFocus={(e) => e.currentTarget.select()}
+          className="block w-full rounded border border-[var(--color-line)] bg-transparent px-2 py-1.5 font-mono text-[11px] outline-none"
+        />
+        <button
+          type="button"
+          onClick={onCopy}
+          className="shrink-0 rounded-md border border-[var(--color-line-strong)] px-3 py-1.5 text-xs hover:border-[var(--color-accent)]"
+        >
+          {copied ? 'Copied' : 'Copy'}
+        </button>
+      </div>
     </div>
   );
 }
