@@ -22,6 +22,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <a href="/admin/posts" className="hover:text-[var(--color-accent)]">
                 Posts
               </a>
+              <a href="/admin/media" className="hover:text-[var(--color-accent)]">
+                Media
+              </a>
               <a
                 href="/"
                 target="_blank"
