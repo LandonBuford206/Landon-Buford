@@ -49,7 +49,25 @@ async function tryCommit(
   args: PublishToGithubArgs,
   attempt = 0
 ): Promise<string> {
-  const ref = await octokit.git.getRef({ owner, repo, ref: `heads/${branch}` });
+  let ref;
+  try {
+    ref = await octokit.git.getRef({ owner, repo, ref: `heads/${branch}` });
+  } catch (err: unknown) {
+    const status = (err as { status?: number }).status;
+    if (status === 404) {
+      throw new Error(
+        `GitHub 404 on ${owner}/${repo}@${branch}. Check GITHUB_REPO, GITHUB_BRANCH, ` +
+          `and that GITHUB_TOKEN has Contents:write access to this repo.`
+      );
+    }
+    if (status === 401 || status === 403) {
+      throw new Error(
+        `GitHub ${status} on ${owner}/${repo}. GITHUB_TOKEN is missing, expired, ` +
+          `or lacks Contents:write on this repo.`
+      );
+    }
+    throw err;
+  }
   const parentSha = ref.data.object.sha;
 
   const parentCommit = await octokit.git.getCommit({
