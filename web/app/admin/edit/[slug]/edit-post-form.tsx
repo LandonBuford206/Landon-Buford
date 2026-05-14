@@ -223,7 +223,7 @@ export function EditPostForm({
             </div>
           ) : (
             <p className="mt-1 text-xs text-[var(--color-ink-mute)]">
-              None set — category-art fallback will be used. Use the widget below to set one.
+              Optional. If left blank, the category image will be used.
             </p>
           )}
         </div>
