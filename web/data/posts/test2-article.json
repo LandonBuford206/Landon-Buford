@@ -1,0 +1,30 @@
+{
+  "slug": "test2-article",
+  "postId": 1778880581,
+  "title": "test2",
+  "htmlContent": "<p>This is just a test article</p>\n\n<img src=\"/uploads/2026/test2-article/33-142e30.png\" alt=\"\" />",
+  "excerpt": "This is just a test article serving as a placeholder to verify the formatting and publishing pipeline is functioning correctly on LandonBuford.com.",
+  "publishedAt": "2026-05-15T21:28:00.000Z",
+  "modifiedAt": "2026-05-15T21:28:00.000Z",
+  "author": {
+    "slug": "landon-buford",
+    "displayName": "Landon Buford"
+  },
+  "categories": [
+    {
+      "slug": "general",
+      "name": "General"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "test",
+      "name": "Test"
+    }
+  ],
+  "heroImage": null,
+  "inlineImageUrls": [],
+  "readingTimeMin": 1,
+  "type": "post",
+  "link": "https://landonbuford.com/test2-article/"
+}

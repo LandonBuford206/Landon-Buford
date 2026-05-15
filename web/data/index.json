@@ -1,5 +1,37 @@
 [
   {
+    "slug": "test2-article",
+    "title": "test2",
+    "excerpt": "This is just a test article serving as a placeholder to verify the formatting and publishing pipeline is functioning correctly on LandonBuford.com.",
+    "publishedAt": "2026-05-15T21:28:00.000Z",
+    "author": {
+      "slug": "landon-buford",
+      "displayName": "Landon Buford"
+    },
+    "primaryCategory": {
+      "slug": "general",
+      "name": "General"
+    },
+    "heroImage": null,
+    "readingTimeMin": 1
+  },
+  {
+    "slug": "test-1-article",
+    "title": "TEST 1",
+    "excerpt": "This is a test article serving as a formatting and publication pipeline check for LandonBuford.com's in-house post formatter.",
+    "publishedAt": "2026-05-15T21:02:00.000Z",
+    "author": {
+      "slug": "landon-buford",
+      "displayName": "Landon Buford"
+    },
+    "primaryCategory": {
+      "slug": "general",
+      "name": "General"
+    },
+    "heroImage": null,
+    "readingTimeMin": 1
+  },
+  {
     "slug": "the-voices-we-lose-why-families-preserve-stories-not-just-photos",
     "title": "The Voices We Lose: Why Families Are Starting to Preserve Stories Instead of Just Photos",
     "excerpt": "Photos survive but the stories behind them often do not. A growing number of families are turning to voice recordings and private platforms to preserve the personalities, memories, and meaning that traditional photo libraries leave behind.",
