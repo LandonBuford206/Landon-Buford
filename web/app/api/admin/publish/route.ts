@@ -15,7 +15,18 @@ const DATA_DIR = join(process.cwd(), 'data');
 interface PublishPayload {
   formatted?: FormattedPost;
   publishedAt?: string;
+  authorSlug?: string;
 }
+
+interface AuthorRecord {
+  slug: string;
+  displayName: string;
+}
+
+const FALLBACK_AUTHOR: AuthorRecord = {
+  slug: 'landon-buford',
+  displayName: 'Landon Buford',
+};
 
 function isValidIsoDate(s: string): boolean {
   const d = new Date(s);
@@ -52,14 +63,21 @@ export async function POST(req: Request) {
     return Response.json({ ok: false, error: 'Invalid publishedAt date.' }, { status: 400 });
   }
 
-  const [categoriesRaw, tagsRaw, indexRaw] = await Promise.all([
+  const [categoriesRaw, tagsRaw, indexRaw, authorsRaw] = await Promise.all([
     readFile(join(DATA_DIR, 'categories.json'), 'utf8'),
     readFile(join(DATA_DIR, 'tags.json'), 'utf8'),
     readFile(join(DATA_DIR, 'index.json'), 'utf8'),
+    readFile(join(DATA_DIR, 'authors.json'), 'utf8'),
   ]);
   const categories = JSON.parse(categoriesRaw) as { slug: string; name: string }[];
   const existingTags = JSON.parse(tagsRaw) as { slug: string; name: string }[];
   const index = JSON.parse(indexRaw) as { publishedAt: string }[];
+  const authors = JSON.parse(authorsRaw) as AuthorRecord[];
+
+  const author =
+    authors.find((a) => a.slug === body.authorSlug) ??
+    authors.find((a) => a.slug === FALLBACK_AUTHOR.slug) ??
+    FALLBACK_AUTHOR;
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://landonbuford.com';
   const postId = Math.floor(Date.now() / 1000);
@@ -82,8 +100,8 @@ export async function POST(req: Request) {
     categories,
     existingTags,
     publishedAt,
-    authorSlug: 'landon-buford',
-    authorName: 'Landon Buford',
+    authorSlug: author.slug,
+    authorName: author.displayName,
     postId,
     siteUrl,
   });
