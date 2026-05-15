@@ -39,7 +39,7 @@ export default async function EditPostPage(props: { params: Promise<{ slug: stri
         <h1 className="font-serif text-3xl tracking-tight">Edit post</h1>
         <div className="flex items-baseline gap-5">
           <a
-            href={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://landonbuford.com'}/${post.slug}`}
+            href={`/${post.slug}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]"
