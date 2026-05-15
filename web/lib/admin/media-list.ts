@@ -27,18 +27,37 @@ export async function listMedia(): Promise<MediaItem[]> {
 
   const octokit = new Octokit({ auth: token });
 
-  const ref = await octokit.git.getRef({ owner, repo, ref: `heads/${branch}` });
-  const commit = await octokit.git.getCommit({
-    owner,
-    repo,
-    commit_sha: ref.data.object.sha,
-  });
-  const tree = await octokit.git.getTree({
-    owner,
-    repo,
-    tree_sha: commit.data.tree.sha,
-    recursive: 'true',
-  });
+  const tree = await (async () => {
+    try {
+      const ref = await octokit.git.getRef({ owner, repo, ref: `heads/${branch}` });
+      const commit = await octokit.git.getCommit({
+        owner,
+        repo,
+        commit_sha: ref.data.object.sha,
+      });
+      return await octokit.git.getTree({
+        owner,
+        repo,
+        tree_sha: commit.data.tree.sha,
+        recursive: 'true',
+      });
+    } catch (err: unknown) {
+      const status = (err as { status?: number }).status;
+      if (status === 401 || status === 403) {
+        throw new Error(
+          `GitHub ${status} on ${owner}/${repo}. GITHUB_TOKEN is missing, expired, ` +
+            `or lacks Contents:read on this repo.`
+        );
+      }
+      if (status === 404) {
+        throw new Error(
+          `GitHub 404 on ${owner}/${repo}@${branch}. Check GITHUB_REPO, GITHUB_BRANCH, ` +
+            `and that GITHUB_TOKEN has access to this repo.`
+        );
+      }
+      throw err;
+    }
+  })();
 
   const items: MediaItem[] = [];
   for (const entry of tree.data.tree) {
