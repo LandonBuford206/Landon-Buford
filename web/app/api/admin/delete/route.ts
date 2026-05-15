@@ -1,16 +1,13 @@
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
 import { NextResponse } from 'next/server';
 import { verifySession } from '@/lib/session';
 import { publishToGithub, type FileChange } from '@/lib/admin/github';
 import { isAllowedAdminOrigin } from '@/lib/admin/origin';
-import { getPost } from '@/lib/content';
+import type { PostFull } from '@/lib/content';
 import { extractLocalUploadPaths } from '@/lib/admin/uploads';
+import { readRepoFile, readRepoFileOrNull } from '@/lib/admin/repo-read';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
-
-const DATA_DIR = join(process.cwd(), 'data');
 
 interface DeletePayload {
   slug?: string;
@@ -42,12 +39,15 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: 'Slug is required.' }, { status: 400 });
   }
 
-  const existing = await getPost(slug);
-  if (!existing) {
+  // Read these from GitHub, not the local Vercel filesystem — see
+  // lib/admin/repo-read.ts for why disk reads are unsafe here.
+  const existingRaw = await readRepoFileOrNull(`web/data/posts/${slug}.json`);
+  if (!existingRaw) {
     return NextResponse.json({ ok: false, error: 'Post not found.' }, { status: 404 });
   }
+  const existing = JSON.parse(existingRaw) as PostFull;
 
-  const indexRaw = await readFile(join(DATA_DIR, 'index.json'), 'utf8');
+  const indexRaw = await readRepoFile('web/data/index.json');
   const index = JSON.parse(indexRaw) as IndexEntry[];
   const updatedIndex = index.filter((e) => e.slug !== slug);
 
