@@ -1,12 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { PostFull } from '@/lib/content';
-import { ImageUploadWidget } from '../../_components/image-upload-widget';
+import { ImageUploadWidget, type UploadInsertion } from '../../_components/image-upload-widget';
+import { applyPreviewMap } from '@/lib/admin/preview-substitution';
 
 interface Category {
   slug: string;
   name: string;
+}
+
+interface Author {
+  slug: string;
+  displayName: string;
 }
 
 function toLocalInputValue(iso: string): string {
@@ -20,9 +26,11 @@ function toLocalInputValue(iso: string): string {
 export function EditPostForm({
   post,
   categories,
+  authors,
 }: {
   post: PostFull;
   categories: Category[];
+  authors: Author[];
 }) {
   const [title, setTitle] = useState(post.title);
   const [excerpt, setExcerpt] = useState(post.excerpt);
@@ -30,13 +38,29 @@ export function EditPostForm({
   const [categorySlug, setCategorySlug] = useState(
     post.categories[0]?.slug ?? 'general'
   );
+  const [authorSlug, setAuthorSlug] = useState(post.author.slug);
   const [tagsText, setTagsText] = useState(
     post.tags.map((t) => t.name).join(', ')
   );
   const [publishedAt, setPublishedAt] = useState(toLocalInputValue(post.publishedAt));
+  const [previewMap, setPreviewMap] = useState<Record<string, string>>({});
   const [busy, setBusy] = useState<null | 'save' | 'delete'>(null);
   const [error, setError] = useState<string | null>(null);
   const [savedAt, setSavedAt] = useState<string | null>(null);
+
+  useEffect(() => {
+    return () => {
+      for (const url of Object.values(previewMap)) {
+        if (url.startsWith('blob:')) URL.revokeObjectURL(url);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function handleInsertImage(ins: UploadInsertion) {
+    setHtmlContent((prev) => `${prev}\n${ins.htmlSnippet}`);
+    setPreviewMap((prev) => ({ ...prev, [ins.committedPath]: ins.previewUrl }));
+  }
 
   async function handleSave() {
     setError(null);
@@ -52,6 +76,7 @@ export function EditPostForm({
           excerpt,
           htmlContent,
           categorySlug,
+          authorSlug,
           tagNames: tagsText
             .split(',')
             .map((s) => s.trim())
@@ -117,7 +142,7 @@ export function EditPostForm({
           />
         </label>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <label className="block">
             <span className="text-sm font-medium">Category</span>
             <select
@@ -134,6 +159,21 @@ export function EditPostForm({
             </select>
           </label>
           <label className="block">
+            <span className="text-sm font-medium">Author</span>
+            <select
+              value={authorSlug}
+              onChange={(e) => setAuthorSlug(e.target.value)}
+              disabled={disabled}
+              className={inputClass}
+            >
+              {authors.map((a) => (
+                <option key={a.slug} value={a.slug}>
+                  {a.displayName}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="block sm:col-span-2">
             <span className="text-sm font-medium">Publish date</span>
             <input
               type="datetime-local"
@@ -167,7 +207,7 @@ export function EditPostForm({
           />
         </label>
 
-        <ImageUploadWidget slug={post.slug} />
+        <ImageUploadWidget slug={post.slug} onInsert={handleInsertImage} />
 
         <label className="block">
           <span className="text-sm font-medium">Body (raw HTML)</span>
@@ -219,7 +259,9 @@ export function EditPostForm({
           </p>
           <div
             className="prose prose-lg mt-6 max-w-none"
-            dangerouslySetInnerHTML={{ __html: htmlContent }}
+            dangerouslySetInnerHTML={{
+              __html: applyPreviewMap(htmlContent, previewMap),
+            }}
           />
         </div>
       </div>

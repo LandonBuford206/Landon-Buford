@@ -1,11 +1,17 @@
 'use client';
 
-import { useState } from 'react';
-import { ImageUploadWidget } from '../_components/image-upload-widget';
+import { useEffect, useState } from 'react';
+import { ImageUploadWidget, type UploadInsertion } from '../_components/image-upload-widget';
+import { applyPreviewMap } from '@/lib/admin/preview-substitution';
 
 interface Category {
   slug: string;
   name: string;
+}
+
+interface Author {
+  slug: string;
+  displayName: string;
 }
 
 interface FormattedPost {
@@ -26,14 +32,42 @@ interface PublishResult {
 
 type Stage = 'idle' | 'formatting' | 'preview' | 'publishing' | 'done';
 
-export function NewPostEditor({ categories }: { categories: Category[] }) {
+export function NewPostEditor({
+  categories,
+  authors,
+}: {
+  categories: Category[];
+  authors: Author[];
+}) {
   const [rawText, setRawText] = useState('');
   const [seedTitle, setSeedTitle] = useState('');
   const [formatted, setFormatted] = useState<FormattedPost | null>(null);
   const [publishedAt, setPublishedAt] = useState<string>(toLocalInputValue(new Date()));
+  const [authorSlug, setAuthorSlug] = useState<string>(
+    authors[0]?.slug ?? 'landon-buford'
+  );
+  const [previewMap, setPreviewMap] = useState<Record<string, string>>({});
   const [stage, setStage] = useState<Stage>('idle');
   const [error, setError] = useState<string | null>(null);
   const [published, setPublished] = useState<PublishResult | null>(null);
+
+  useEffect(() => {
+    return () => {
+      for (const url of Object.values(previewMap)) {
+        if (url.startsWith('blob:')) URL.revokeObjectURL(url);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function handleInsertImage(ins: UploadInsertion) {
+    setFormatted((prev) =>
+      prev
+        ? { ...prev, htmlContent: `${prev.htmlContent}\n${ins.htmlSnippet}` }
+        : prev
+    );
+    setPreviewMap((prev) => ({ ...prev, [ins.committedPath]: ins.previewUrl }));
+  }
 
   async function handleFormat() {
     setError(null);
@@ -71,6 +105,7 @@ export function NewPostEditor({ categories }: { categories: Category[] }) {
         body: JSON.stringify({
           formatted,
           publishedAt: new Date(publishedAt).toISOString(),
+          authorSlug,
         }),
       });
       const data = (await res.json()) as
@@ -244,6 +279,22 @@ export function NewPostEditor({ categories }: { categories: Category[] }) {
               </div>
               <div className="mt-4">
                 <label className="block text-xs font-medium uppercase tracking-wider text-[var(--color-ink-mute)]">
+                  Author
+                </label>
+                <select
+                  value={authorSlug}
+                  onChange={(e) => setAuthorSlug(e.target.value)}
+                  className="mt-1 w-full rounded border border-[var(--color-line)] bg-transparent px-2 py-1 text-xs outline-none focus:border-[var(--color-accent)]"
+                >
+                  {authors.map((a) => (
+                    <option key={a.slug} value={a.slug}>
+                      {a.displayName}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="mt-4">
+                <label className="block text-xs font-medium uppercase tracking-wider text-[var(--color-ink-mute)]">
                   Excerpt
                 </label>
                 <textarea
@@ -276,7 +327,7 @@ export function NewPostEditor({ categories }: { categories: Category[] }) {
               </div>
             </div>
 
-            <ImageUploadWidget slug={formatted.slug} />
+            <ImageUploadWidget slug={formatted.slug} onInsert={handleInsertImage} />
 
             <div className="rounded-lg border border-[var(--color-line)] bg-[var(--color-card)] p-4">
               <label className="block text-xs font-medium uppercase tracking-wider text-[var(--color-ink-mute)]">
@@ -296,7 +347,9 @@ export function NewPostEditor({ categories }: { categories: Category[] }) {
                 </span>
                 <div
                   className="prose prose-lg mt-3 max-w-none"
-                  dangerouslySetInnerHTML={{ __html: formatted.htmlContent }}
+                  dangerouslySetInnerHTML={{
+                    __html: applyPreviewMap(formatted.htmlContent, previewMap),
+                  }}
                 />
               </div>
             </div>

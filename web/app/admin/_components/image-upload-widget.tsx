@@ -6,17 +6,25 @@ interface UploadResult {
   path: string;
   bytes: number;
   mime: string;
+  previewUrl: string;
+}
+
+export interface UploadInsertion {
+  htmlSnippet: string;
+  committedPath: string;
+  previewUrl: string;
 }
 
 interface Props {
   slug: string;
+  onInsert?: (insertion: UploadInsertion) => void;
 }
 
 type Mode = 'file' | 'url';
 
 const ACCEPT = 'image/jpeg,image/png,image/webp,image/gif';
 
-export function ImageUploadWidget({ slug }: Props) {
+export function ImageUploadWidget({ slug, onInsert }: Props) {
   const [mode, setMode] = useState<Mode>('file');
   const [url, setUrl] = useState('');
   const [alt, setAlt] = useState('');
@@ -24,6 +32,7 @@ export function ImageUploadWidget({ slug }: Props) {
   const [dragOver, setDragOver] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<UploadResult | null>(null);
+  const [inserted, setInserted] = useState(false);
   const [copied, setCopied] = useState<'url' | 'html' | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -36,6 +45,7 @@ export function ImageUploadWidget({ slug }: Props) {
     }
     setError(null);
     setBusy(true);
+    const previewUrl = URL.createObjectURL(file);
     try {
       const fd = new FormData();
       fd.append('file', file);
@@ -44,9 +54,15 @@ export function ImageUploadWidget({ slug }: Props) {
       const data = (await res.json()) as
         | { ok: true; path: string; bytes: number; mime: string }
         | { ok: false; error: string };
-      if (!data.ok) setError(data.error);
-      else setResult({ path: data.path, bytes: data.bytes, mime: data.mime });
+      if (!data.ok) {
+        URL.revokeObjectURL(previewUrl);
+        setError(data.error);
+      } else {
+        setResult({ path: data.path, bytes: data.bytes, mime: data.mime, previewUrl });
+        setInserted(false);
+      }
     } catch (err) {
+      URL.revokeObjectURL(previewUrl);
       setError(err instanceof Error ? err.message : 'Network error.');
     } finally {
       setBusy(false);
@@ -61,17 +77,26 @@ export function ImageUploadWidget({ slug }: Props) {
     if (!url.trim()) return;
     setError(null);
     setBusy(true);
+    const sourceUrl = url.trim();
     try {
       const res = await fetch('/api/admin/upload', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url: url.trim(), slug }),
+        body: JSON.stringify({ url: sourceUrl, slug }),
       });
       const data = (await res.json()) as
         | { ok: true; path: string; bytes: number; mime: string }
         | { ok: false; error: string };
       if (!data.ok) setError(data.error);
-      else setResult({ path: data.path, bytes: data.bytes, mime: data.mime });
+      else {
+        setResult({
+          path: data.path,
+          bytes: data.bytes,
+          mime: data.mime,
+          previewUrl: sourceUrl,
+        });
+        setInserted(false);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Network error.');
     } finally {
@@ -80,12 +105,26 @@ export function ImageUploadWidget({ slug }: Props) {
   }
 
   function reset() {
+    if (result?.previewUrl.startsWith('blob:')) {
+      URL.revokeObjectURL(result.previewUrl);
+    }
     setResult(null);
+    setInserted(false);
     setUrl('');
     setAlt('');
     setError(null);
     setCopied(null);
     if (fileInputRef.current) fileInputRef.current.value = '';
+  }
+
+  function handleInsert() {
+    if (!result || !onInsert) return;
+    onInsert({
+      htmlSnippet,
+      committedPath: result.path,
+      previewUrl: result.previewUrl,
+    });
+    setInserted(true);
   }
 
   function handleDrop(e: React.DragEvent) {
@@ -230,7 +269,7 @@ export function ImageUploadWidget({ slug }: Props) {
           <div className="flex items-start gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={result.path}
+              src={result.previewUrl}
               alt=""
               className="h-20 w-20 shrink-0 rounded border border-[var(--color-line)] object-cover"
             />
@@ -254,6 +293,17 @@ export function ImageUploadWidget({ slug }: Props) {
               className="mt-1 block w-full rounded border border-[var(--color-line)] bg-transparent px-2 py-1.5 text-sm outline-none focus:border-[var(--color-accent)]"
             />
           </label>
+
+          {onInsert && (
+            <button
+              type="button"
+              onClick={handleInsert}
+              disabled={inserted}
+              className="w-full rounded-md bg-[var(--color-accent)] px-3 py-2 text-sm font-medium text-white transition hover:opacity-90 disabled:opacity-50"
+            >
+              {inserted ? 'Inserted ✓' : 'Insert into post'}
+            </button>
+          )}
 
           <CopyField
             label="Image URL"

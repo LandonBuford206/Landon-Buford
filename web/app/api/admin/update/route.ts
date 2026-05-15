@@ -20,8 +20,14 @@ interface UpdatePayload {
   excerpt?: string;
   htmlContent?: string;
   categorySlug?: string;
+  authorSlug?: string;
   tagNames?: string[];
   publishedAt?: string;
+}
+
+interface AuthorRecord {
+  slug: string;
+  displayName: string;
 }
 
 interface TagRecord {
@@ -103,17 +109,25 @@ export async function POST(req: Request) {
   }
   const categorySlug = body.categorySlug?.trim() || existing.categories[0]?.slug || 'general';
 
-  const [categoriesRaw, tagsRaw, indexRaw] = await Promise.all([
+  const [categoriesRaw, tagsRaw, indexRaw, authorsRaw] = await Promise.all([
     readFile(join(DATA_DIR, 'categories.json'), 'utf8'),
     readFile(join(DATA_DIR, 'tags.json'), 'utf8'),
     readFile(join(DATA_DIR, 'index.json'), 'utf8'),
+    readFile(join(DATA_DIR, 'authors.json'), 'utf8'),
   ]);
   const categories = JSON.parse(categoriesRaw) as CategoryRecord[];
   const existingTags = JSON.parse(tagsRaw) as TagRecord[];
   const index = JSON.parse(indexRaw) as IndexEntry[];
+  const authors = JSON.parse(authorsRaw) as AuthorRecord[];
 
   const categoryName =
     categories.find((c) => c.slug === categorySlug)?.name ?? categorySlug;
+
+  const author =
+    authors.find((a) => a.slug === body.authorSlug) ??
+    existing.author ??
+    authors.find((a) => a.slug === 'landon-buford') ??
+    { slug: 'landon-buford', displayName: 'Landon Buford' };
 
   // Rehost any external <img> before sanitizer strips them.
   const rehost = await rehostExternalImages(rawHtml, slug, new Date(publishedAt));
@@ -140,6 +154,7 @@ export async function POST(req: Request) {
     htmlContent: cleanedHtml,
     publishedAt,
     modifiedAt: nowIso,
+    author: { slug: author.slug, displayName: author.displayName },
     categories: [{ slug: categorySlug, name: categoryName }],
     tags: dedupedTags,
     readingTimeMin: estimateReadingTime(cleanedHtml),
@@ -152,7 +167,7 @@ export async function POST(req: Request) {
           title,
           excerpt,
           publishedAt,
-          author: e.author,
+          author: { slug: author.slug, displayName: author.displayName },
           primaryCategory: { slug: categorySlug, name: categoryName },
           heroImage: e.heroImage,
           readingTimeMin: updatedPost.readingTimeMin,
