@@ -42,32 +42,44 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: 'Slug is required.' }, { status: 400 });
   }
 
-  const existing = await getPost(slug);
-  if (!existing) {
+  const [existing, indexRaw] = await Promise.all([
+    getPost(slug),
+    readFile(join(DATA_DIR, 'index.json'), 'utf8'),
+  ]);
+  const index = JSON.parse(indexRaw) as IndexEntry[];
+  const indexHasSlug = index.some((e) => e.slug === slug);
+
+  // 404 only if BOTH the post JSON and the index entry are missing — there's
+  // truly nothing to delete. If one exists without the other (orphan), the
+  // route still cleans up whatever is present.
+  if (!existing && !indexHasSlug) {
     return NextResponse.json({ ok: false, error: 'Post not found.' }, { status: 404 });
   }
 
-  const indexRaw = await readFile(join(DATA_DIR, 'index.json'), 'utf8');
-  const index = JSON.parse(indexRaw) as IndexEntry[];
   const updatedIndex = index.filter((e) => e.slug !== slug);
 
-  const uploadPaths = extractLocalUploadPaths({
-    html: existing.htmlContent,
-    heroPath: existing.heroImage?.localPath,
-  });
-
   const files: FileChange[] = [
-    { path: `web/data/posts/${slug}.json`, delete: true },
     {
       path: 'web/data/index.json',
       content: JSON.stringify(updatedIndex, null, 2) + '\n',
     },
-    ...uploadPaths.map((path) => ({ path, delete: true as const })),
   ];
+  if (existing) {
+    files.push({ path: `web/data/posts/${slug}.json`, delete: true });
+    const uploadPaths = extractLocalUploadPaths({
+      html: existing.htmlContent,
+      heroPath: existing.heroImage?.localPath,
+    });
+    files.push(...uploadPaths.map((path) => ({ path, delete: true as const })));
+  }
+
+  const message = existing
+    ? `Delete post: ${existing.title}\n\nRemoves /${slug} via admin CMS.`
+    : `Delete orphan index entry: ${slug}\n\nIndex referenced a missing post JSON; cleaned up via admin CMS.`;
 
   try {
     const commit = await publishToGithub({
-      message: `Delete post: ${existing.title}\n\nRemoves /${slug} via admin CMS.`,
+      message,
       files,
     });
     return NextResponse.json({
