@@ -1,18 +1,15 @@
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
 import { NextResponse } from 'next/server';
 import { verifySession } from '@/lib/session';
 import { publishToGithub, type FileChange } from '@/lib/admin/github';
 import { isAllowedAdminOrigin } from '@/lib/admin/origin';
 import { cleanWordPressHtml } from '@/lib/html';
 import { estimateReadingTime } from '@/lib/admin/post-builder';
-import { getPost } from '@/lib/content';
+import type { PostFull } from '@/lib/content';
 import { rehostExternalImages } from '@/lib/admin/uploads';
+import { readRepoFile, readRepoFileOrNull } from '@/lib/admin/repo-read';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
-
-const DATA_DIR = join(process.cwd(), 'data');
 
 interface UpdatePayload {
   slug?: string;
@@ -93,9 +90,10 @@ export async function POST(req: Request) {
   const slug = body.slug?.trim();
   if (!slug) return NextResponse.json({ ok: false, error: 'Slug is required.' }, { status: 400 });
 
-  const existing = await getPost(slug);
-  if (!existing)
+  const existingRaw = await readRepoFileOrNull(`web/data/posts/${slug}.json`);
+  if (!existingRaw)
     return NextResponse.json({ ok: false, error: 'Post not found.' }, { status: 404 });
+  const existing = JSON.parse(existingRaw) as PostFull;
 
   const title = body.title?.trim() || existing.title;
   const excerpt = body.excerpt?.trim() || existing.excerpt;
@@ -109,11 +107,13 @@ export async function POST(req: Request) {
   }
   const categorySlug = body.categorySlug?.trim() || existing.categories[0]?.slug || 'general';
 
+  // Read these from GitHub, not the local Vercel filesystem — see
+  // lib/admin/repo-read.ts for why disk reads are unsafe here.
   const [categoriesRaw, tagsRaw, indexRaw, authorsRaw] = await Promise.all([
-    readFile(join(DATA_DIR, 'categories.json'), 'utf8'),
-    readFile(join(DATA_DIR, 'tags.json'), 'utf8'),
-    readFile(join(DATA_DIR, 'index.json'), 'utf8'),
-    readFile(join(DATA_DIR, 'authors.json'), 'utf8'),
+    readRepoFile('web/data/categories.json'),
+    readRepoFile('web/data/tags.json'),
+    readRepoFile('web/data/index.json'),
+    readRepoFile('web/data/authors.json'),
   ]);
   const categories = JSON.parse(categoriesRaw) as CategoryRecord[];
   const existingTags = JSON.parse(tagsRaw) as TagRecord[];

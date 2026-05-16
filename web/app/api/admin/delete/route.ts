@@ -1,16 +1,13 @@
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
 import { NextResponse } from 'next/server';
 import { verifySession } from '@/lib/session';
 import { publishToGithub, type FileChange } from '@/lib/admin/github';
 import { isAllowedAdminOrigin } from '@/lib/admin/origin';
-import { getPost } from '@/lib/content';
+import type { PostFull } from '@/lib/content';
 import { extractLocalUploadPaths } from '@/lib/admin/uploads';
+import { readRepoFile, readRepoFileOrNull } from '@/lib/admin/repo-read';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
-
-const DATA_DIR = join(process.cwd(), 'data');
 
 interface DeletePayload {
   slug?: string;
@@ -42,12 +39,15 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: 'Slug is required.' }, { status: 400 });
   }
 
-  const [existing, indexRaw] = await Promise.all([
-    getPost(slug),
-    readFile(join(DATA_DIR, 'index.json'), 'utf8'),
+  // Read these from GitHub, not the local Vercel filesystem — see
+  // lib/admin/repo-read.ts for why disk reads are unsafe here.
+  const [existingRaw, indexRaw] = await Promise.all([
+    readRepoFileOrNull(`web/data/posts/${slug}.json`),
+    readRepoFile('web/data/index.json'),
   ]);
   const index = JSON.parse(indexRaw) as IndexEntry[];
   const indexHasSlug = index.some((e) => e.slug === slug);
+  const existing = existingRaw ? (JSON.parse(existingRaw) as PostFull) : null;
 
   // 404 only if BOTH the post JSON and the index entry are missing — there's
   // truly nothing to delete. If one exists without the other (orphan), the
