@@ -1,16 +1,13 @@
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
 import { verifySession } from '@/lib/session';
 import { buildPost, normalizeSlug } from '@/lib/admin/post-builder';
 import { publishToGithub, type FileChange } from '@/lib/admin/github';
 import type { FormattedPost } from '@/lib/admin/anthropic';
 import { isAllowedAdminOrigin } from '@/lib/admin/origin';
 import { rehostExternalImages } from '@/lib/admin/uploads';
+import { readRepoFile } from '@/lib/admin/repo-read';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
-
-const DATA_DIR = join(process.cwd(), 'data');
 
 interface PublishPayload {
   formatted?: FormattedPost;
@@ -63,11 +60,13 @@ export async function POST(req: Request) {
     return Response.json({ ok: false, error: 'Invalid publishedAt date.' }, { status: 400 });
   }
 
+  // Read these from GitHub, not the local Vercel filesystem — see
+  // lib/admin/repo-read.ts for why disk reads are unsafe here.
   const [categoriesRaw, tagsRaw, indexRaw, authorsRaw] = await Promise.all([
-    readFile(join(DATA_DIR, 'categories.json'), 'utf8'),
-    readFile(join(DATA_DIR, 'tags.json'), 'utf8'),
-    readFile(join(DATA_DIR, 'index.json'), 'utf8'),
-    readFile(join(DATA_DIR, 'authors.json'), 'utf8'),
+    readRepoFile('web/data/categories.json'),
+    readRepoFile('web/data/tags.json'),
+    readRepoFile('web/data/index.json'),
+    readRepoFile('web/data/authors.json'),
   ]);
   const categories = JSON.parse(categoriesRaw) as { slug: string; name: string }[];
   const existingTags = JSON.parse(tagsRaw) as { slug: string; name: string }[];
