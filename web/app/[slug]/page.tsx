@@ -4,11 +4,36 @@ import { ArticleHeader } from '@/components/ArticleHeader';
 import { ArticleBody } from '@/components/ArticleBody';
 import { PostCard } from '@/components/PostCard';
 import { NewsletterEmbed } from '@/components/NewsletterEmbed';
-import { getPost, getRelatedPosts, getRecentPosts } from '@/lib/content';
+import {
+  getPost,
+  getRelatedPosts,
+  getRecentPosts,
+  type PostFull,
+} from '@/lib/content';
+import { readRepoFileOrNull } from '@/lib/admin/repo-read';
 import { decodeEntities, htmlToText } from '@/lib/html';
 import { resolveImageSrc } from '@/lib/format';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://landonbuford.com';
+
+/**
+ * Resolves a post by slug with a GitHub fallback. The local filesystem holds
+ * everything that was in the repo at build time (the 7,400 imported posts +
+ * any post created before the current deploy). For freshly-published posts
+ * — committed to GitHub but not yet in a deployed build — the disk read
+ * returns null. Falling back to GitHub lets that slug render on first visit
+ * within seconds of publish instead of after the next ~60–120s rebuild.
+ *
+ * Once Vercel redeploys, the slug appears on disk and `getPost` hits first,
+ * so the GitHub fallback only fires for the brief window between publish
+ * and the deploy that includes it.
+ */
+async function resolvePost(slug: string): Promise<PostFull | null> {
+  const local = await getPost(slug);
+  if (local) return local;
+  const raw = await readRepoFileOrNull(`web/data/posts/${slug}.json`);
+  return raw ? (JSON.parse(raw) as PostFull) : null;
+}
 
 /**
  * Pre-build the most recent ~500 posts at build time. The remaining
@@ -23,7 +48,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props: PageProps<'/[slug]'>): Promise<Metadata> {
   const { slug } = await props.params;
-  const post = await getPost(slug);
+  const post = await resolvePost(slug);
   if (!post) return {};
   const title = decodeEntities(post.title);
   const description = htmlToText(post.excerpt).slice(0, 200);
@@ -52,7 +77,7 @@ export async function generateMetadata(props: PageProps<'/[slug]'>): Promise<Met
 
 export default async function ArticlePage(props: PageProps<'/[slug]'>) {
   const { slug } = await props.params;
-  const post = await getPost(slug);
+  const post = await resolvePost(slug);
   if (!post) notFound();
 
   const related = await getRelatedPosts(post, 4);
