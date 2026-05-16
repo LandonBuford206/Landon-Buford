@@ -1,8 +1,8 @@
 [
   {
     "slug": "test12",
-    "title": "test12",
-    "excerpt": "This is a test article published on LandonBuford.com as a formatting and publication system check.",
+    "title": "test1234",
+    "excerpt": "This is a test article published on LandonBuford.com as a formatting and publication system check. 1234",
     "publishedAt": "2026-05-16T16:32:00.000Z",
     "author": {
       "slug": "landon-buford",
