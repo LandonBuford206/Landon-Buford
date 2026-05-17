@@ -1,5 +1,21 @@
 [
   {
+    "slug": "voices-of-your-family-stories-matter",
+    "title": "Voices of Your Family: Why Stories Matter More Than Photos",
+    "excerpt": "In an era where families upload millions of photos every hour, the stories, voices, and context behind those images are disappearing faster than ever — and the families who start preserving them early almost always wish they had begun sooner.",
+    "publishedAt": "2026-05-17T22:12:00.000Z",
+    "author": {
+      "slug": "landon-buford",
+      "displayName": "Landon Buford"
+    },
+    "primaryCategory": {
+      "slug": "general",
+      "name": "General"
+    },
+    "heroImage": null,
+    "readingTimeMin": 3
+  },
+  {
     "slug": "the-voices-we-lose-why-families-preserve-stories-not-just-photos",
     "title": "The Voices We Lose: Why Families Are Starting to Preserve Stories Instead of Just Photos",
     "excerpt": "Photos survive but the stories behind them often do not. A growing number of families are turning to voice recordings and private platforms to preserve the personalities, memories, and meaning that traditional photo libraries leave behind.",
