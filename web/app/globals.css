@@ -76,6 +76,11 @@ body {
   font-family: var(--font-serif);
 }
 
+/* Admin formatter emits literal smart quotes inside <blockquote><p>; suppress the typography plugin's auto-added pair to avoid visual doubling. */
+.prose blockquote {
+  quotes: none;
+}
+
 .prose a {
   text-decoration: none;
   border-bottom: 1px solid var(--color-line-strong);
