@@ -11,6 +11,7 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { cache } from 'react';
+import { readRepoFileOrNull } from './admin/repo-read';
 
 const DATA_DIR = join(process.cwd(), 'data');
 
@@ -68,6 +69,24 @@ const loadIndex = cache(async (): Promise<PostListEntry[]> => {
   return JSON.parse(raw) as PostListEntry[];
 });
 
+// Prefer GitHub over local disk for runtime listing reads. The deployed
+// build's disk lags the latest commit by ~60-120s while Vercel rebuilds,
+// so a freshly-published post is in GitHub before it's on disk. Mirrors
+// the resolvePost fallback in app/[slug]/page.tsx. Disk fallback keeps
+// local dev working without GITHUB_TOKEN, and covers GitHub failures.
+const loadIndexFresh = cache(async (): Promise<PostListEntry[]> => {
+  if (process.env.GITHUB_TOKEN && process.env.GITHUB_REPO) {
+    try {
+      const raw = await readRepoFileOrNull('web/data/index.json');
+      if (raw) return JSON.parse(raw) as PostListEntry[];
+    } catch {
+      // fall through to disk
+    }
+  }
+  const raw = await readFile(join(DATA_DIR, 'index.json'), 'utf8');
+  return JSON.parse(raw) as PostListEntry[];
+});
+
 const loadCategories = cache(async (): Promise<CategoryRecord[]> => {
   const raw = await readFile(join(DATA_DIR, 'categories.json'), 'utf8');
   return JSON.parse(raw) as CategoryRecord[];
@@ -112,7 +131,7 @@ export interface PaginatedPosts {
 
 export async function listPosts(opts: ListPostsOptions = {}): Promise<PaginatedPosts> {
   const { categorySlug, tagSlug, authorSlug, page = 1, perPage = 24 } = opts;
-  const all = await loadIndex();
+  const all = await loadIndexFresh();
 
   let filtered = all;
   if (categorySlug) {
@@ -163,7 +182,7 @@ export async function getRecentPosts(limit = 12): Promise<PostListEntry[]> {
 export async function getCategoriesWithCounts(): Promise<
   (CategoryRecord & { count: number })[]
 > {
-  const [cats, all] = await Promise.all([loadCategories(), loadIndex()]);
+  const [cats, all] = await Promise.all([loadCategories(), loadIndexFresh()]);
   const counts = new Map<string, number>();
   for (const p of all) {
     const slug = p.primaryCategory?.slug;
@@ -221,7 +240,7 @@ export async function getHomepageFeed(): Promise<{
   secondary: PostListEntry[];
   byCategory: Map<string, HomepageCategoryBlock>;
 }> {
-  const all = await loadIndex();
+  const all = await loadIndexFresh();
   const cats = await getCategoriesWithCounts();
   const lead = all[0] ?? null;
   const secondary = all.slice(1, 9);

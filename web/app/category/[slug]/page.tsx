@@ -8,6 +8,11 @@ import { accentColor } from '@/lib/category-style';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://landonbuford.com';
 
+// ISR — same reasoning as app/page.tsx: pre-rendered HTML otherwise
+// never re-runs listPosts(), so freshly-published posts wouldn't appear
+// here even after Vercel redeploys.
+export const revalidate = 30;
+
 export async function generateStaticParams() {
   const cats = await getAllCategories();
   return cats.map((c) => ({ slug: c.slug }));

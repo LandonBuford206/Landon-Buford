@@ -5,6 +5,12 @@ import { AdSlot } from '@/components/AdSlot';
 import { getHomepageFeed, type HomepageCategoryBlock } from '@/lib/content';
 import { accentColor } from '@/lib/category-style';
 
+// ISR: regenerate at most every 30s so newly-published posts surface
+// without waiting for the next Vercel deploy. Paired with the GitHub
+// fallback in loadIndexFresh (lib/content.ts), new posts appear within
+// one revalidation window of being published via admin.
+export const revalidate = 30;
+
 export default async function HomePage() {
   const { lead, secondary, byCategory } = await getHomepageFeed();
 
