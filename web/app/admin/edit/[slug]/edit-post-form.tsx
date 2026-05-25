@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { PostFull } from '@/lib/content';
 import { ImageUploadWidget, type UploadInsertion } from '../../_components/image-upload-widget';
+import { LinkInsertButton } from '../../_components/link-insert-button';
 import { applyPreviewMap } from '@/lib/admin/preview-substitution';
 
 interface Category {
@@ -47,6 +48,7 @@ export function EditPostForm({
   const [busy, setBusy] = useState<null | 'save' | 'delete'>(null);
   const [error, setError] = useState<string | null>(null);
   const [savedAt, setSavedAt] = useState<string | null>(null);
+  const bodyRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     return () => {
@@ -209,16 +211,24 @@ export function EditPostForm({
 
         <ImageUploadWidget slug={post.slug} onInsert={handleInsertImage} />
 
-        <label className="block">
-          <span className="text-sm font-medium">Body (raw HTML)</span>
+        <div className="block">
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-medium">Body (raw HTML)</span>
+            <LinkInsertButton
+              textareaRef={bodyRef}
+              value={htmlContent}
+              onChange={setHtmlContent}
+            />
+          </div>
           <textarea
+            ref={bodyRef}
             value={htmlContent}
             onChange={(e) => setHtmlContent(e.target.value)}
             disabled={disabled}
             rows={22}
             className={`${inputClass} font-mono text-xs`}
           />
-        </label>
+        </div>
 
         {error && <p className="text-sm text-[var(--color-accent)]">{error}</p>}
         {savedAt && (

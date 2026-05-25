@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ImageUploadWidget, type UploadInsertion } from '../_components/image-upload-widget';
+import { LinkInsertButton } from '../_components/link-insert-button';
 import { applyPreviewMap } from '@/lib/admin/preview-substitution';
 
 interface Category {
@@ -50,6 +51,7 @@ export function NewPostEditor({
   const [stage, setStage] = useState<Stage>('idle');
   const [error, setError] = useState<string | null>(null);
   const [published, setPublished] = useState<PublishResult | null>(null);
+  const bodyRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     return () => {
@@ -330,10 +332,20 @@ export function NewPostEditor({
             <ImageUploadWidget slug={formatted.slug} onInsert={handleInsertImage} />
 
             <div className="rounded-lg border border-[var(--color-line)] bg-[var(--color-card)] p-4">
-              <label className="block text-xs font-medium uppercase tracking-wider text-[var(--color-ink-mute)]">
-                Body (raw HTML — edit before publishing)
-              </label>
+              <div className="flex items-center justify-between">
+                <label className="block text-xs font-medium uppercase tracking-wider text-[var(--color-ink-mute)]">
+                  Body (raw HTML — edit before publishing)
+                </label>
+                <LinkInsertButton
+                  textareaRef={bodyRef}
+                  value={formatted.htmlContent}
+                  onChange={(next) =>
+                    setFormatted({ ...formatted, htmlContent: next })
+                  }
+                />
+              </div>
               <textarea
+                ref={bodyRef}
                 value={formatted.htmlContent}
                 onChange={(e) =>
                   setFormatted({ ...formatted, htmlContent: e.target.value })
