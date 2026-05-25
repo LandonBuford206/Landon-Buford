@@ -19,7 +19,8 @@ const inter = Inter({
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://landonbuford.com';
-const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+const ADSENSE_CLIENT =
+  process.env.NEXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-5891753549050616';
 const GTAG_ID = process.env.NEXT_PUBLIC_GTAG_ID;
 
 export const metadata: Metadata = {
