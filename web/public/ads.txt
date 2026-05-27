@@ -1,8 +1,1 @@
-# ads.txt — replace pub-XXXXXXXXXXXXXXXX with the LandonBuford.com AdSense
-# publisher ID before going live. AdSense will reject ads on the domain
-# until this file exists at https://landonbuford.com/ads.txt with the
-# correct publisher ID.
-#
-# Format: <domain>, <publisher_id>, <relationship>, <cert_authority_id>
-#
-# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, pub-5891753549050616, DIRECT, f08c47fec0942fa0

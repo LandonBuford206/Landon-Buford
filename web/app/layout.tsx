@@ -39,6 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
+  other: {
+    'google-adsense-account': ADSENSE_CLIENT,
+  },
   alternates: {
     canonical: SITE_URL,
     types: { 'application/rss+xml': `${SITE_URL}/feed.xml` },
