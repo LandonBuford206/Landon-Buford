@@ -6,7 +6,11 @@ import { cleanWordPressHtml } from '@/lib/html';
 import { isAllowedAdminOrigin } from '@/lib/admin/origin';
 
 export const runtime = 'nodejs';
-export const maxDuration = 60;
+// Anthropic Sonnet 4.6 on a 50KB article with a ~20KB system prompt routinely
+// runs past 60s on cold starts; cap at the Pro-tier ceiling so the route can
+// finish and return JSON instead of being killed and surfacing Vercel's opaque
+// "An error occurred" page to the client.
+export const maxDuration = 300;
 
 const DATA_DIR = join(process.cwd(), 'data');
 const MAX_TAGS_IN_PROMPT = 500;
@@ -45,17 +49,21 @@ export async function POST(req: Request) {
     );
   }
 
-  const [categoriesRaw, tagsRaw] = await Promise.all([
-    readFile(join(DATA_DIR, 'categories.json'), 'utf8'),
-    readFile(join(DATA_DIR, 'tags.json'), 'utf8'),
-  ]);
-  const categories = JSON.parse(categoriesRaw) as { slug: string; name: string }[];
-  const tags = (JSON.parse(tagsRaw) as { slug: string; name: string }[]).slice(
-    0,
-    MAX_TAGS_IN_PROMPT
-  );
-
+  // Everything below this point is wrapped so any thrown error — disk read
+  // failures, JSON.parse SyntaxErrors, Anthropic SDK errors, sanitizer
+  // crashes — surfaces as a JSON error rather than Vercel's HTML/text crash
+  // page (which the client cannot JSON.parse).
   try {
+    const [categoriesRaw, tagsRaw] = await Promise.all([
+      readFile(join(DATA_DIR, 'categories.json'), 'utf8'),
+      readFile(join(DATA_DIR, 'tags.json'), 'utf8'),
+    ]);
+    const categories = JSON.parse(categoriesRaw) as { slug: string; name: string }[];
+    const tags = (JSON.parse(tagsRaw) as { slug: string; name: string }[]).slice(
+      0,
+      MAX_TAGS_IN_PROMPT
+    );
+
     const formatted = await formatPost({
       rawText,
       title: body.title?.trim() || undefined,

@@ -80,20 +80,26 @@ export async function formatPost(input: FormatPostInput): Promise<FormattedPost>
     `Optional title (empty means generate one): ${input.title ?? ''}\n\n` +
     `--- BEGIN RAW ARTICLE BODY ---\n${input.rawText}\n--- END RAW ARTICLE BODY ---`;
 
-  const response = await client.messages.create({
-    model: MODEL,
-    max_tokens: MAX_TOKENS,
-    system: [
-      {
-        type: 'text',
-        text: systemText,
-        cache_control: { type: 'ephemeral' },
-      },
-    ],
-    tools: [PUBLISH_POST_TOOL],
-    tool_choice: { type: 'tool', name: 'publish_post' },
-    messages: [{ role: 'user', content: userText }],
-  });
+  const response = await client.messages.create(
+    {
+      model: MODEL,
+      max_tokens: MAX_TOKENS,
+      system: [
+        {
+          type: 'text',
+          text: systemText,
+          cache_control: { type: 'ephemeral' },
+        },
+      ],
+      tools: [PUBLISH_POST_TOOL],
+      tool_choice: { type: 'tool', name: 'publish_post' },
+      messages: [{ role: 'user', content: userText }],
+    },
+    // Give Anthropic up to 270s, leaving ~30s headroom under the route's
+    // maxDuration=300 so a slow model call surfaces as a clean JSON error
+    // ("Request was aborted.") rather than a Vercel function timeout.
+    { timeout: 270_000 }
+  );
 
   const toolUse = response.content.find(
     (b): b is Anthropic.ToolUseBlock => b.type === 'tool_use' && b.name === 'publish_post'
