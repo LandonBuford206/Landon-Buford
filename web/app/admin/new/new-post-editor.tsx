@@ -33,6 +33,12 @@ interface PublishResult {
 
 type Stage = 'idle' | 'formatting' | 'preview' | 'publishing' | 'done';
 
+// Bound the format wait at 3 minutes so a hung Anthropic call surfaces as a
+// clean error in the UI instead of letting Chrome eventually kill the tab
+// (and lose the typed article). Set slightly below the route's 300s
+// maxDuration so the client gives up first.
+const FORMAT_TIMEOUT_MS = 180_000;
+
 export function NewPostEditor({
   categories,
   authors,
@@ -51,16 +57,34 @@ export function NewPostEditor({
   const [stage, setStage] = useState<Stage>('idle');
   const [error, setError] = useState<string | null>(null);
   const [published, setPublished] = useState<PublishResult | null>(null);
+  const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const bodyRef = useRef<HTMLTextAreaElement>(null);
+  const formatAbortRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
     return () => {
       for (const url of Object.values(previewMap)) {
         if (url.startsWith('blob:')) URL.revokeObjectURL(url);
       }
+      // Abort any in-flight format request on unmount so we don't leak it.
+      formatAbortRef.current?.abort();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Drive the "Formatting… Ns" counter. Reset whenever we leave the formatting
+  // stage so a successful return immediately clears the elapsed display.
+  useEffect(() => {
+    if (stage !== 'formatting') {
+      setElapsedSeconds(0);
+      return;
+    }
+    const startedAt = Date.now();
+    const tick = setInterval(() => {
+      setElapsedSeconds(Math.floor((Date.now() - startedAt) / 1000));
+    }, 1000);
+    return () => clearInterval(tick);
+  }, [stage]);
 
   function handleInsertImage(ins: UploadInsertion) {
     setFormatted((prev) =>
@@ -74,11 +98,17 @@ export function NewPostEditor({
   async function handleFormat() {
     setError(null);
     setStage('formatting');
+
+    const controller = new AbortController();
+    formatAbortRef.current = controller;
+    const timeoutId = setTimeout(() => controller.abort(), FORMAT_TIMEOUT_MS);
+
     try {
       const res = await fetch('/api/admin/format', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ rawText, title: seedTitle || undefined }),
+        signal: controller.signal,
       });
       const data = (await res.json()) as
         | { ok: true; formatted: FormattedPost }
@@ -91,8 +121,19 @@ export function NewPostEditor({
       setFormatted(data.formatted);
       setStage('preview');
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Format failed.');
+      if (err instanceof Error && err.name === 'AbortError') {
+        setError(
+          `Format took longer than ${FORMAT_TIMEOUT_MS / 1000} seconds. The article may be too long for the AI formatter — try splitting it in half and formatting each piece separately.`
+        );
+      } else {
+        setError(err instanceof Error ? err.message : 'Format failed.');
+      }
       setStage('idle');
+    } finally {
+      clearTimeout(timeoutId);
+      if (formatAbortRef.current === controller) {
+        formatAbortRef.current = null;
+      }
     }
   }
 
@@ -211,7 +252,7 @@ export function NewPostEditor({
             className="rounded-md bg-[var(--color-accent)] px-4 py-2 text-sm font-medium text-white transition hover:opacity-90 disabled:opacity-50"
           >
             {stage === 'formatting'
-              ? 'Formatting…'
+              ? `Formatting… ${elapsedSeconds}s`
               : formatted
                 ? 'Regenerate'
                 : 'Format with AI'}
