@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
 import { verifySession } from '@/lib/session';
 import { loadIndexFromRepo } from '@/lib/admin/admin-reads';
+import { AdminLoadError } from '../_components/load-error';
 import { DeleteButton } from './delete-button';
 
 export const dynamic = 'force-dynamic';
@@ -21,8 +22,15 @@ export default async function PostsPage(props: {
   const requestedPage = Math.max(1, Number(pageRaw) || 1);
 
   // Read from GitHub directly so admin reflects publishes/deletes within
-  // seconds rather than waiting for Vercel to redeploy.
-  const all = await loadIndexFromRepo();
+  // seconds rather than waiting for Vercel to redeploy. Catch read failures
+  // (e.g. an expired GITHUB_TOKEN) so the page shows the cause instead of
+  // crashing into Vercel's opaque "page could not load" 500.
+  let all;
+  try {
+    all = await loadIndexFromRepo();
+  } catch (err) {
+    return <AdminLoadError message={err instanceof Error ? err.message : String(err)} />;
+  }
   const totalPosts = all.length;
   const totalPages = Math.max(1, Math.ceil(totalPosts / PER_PAGE));
   const page = Math.max(1, Math.min(requestedPage, totalPages));

@@ -2,7 +2,9 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { notFound, redirect } from 'next/navigation';
 import { verifySession } from '@/lib/session';
+import type { PostFull } from '@/lib/content';
 import { loadPostFromRepo } from '@/lib/admin/admin-reads';
+import { AdminLoadError } from '../../_components/load-error';
 import { EditPostForm } from './edit-post-form';
 
 export const dynamic = 'force-dynamic';
@@ -23,17 +25,27 @@ export default async function EditPostPage(props: { params: Promise<{ slug: stri
 
   const { slug } = await props.params;
   // Read from GitHub directly so the edit page sees freshly-published posts
-  // before Vercel has redeployed.
-  const post = await loadPostFromRepo(slug);
-  if (!post) notFound();
+  // before Vercel has redeployed. Catch read failures (e.g. an expired
+  // GITHUB_TOKEN) so the page surfaces the cause instead of crashing into
+  // Vercel's opaque "page could not load" 500. notFound() stays outside the
+  // try — it throws a Next.js control signal that must not be swallowed.
+  let post: PostFull | null = null;
+  let categories: CategoryRecord[];
+  let authors: AuthorRecord[];
+  try {
+    post = await loadPostFromRepo(slug);
+    const dataDir = join(process.cwd(), 'data');
+    const [categoriesRaw, authorsRaw] = await Promise.all([
+      readFile(join(dataDir, 'categories.json'), 'utf8'),
+      readFile(join(dataDir, 'authors.json'), 'utf8'),
+    ]);
+    categories = JSON.parse(categoriesRaw) as CategoryRecord[];
+    authors = JSON.parse(authorsRaw) as AuthorRecord[];
+  } catch (err) {
+    return <AdminLoadError message={err instanceof Error ? err.message : String(err)} />;
+  }
 
-  const dataDir = join(process.cwd(), 'data');
-  const [categoriesRaw, authorsRaw] = await Promise.all([
-    readFile(join(dataDir, 'categories.json'), 'utf8'),
-    readFile(join(dataDir, 'authors.json'), 'utf8'),
-  ]);
-  const categories = JSON.parse(categoriesRaw) as CategoryRecord[];
-  const authors = JSON.parse(authorsRaw) as AuthorRecord[];
+  if (!post) notFound();
 
   return (
     <div className="mx-auto max-w-[var(--container-page)] px-4 py-10 sm:px-6 lg:px-8">

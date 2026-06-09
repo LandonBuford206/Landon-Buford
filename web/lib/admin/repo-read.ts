@@ -31,13 +31,31 @@ export async function readRepoFile(path: string): Promise<string> {
   const { owner, repo } = parseRepo(repoSpec);
   const octokit = new Octokit({ auth: token });
 
-  const res = await octokit.rest.repos.getContent({
-    owner,
-    repo,
-    path,
-    ref: branch,
-    mediaType: { format: 'raw' },
-  });
+  let res;
+  try {
+    res = await octokit.rest.repos.getContent({
+      owner,
+      repo,
+      path,
+      ref: branch,
+      mediaType: { format: 'raw' },
+    });
+  } catch (err: unknown) {
+    const status = (err as { status?: number }).status;
+    // Surface auth/repo failures with the same friendly wording the write
+    // path uses (lib/admin/github.ts), so an expired/revoked GITHUB_TOKEN
+    // reads as a clear message instead of an opaque crash. 404s pass through
+    // untouched so readRepoFileOrNull can still detect "file not present".
+    if (status === 401 || status === 403) {
+      const e = new Error(
+        `GitHub ${status} reading ${path} from ${owner}/${repo}@${branch}. ` +
+          `GITHUB_TOKEN is missing, expired, revoked, or lacks access to this repo.`
+      );
+      (e as { status?: number }).status = status;
+      throw e;
+    }
+    throw err;
+  }
   // With mediaType raw, the SDK returns the raw text as `data` (string),
   // but its type signature still claims the structured object. Coerce.
   return typeof res.data === 'string' ? res.data : JSON.stringify(res.data);
