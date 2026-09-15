@@ -19,8 +19,9 @@ const inter = Inter({
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://landonbuford.com';
-const ADSENSE_CLIENT =
-  process.env.NEXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-5891753549050616';
+// AdSense loads only when a publisher ID is configured (the account is
+// currently suspended, so production leaves this unset).
+const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
 const GTAG_ID = process.env.NEXT_PUBLIC_GTAG_ID;
 
 export const metadata: Metadata = {
@@ -39,9 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
-  other: {
-    'google-adsense-account': ADSENSE_CLIENT,
-  },
+  ...(ADSENSE_CLIENT ? { other: { 'google-adsense-account': ADSENSE_CLIENT } } : {}),
   alternates: {
     canonical: SITE_URL,
     types: { 'application/rss+xml': `${SITE_URL}/feed.xml` },
