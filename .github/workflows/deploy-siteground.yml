@@ -86,12 +86,24 @@ jobs:
           $SSH "$SSH_USER@$SSH_HOST" 'echo connected as $(whoami)'
           # SiteGround's /home/<user> is a symlink to /home/customer and the
           # receiving rsync resolves it before creating directories, which
-          # fails. A path relative to the login home avoids that entirely.
-          REL=${WEBROOT#/home/*/}
-          test "$REL" != "$WEBROOT"
+          # fails. Ask the server for the canonical path and send there.
+          TARGET=$($SSH "$SSH_USER@$SSH_HOST" "readlink -f '$WEBROOT'")
+          test -n "$TARGET"
           # .well-known holds SiteGround's SSL challenges. contact-config.php
           # sits above public_html, so --delete never reaches it.
           rsync -az --delete \
             --exclude '.well-known' \
             -e "$SSH" \
             out/ "$SSH_USER@$SSH_HOST:$REL/"
+
+      - name: Flush SiteGround cache
+        env:
+          SSH_HOST: ${{ secrets.SITEGROUND_SSH_HOST }}
+          SSH_USER: ${{ secrets.SITEGROUND_SSH_USER }}
+        run: |
+          # SiteGround's proxy caches page bodies by URL, so a fresh deploy
+          # stays invisible until the cache is flushed. flush_cache takes a
+          # 1-byte boolean ("1", not "true"); id=1 is the account's main domain.
+          ssh -i "$HOME/.ssh/siteground" -p "$SSH_PORT" -o BatchMode=yes \
+            "$SSH_USER@$SSH_HOST" \
+            'site-tools-client -j domain update id=1 flush_cache=1'
