@@ -1,0 +1,104 @@
+# Builds the Next.js app and ships the standalone server to SiteGround.
+#
+# The admin CMS publishes by committing to main, so every publish/edit/delete
+# lands here. Building happens on GitHub's runners (the 7,500-post build needs
+# ~4 GB of heap, more than shared hosting allows); SiteGround only runs server.js.
+#
+# Disabled until the repo variable SITEGROUND_DEPLOY_ENABLED is set to "true".
+#
+# Required secrets:
+#   SITEGROUND_SSH_KEY      private key from Site Tools > Devs > SSH Keys Manager
+#   SITEGROUND_SSH_HOST     SSH hostname from the same screen
+#   SITEGROUND_SSH_USER     SSH username from the same screen
+#   SITEGROUND_APP_PATH     absolute path of the Node.js app directory
+#   SITEGROUND_RESTART_CMD  shell command that restarts the Node.js app
+#   NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_GTAG_ID, NEXT_PUBLIC_NEWSLETTER_ENDPOINT,
+#   NEXT_PUBLIC_ADSENSE_CLIENT, NEXT_PUBLIC_ADSENSE_SLOT_INARTICLE,
+#   NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END, NEXT_PUBLIC_ADSENSE_SLOT_LISTING,
+#   NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR
+
+name: Deploy to SiteGround
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Each deploy contains every earlier commit, so a newer push supersedes an
+# in-flight one.
+concurrency:
+  group: deploy-siteground
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: vars.SITEGROUND_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: web
+    env:
+      SSH_PORT: '18765'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_GTAG_ID: ${{ secrets.NEXT_PUBLIC_GTAG_ID }}
+          NEXT_PUBLIC_NEWSLETTER_ENDPOINT: ${{ secrets.NEXT_PUBLIC_NEWSLETTER_ENDPOINT }}
+          NEXT_PUBLIC_ADSENSE_CLIENT: ${{ secrets.NEXT_PUBLIC_ADSENSE_CLIENT }}
+          NEXT_PUBLIC_ADSENSE_SLOT_INARTICLE: ${{ secrets.NEXT_PUBLIC_ADSENSE_SLOT_INARTICLE }}
+          NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END: ${{ secrets.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END }}
+          NEXT_PUBLIC_ADSENSE_SLOT_LISTING: ${{ secrets.NEXT_PUBLIC_ADSENSE_SLOT_LISTING }}
+          NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR: ${{ secrets.NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR }}
+
+      - name: Assemble standalone bundle
+        run: |
+          cp -r public .next/standalone/
+          cp -r .next/static .next/standalone/.next/
+          # data/ (read from process.cwd()/data at runtime) is already copied
+          # in by outputFileTracingIncludes in next.config.ts.
+          test -f .next/standalone/data/index.json
+
+      - name: Configure SSH
+        env:
+          SSH_KEY: ${{ secrets.SITEGROUND_SSH_KEY }}
+          SSH_HOST: ${{ secrets.SITEGROUND_SSH_HOST }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/siteground
+          chmod 600 ~/.ssh/siteground
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+
+      - name: Upload
+        env:
+          SSH_HOST: ${{ secrets.SITEGROUND_SSH_HOST }}
+          SSH_USER: ${{ secrets.SITEGROUND_SSH_USER }}
+          APP_PATH: ${{ secrets.SITEGROUND_APP_PATH }}
+        run: |
+          # .env holds server-only secrets on the host; .next/cache holds
+          # pages rendered on demand. Neither is part of the build output.
+          rsync -az --delete \
+            --exclude '.env' \
+            --exclude '.next/cache' \
+            -e "ssh -i ~/.ssh/siteground -p $SSH_PORT" \
+            .next/standalone/ "$SSH_USER@$SSH_HOST:$APP_PATH/"
+
+      - name: Restart app
+        env:
+          SSH_HOST: ${{ secrets.SITEGROUND_SSH_HOST }}
+          SSH_USER: ${{ secrets.SITEGROUND_SSH_USER }}
+          RESTART_CMD: ${{ secrets.SITEGROUND_RESTART_CMD }}
+        run: ssh -i ~/.ssh/siteground -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "$RESTART_CMD"
