@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import type { PostFull } from '@/lib/content';
 import { formatDate, resolveImageSrc } from '@/lib/format';
 import { decodeEntities } from '@/lib/html';
@@ -17,16 +16,16 @@ export function ArticleHeader({ post }: ArticleHeaderProps) {
   return (
     <header className="mx-auto w-full max-w-[var(--container-page)] px-4 pt-8 sm:px-6 sm:pt-12 lg:px-8">
       <nav className="mb-6 flex flex-wrap items-center gap-1.5 text-xs text-[var(--color-ink-mute)]">
-        <Link href="/" className="hover:text-[var(--color-ink)]">Home</Link>
+        <a href="/" className="hover:text-[var(--color-ink)]">Home</a>
         {cat && (
           <>
             <span aria-hidden>›</span>
-            <Link
+            <a
               href={`/category/${cat.slug}`}
               className="hover:text-[var(--color-ink)]"
             >
               {cat.name}
-            </Link>
+            </a>
           </>
         )}
       </nav>
@@ -49,12 +48,12 @@ export function ArticleHeader({ post }: ArticleHeaderProps) {
           </p>
         )}
         <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-[var(--color-ink-mute)]">
-          <Link
+          <a
             href={`/author/${post.author.slug}`}
             className="font-medium text-[var(--color-ink)] hover:text-[var(--color-accent)]"
           >
             {post.author.displayName}
-          </Link>
+          </a>
           <span aria-hidden>·</span>
           <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
           <span aria-hidden>·</span>

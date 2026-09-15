@@ -1,0 +1,86 @@
+# Builds the public site as static files and uploads them to SiteGround.
+#
+# The admin CMS (on Vercel) publishes by committing to main, so every
+# publish/edit/delete lands here and goes live once this job finishes.
+#
+# Disabled until the repo variable SITEGROUND_DEPLOY_ENABLED is set to "true".
+#
+# Required secrets:
+#   SITEGROUND_SSH_KEY    private key from Site Tools > Devs > SSH Keys Manager
+#   SITEGROUND_SSH_HOST   SSH hostname from the same screen
+#   SITEGROUND_SSH_USER   SSH username from the same screen
+#   SITEGROUND_WEBROOT    absolute path of the site's public_html
+#   NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_GTAG_ID, NEXT_PUBLIC_NEWSLETTER_ENDPOINT,
+#   NEXT_PUBLIC_ADSENSE_CLIENT, NEXT_PUBLIC_ADSENSE_SLOT_INARTICLE,
+#   NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END, NEXT_PUBLIC_ADSENSE_SLOT_LISTING,
+#   NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR
+
+name: Deploy to SiteGround
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Each deploy contains every earlier commit, so a newer push supersedes an
+# in-flight one.
+concurrency:
+  group: deploy-siteground
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: vars.SITEGROUND_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: web
+    env:
+      SSH_PORT: '18765'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - run: npm ci
+
+      - name: Build static site
+        run: node scripts/build-static.mjs
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_GTAG_ID: ${{ secrets.NEXT_PUBLIC_GTAG_ID }}
+          NEXT_PUBLIC_NEWSLETTER_ENDPOINT: ${{ secrets.NEXT_PUBLIC_NEWSLETTER_ENDPOINT }}
+          NEXT_PUBLIC_ADSENSE_CLIENT: ${{ secrets.NEXT_PUBLIC_ADSENSE_CLIENT }}
+          NEXT_PUBLIC_ADSENSE_SLOT_INARTICLE: ${{ secrets.NEXT_PUBLIC_ADSENSE_SLOT_INARTICLE }}
+          NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END: ${{ secrets.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END }}
+          NEXT_PUBLIC_ADSENSE_SLOT_LISTING: ${{ secrets.NEXT_PUBLIC_ADSENSE_SLOT_LISTING }}
+          NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR: ${{ secrets.NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR }}
+
+      - name: Configure SSH
+        env:
+          SSH_KEY: ${{ secrets.SITEGROUND_SSH_KEY }}
+          SSH_HOST: ${{ secrets.SITEGROUND_SSH_HOST }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/siteground
+          chmod 600 ~/.ssh/siteground
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+
+      - name: Upload
+        env:
+          SSH_HOST: ${{ secrets.SITEGROUND_SSH_HOST }}
+          SSH_USER: ${{ secrets.SITEGROUND_SSH_USER }}
+          WEBROOT: ${{ secrets.SITEGROUND_WEBROOT }}
+        run: |
+          # .well-known holds SiteGround's SSL challenges. contact-config.php
+          # sits above public_html, so --delete never reaches it.
+          rsync -az --delete \
+            --exclude '.well-known' \
+            -e "ssh -i ~/.ssh/siteground -p $SSH_PORT" \
+            out/ "$SSH_USER@$SSH_HOST:$WEBROOT/"

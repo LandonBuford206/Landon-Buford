@@ -4,6 +4,9 @@ export const alt = 'LandonBuford.com — Where Sports and Business Intersect';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
+// Rendered once into a static file, so it works on the SiteGround export.
+export const dynamic = 'force-static';
+
 export default function HomepageOG() {
   const bg = '#14161a';
   const ink = '#faf9f6';

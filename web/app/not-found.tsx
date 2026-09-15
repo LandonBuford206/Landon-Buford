@@ -1,4 +1,3 @@
-import Link from 'next/link';
 
 export default function NotFound() {
   return (
@@ -14,18 +13,18 @@ export default function NotFound() {
         Try searching the archive instead.
       </p>
       <div className="mt-8 flex gap-3">
-        <Link
+        <a
           href="/"
           className="rounded-md bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-ink)] hover:opacity-90"
         >
           Go home
-        </Link>
-        <Link
+        </a>
+        <a
           href="/search"
           className="rounded-md border border-[var(--color-line-strong)] px-5 py-3 text-sm font-semibold uppercase tracking-wider text-[var(--color-ink)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
         >
           Search
-        </Link>
+        </a>
       </div>
     </div>
   );

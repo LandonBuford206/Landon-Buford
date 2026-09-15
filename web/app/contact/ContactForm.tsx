@@ -25,7 +25,8 @@ export function ContactForm() {
     setErrorMessage('');
 
     try {
-      const res = await fetch('/api/contact', {
+      // Handled by public/contact.php on SiteGround.
+      const res = await fetch('/contact.php', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(payload),

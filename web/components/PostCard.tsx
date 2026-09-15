@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import type { PostListEntry } from '@/lib/content';
 import { formatDate, resolveImageSrc } from '@/lib/format';
 import { decodeEntities } from '@/lib/html';
@@ -49,7 +48,7 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
   if (variant === 'lead') {
     return (
       <article className="group">
-        <Link href={href} className="block">
+        <a href={href} className="block">
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md bg-[var(--color-line)]">
             {imgSrc ? (
               // eslint-disable-next-line @next/next/no-img-element
@@ -75,7 +74,7 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
             )}
             <Meta post={post} />
           </div>
-        </Link>
+        </a>
       </article>
     );
   }
@@ -83,7 +82,7 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
   if (variant === 'feature-large') {
     return (
       <article className="group">
-        <Link href={href} className="block">
+        <a href={href} className="block">
           <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md bg-[var(--color-line)]">
             {imgSrc ? (
               // eslint-disable-next-line @next/next/no-img-element
@@ -109,7 +108,7 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
             )}
             <Meta post={post} compact />
           </div>
-        </Link>
+        </a>
       </article>
     );
   }
@@ -117,13 +116,13 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
   if (variant === 'headline') {
     return (
       <article className="group border-t border-[var(--color-line)] py-3.5 first:border-t-0 first:pt-0">
-        <Link href={href} className="block">
+        <a href={href} className="block">
           {cat && <CategoryBadge cat={cat} size="xs" />}
           <h4 className="mt-1 font-serif text-base leading-snug tracking-tight transition group-hover:text-[var(--color-accent)] md:text-lg">
             {title}
           </h4>
           <Meta post={post} compact />
-        </Link>
+        </a>
       </article>
     );
   }
@@ -131,7 +130,7 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
   if (variant === 'feature') {
     return (
       <article className="group">
-        <Link href={href} className="block">
+        <a href={href} className="block">
           <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md bg-[var(--color-line)]">
             {imgSrc ? (
               // eslint-disable-next-line @next/next/no-img-element
@@ -152,7 +151,7 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
             </h3>
             <Meta post={post} compact />
           </div>
-        </Link>
+        </a>
       </article>
     );
   }
@@ -160,7 +159,7 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
   if (variant === 'compact') {
     return (
       <article className="group flex gap-4">
-        <Link href={href} className="flex flex-1 items-start gap-4">
+        <a href={href} className="flex flex-1 items-start gap-4">
           <div className="relative aspect-square w-20 shrink-0 overflow-hidden rounded-sm bg-[var(--color-line)] sm:w-24">
             {imgSrc ? (
               // eslint-disable-next-line @next/next/no-img-element
@@ -176,7 +175,7 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
             </h4>
             <Meta post={post} compact />
           </div>
-        </Link>
+        </a>
       </article>
     );
   }
@@ -184,7 +183,7 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
   // 'card' (default)
   return (
     <article className="group">
-      <Link href={href} className="block">
+      <a href={href} className="block">
         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-md bg-[var(--color-line)]">
           {imgSrc ? (
             // eslint-disable-next-line @next/next/no-img-element
@@ -205,7 +204,7 @@ export function PostCard({ post, variant = 'card', priority = false }: PostCardP
           </h3>
           <Meta post={post} compact />
         </div>
-      </Link>
+      </a>
     </article>
   );
 }

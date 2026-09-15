@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { getCategoriesWithCounts } from '@/lib/content';
 import { NewsletterEmbed } from './NewsletterEmbed';
 
@@ -11,10 +10,10 @@ export async function SiteFooter() {
       <div className="mx-auto w-full max-w-[var(--container-page)] px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr]">
           <div>
-            <Link href="/" className="font-serif text-2xl tracking-tight">
+            <a href="/" className="font-serif text-2xl tracking-tight">
               Landon<span className="text-[var(--color-accent)]">Buford</span>
               <span className="text-[var(--color-ink-mute)]">.com</span>
-            </Link>
+            </a>
             <p className="mt-4 max-w-md text-sm text-[var(--color-line)]">
               Where sports and business intersect. Coverage of the WNBA, athlete
               entrepreneurship, the business of sport, and the people building it.
@@ -27,12 +26,12 @@ export async function SiteFooter() {
             <ul className="mt-5 space-y-3 text-sm">
               {cats.slice(0, 8).map((c) => (
                 <li key={c.slug}>
-                  <Link
+                  <a
                     href={`/category/${c.slug}`}
                     className="text-[var(--color-line)] transition hover:text-[var(--color-paper)]"
                   >
                     {c.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -43,24 +42,24 @@ export async function SiteFooter() {
             </h4>
             <ul className="mt-5 space-y-3 text-sm">
               <li>
-                <Link href="/feed.xml" className="text-[var(--color-line)] hover:text-[var(--color-paper)]">
+                <a href="/feed.xml" className="text-[var(--color-line)] hover:text-[var(--color-paper)]">
                   RSS Feed
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/search" className="text-[var(--color-line)] hover:text-[var(--color-paper)]">
+                <a href="/search" className="text-[var(--color-line)] hover:text-[var(--color-paper)]">
                   Search the archive
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/sitemap.xml" className="text-[var(--color-line)] hover:text-[var(--color-paper)]">
+                <a href="/sitemap.xml" className="text-[var(--color-line)] hover:text-[var(--color-paper)]">
                   Sitemap
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/contact" className="text-[var(--color-line)] hover:text-[var(--color-paper)]">
+                <a href="/contact" className="text-[var(--color-line)] hover:text-[var(--color-paper)]">
                   Contact
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

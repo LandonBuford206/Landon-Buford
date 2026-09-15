@@ -1,15 +1,8 @@
-import Link from 'next/link';
 import { PostCard } from '@/components/PostCard';
 import { NewsletterEmbed } from '@/components/NewsletterEmbed';
 import { AdSlot } from '@/components/AdSlot';
 import { getHomepageFeed, type HomepageCategoryBlock } from '@/lib/content';
 import { accentColor } from '@/lib/category-style';
-
-// ISR: regenerate at most every 30s so newly-published posts surface
-// without waiting for the next Vercel deploy. Paired with the GitHub
-// fallback in loadIndexFresh (lib/content.ts), new posts appear within
-// one revalidation window of being published via admin.
-export const revalidate = 30;
 
 export default async function HomePage() {
   const { lead, secondary, byCategory } = await getHomepageFeed();
@@ -172,12 +165,12 @@ function SectionHead({
         <h2 className="font-serif text-3xl tracking-tight md:text-4xl">{title}</h2>
       </div>
       {href && cta && (
-        <Link
+        <a
           href={href}
           className="text-sm font-medium text-[var(--color-ink-soft)] transition hover:text-[var(--color-accent)]"
         >
           {cta} →
-        </Link>
+        </a>
       )}
     </div>
   );

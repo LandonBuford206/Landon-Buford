@@ -3,6 +3,9 @@ import { decodeEntities, htmlToText } from '@/lib/html';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://landonbuford.com';
 
+// Rendered once into a static file, so it works on the SiteGround export.
+export const dynamic = 'force-static';
+
 export async function GET() {
   const recent = await getRecentPosts(50);
 

@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 interface IndexEntry {
@@ -23,7 +22,7 @@ export function SearchClient() {
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch('/api/search-index');
+        const res = await fetch('/search-index.json');
         if (!res.ok) throw new Error(`status ${res.status}`);
         const data = (await res.json()) as IndexEntry[];
         if (!cancelled) setIndex(data);
@@ -105,12 +104,12 @@ export function SearchClient() {
                 {entry.c}
               </span>
             )}
-            <Link
+            <a
               href={`/${entry.s}`}
               className="mt-1 block font-serif text-xl tracking-tight hover:text-[var(--color-accent)]"
             >
               {entry.t}
-            </Link>
+            </a>
             <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{entry.e}</p>
             <div className="mt-2 text-xs text-[var(--color-ink-mute)]">
               {entry.a} · {new Date(entry.d).toUTCString().slice(5, 16)}

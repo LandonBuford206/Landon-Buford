@@ -12,8 +12,8 @@ interface AdSlotProps {
 
 /**
  * AdSense slot. Renders the <ins> tag and pushes to adsbygoogle on mount.
- * If NEXT_PUBLIC_ADSENSE_CLIENT is not set, renders a labeled placeholder
- * (useful in development and during pre-launch review).
+ * If NEXT_PUBLIC_ADSENSE_CLIENT is not set (AdSense is currently off),
+ * renders nothing in production and a labeled placeholder in development.
  *
  * This is the single point of change if Landon ever moves off AdSense
  * (e.g. to Mediavine / Raptive). Only this file gets touched.
@@ -37,6 +37,7 @@ export function AdSlot({ placement, slotId }: AdSlotProps) {
   const minHeight = minHeightFor(placement);
 
   if (!client) {
+    if (process.env.NODE_ENV !== 'development') return null;
     return (
       <div
         className="flex w-full items-center justify-center rounded border border-dashed border-[var(--color-line-strong)] bg-[var(--color-paper)] text-xs uppercase tracking-widest text-[var(--color-ink-mute)]"

@@ -3,6 +3,9 @@ import { getAllAuthors, getAllCategories, getRecentPosts } from '@/lib/content';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://landonbuford.com';
 
+// Rendered once into a static file, so it works on the SiteGround export.
+export const dynamic = 'force-static';
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // for very large sitemaps, Next.js supports splitting via generateSitemaps;
   // 7,500 entries fit comfortably in a single sitemap file (50,000 max per sitemap.org)

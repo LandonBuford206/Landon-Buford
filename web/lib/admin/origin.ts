@@ -1,24 +1,30 @@
 /**
  * Origin allowlist for admin POST endpoints.
- * Accepts the configured SITE_URL plus its www / apex sibling and localhost.
+ * Accepts the public site URL and the admin URL (each with its www / apex
+ * sibling) plus localhost.
  */
 export function isAllowedAdminOrigin(req: Request): boolean {
   const origin = req.headers.get('origin');
   if (!origin) return true;
   if (origin.startsWith('http://localhost')) return true;
 
-  const configured = (process.env.NEXT_PUBLIC_SITE_URL || '').replace(/\/$/, '');
-  if (!configured) return false;
-
+  let got: URL;
   try {
-    const expected = new URL(configured);
-    const got = new URL(origin);
-    if (got.protocol !== expected.protocol) return false;
-
-    const expectedHost = expected.host.replace(/^www\./, '');
-    const gotHost = got.host.replace(/^www\./, '');
-    return expectedHost === gotHost;
+    got = new URL(origin);
   } catch {
     return false;
   }
+  const gotHost = got.host.replace(/^www\./, '');
+
+  return [process.env.NEXT_PUBLIC_SITE_URL, process.env.ADMIN_URL].some((configured) => {
+    if (!configured) return false;
+    try {
+      const expected = new URL(configured);
+      return (
+        got.protocol === expected.protocol && gotHost === expected.host.replace(/^www\./, '')
+      );
+    } catch {
+      return false;
+    }
+  });
 }

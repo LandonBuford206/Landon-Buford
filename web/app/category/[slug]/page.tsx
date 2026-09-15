@@ -1,86 +1,16 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { PostCard } from '@/components/PostCard';
-import { PaginationNav } from '@/components/PaginationNav';
-import { AdSlot } from '@/components/AdSlot';
-import { getAllCategories, getCategory, listPosts } from '@/lib/content';
-import { accentColor } from '@/lib/category-style';
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://landonbuford.com';
-
-// ISR — same reasoning as app/page.tsx: pre-rendered HTML otherwise
-// never re-runs listPosts(), so freshly-published posts wouldn't appear
-// here even after Vercel redeploys.
-export const revalidate = 30;
+import { ListingPage, firstPageParams, listingMetadata } from '@/components/ListingPage';
 
 export async function generateStaticParams() {
-  const cats = await getAllCategories();
-  return cats.map((c) => ({ slug: c.slug }));
+  return firstPageParams('category');
 }
 
 export async function generateMetadata(props: PageProps<'/category/[slug]'>): Promise<Metadata> {
   const { slug } = await props.params;
-  const cat = await getCategory(slug);
-  if (!cat) return {};
-  return {
-    title: cat.name,
-    description: `Latest stories in ${cat.name} from LandonBuford.com.`,
-    alternates: { canonical: `${SITE_URL}/category/${cat.slug}` },
-  };
+  return listingMetadata('category', slug);
 }
 
 export default async function CategoryPage(props: PageProps<'/category/[slug]'>) {
   const { slug } = await props.params;
-  const sp = await props.searchParams;
-  const page = parseInt((sp?.page as string) || '1', 10);
-
-  const cat = await getCategory(slug);
-  if (!cat) notFound();
-
-  const { posts, totalPages, totalPosts } = await listPosts({
-    categorySlug: slug,
-    page,
-  });
-
-  if (posts.length === 0 && page === 1) notFound();
-
-  return (
-    <div className="mx-auto w-full max-w-[var(--container-page)] px-4 pt-12 sm:px-6 lg:px-8">
-      <header className="mb-10 border-b border-[var(--color-line)] pb-6">
-        <div className="flex items-center gap-3">
-          <span
-            aria-hidden
-            className="block h-9 w-[3px] md:h-12"
-            style={{ backgroundColor: accentColor(cat.slug) }}
-          />
-          <div>
-            <span
-              className="text-xs font-semibold uppercase tracking-[0.16em]"
-              style={{ color: accentColor(cat.slug) }}
-            >
-              Category
-            </span>
-            <h1 className="mt-1 font-serif text-4xl tracking-tight md:text-5xl">{cat.name}</h1>
-          </div>
-        </div>
-        <p className="mt-3 text-sm text-[var(--color-ink-mute)]">
-          {totalPosts} {totalPosts === 1 ? 'story' : 'stories'}
-        </p>
-      </header>
-
-      <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
-        {posts.map((p, i) => (
-          <PostCard key={p.slug} post={p} variant="card" priority={i < 3} />
-        ))}
-      </div>
-
-      {posts.length >= 6 && (
-        <div className="my-16">
-          <AdSlot placement="listing-mid" />
-        </div>
-      )}
-
-      <PaginationNav baseHref={`/category/${slug}`} page={page} totalPages={totalPages} />
-    </div>
-  );
+  return <ListingPage kind="category" slug={slug} />;
 }
