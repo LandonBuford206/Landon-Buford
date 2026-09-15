@@ -76,7 +76,6 @@ jobs:
         env:
           SSH_HOST: ${{ secrets.SITEGROUND_SSH_HOST }}
           SSH_USER: ${{ secrets.SITEGROUND_SSH_USER }}
-          WEBROOT: ${{ secrets.SITEGROUND_WEBROOT }}
         run: |
           set -x
           # $HOME, not ~: a tilde inside a variable is never expanded, so ssh
@@ -84,10 +83,12 @@ jobs:
           SSH="ssh -i $HOME/.ssh/siteground -p $SSH_PORT -o BatchMode=yes"
           # Fail here, loudly, if the key or host is wrong.
           $SSH "$SSH_USER@$SSH_HOST" 'echo connected as $(whoami)'
-          # SiteGround's /home/<user> is a symlink to /home/customer and the
-          # receiving rsync resolves it before creating directories, which
-          # fails. Ask the server for the canonical path and send there.
-          TARGET=$($SSH "$SSH_USER@$SSH_HOST" "readlink -f '$WEBROOT'")
+          # Let the server name its own web root: SiteGround's /home/<user> is
+          # a symlink to /home/customer, and the receiving rsync resolves it
+          # before creating directories, which fails. Deriving it here also
+          # keeps the path out of a masked secret, so it prints in the log.
+          TARGET=$($SSH "$SSH_USER@$SSH_HOST" 'readlink -f ~/www/*/public_html | head -1')
+          echo "resolved web root: $TARGET"
           test -n "$TARGET"
           # .well-known holds SiteGround's SSL challenges. contact-config.php
           # sits above public_html, so --delete never reaches it.
