@@ -78,7 +78,9 @@ jobs:
           SSH_USER: ${{ secrets.SITEGROUND_SSH_USER }}
           WEBROOT: ${{ secrets.SITEGROUND_WEBROOT }}
         run: |
-          SSH="ssh -i ~/.ssh/siteground -p $SSH_PORT"
+          # $HOME, not ~: a tilde inside a variable is never expanded, so ssh
+          # would look for a key file literally named "~/.ssh/siteground".
+          SSH="ssh -i $HOME/.ssh/siteground -p $SSH_PORT"
           # /home/<user> on SiteGround is a symlink to /home/customer, and the
           # receiving rsync resolves it before creating directories — which
           # fails. Ask the server for the canonical path and send there.
