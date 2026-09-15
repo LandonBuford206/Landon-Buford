@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { getCategoriesWithCounts } from '@/lib/content';
 
 export async function SiteHeader() {
@@ -8,53 +7,53 @@ export async function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-[var(--color-line)] bg-[var(--color-paper)]/95 backdrop-blur supports-[backdrop-filter]:bg-[var(--color-paper)]/80">
       <div className="mx-auto flex w-full max-w-[var(--container-page)] items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-baseline gap-2">
+        <a href="/" className="flex items-baseline gap-2">
           <span className="font-serif text-xl font-semibold tracking-tight md:text-2xl">
             Landon<span className="text-[var(--color-accent)]">Buford</span>
             <span className="text-[var(--color-ink-mute)]">.com</span>
           </span>
-        </Link>
+        </a>
 
         <nav className="hidden flex-1 items-center justify-center gap-6 md:flex">
           {navCats.map((c) => (
-            <Link
+            <a
               key={c.slug}
               href={`/category/${c.slug}`}
               className="text-sm font-medium text-[var(--color-ink-soft)] transition hover:text-[var(--color-ink)]"
             >
               {c.name}
-            </Link>
+            </a>
           ))}
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link
+          <a
             href="/search"
             aria-label="Search"
             className="rounded-md p-2 text-[var(--color-ink-soft)] transition hover:bg-[var(--color-line)] hover:text-[var(--color-ink)]"
           >
             <SearchIcon />
-          </Link>
-          <Link
+          </a>
+          <a
             href="/feed.xml"
             aria-label="RSS feed"
             className="hidden rounded-md p-2 text-[var(--color-ink-soft)] transition hover:bg-[var(--color-line)] hover:text-[var(--color-ink)] sm:inline-flex"
           >
             <RssIcon />
-          </Link>
+          </a>
         </div>
       </div>
 
       <nav className="border-t border-[var(--color-line)] md:hidden">
         <div className="mx-auto flex w-full max-w-[var(--container-page)] gap-4 overflow-x-auto px-4 py-2 text-sm">
           {navCats.map((c) => (
-            <Link
+            <a
               key={c.slug}
               href={`/category/${c.slug}`}
               className="whitespace-nowrap text-[var(--color-ink-soft)]"
             >
               {c.name}
-            </Link>
+            </a>
           ))}
         </div>
       </nav>

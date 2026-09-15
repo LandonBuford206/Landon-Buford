@@ -1,16 +1,17 @@
 import type { NextConfig } from 'next';
 import path from 'node:path';
 
+// BUILD_TARGET=static (scripts/build-static.mjs) exports the public site as
+// plain files for SiteGround. Without it, this is the admin + AI app on Vercel.
+const isStaticExport = process.env.BUILD_TARGET === 'static';
+
 const nextConfig: NextConfig = {
-  // Self-hosted on SiteGround: emit .next/standalone (server.js + only the
-  // node_modules it needs) so the host never has to run `npm install` or
-  // `next build`. See .github/workflows/deploy-siteground.yml.
-  output: 'standalone',
+  ...(isStaticExport ? { output: 'export' as const } : {}),
 
   // The post pages read JSON files via dynamic paths (`${slug}.json`), which
   // Next's static analyzer cannot trace. Without this, the data/ files do not
-  // ship with the serverless functions and on-demand-rendered posts (the
-  // 7,000 outside the pre-built top 500) return ENOENT in production.
+  // ship with the serverless functions and on-demand-rendered posts return
+  // ENOENT in production.
   outputFileTracingIncludes: {
     '/**/*': ['./data/**/*.json'],
   },
@@ -25,7 +26,9 @@ const nextConfig: NextConfig = {
 
   // Allow remote images from the original WordPress host (so featured images
   // resolve until the recovery script reuploads them) and from Wayback.
+  // A static export has no image optimizer to run them through.
   images: {
+    unoptimized: isStaticExport,
     remotePatterns: [
       { protocol: 'https', hostname: 'landonbuford.com' },
       { protocol: 'https', hostname: 'web.archive.org' },
@@ -38,25 +41,14 @@ const nextConfig: NextConfig = {
   // Map old WordPress URL patterns onto the new App Router routes so Google's
   // existing index transitions cleanly. Trailing-slash variants are handled
   // automatically by Next via `trailingSlash: false`.
+  //
+  // These only apply on Vercel. The SiteGround export mirrors them in
+  // public/.htaccess — keep the two in sync.
   async redirects() {
     return [
-      // Homepage and archive pagination
-      { source: '/page/:n(\\d+)', destination: '/?page=:n', permanent: true },
-      {
-        source: '/category/:slug/page/:n(\\d+)',
-        destination: '/category/:slug?page=:n',
-        permanent: true,
-      },
-      {
-        source: '/tag/:slug/page/:n(\\d+)',
-        destination: '/tag/:slug?page=:n',
-        permanent: true,
-      },
-      {
-        source: '/author/:slug/page/:n(\\d+)',
-        destination: '/author/:slug?page=:n',
-        permanent: true,
-      },
+      // Homepage pagination — the homepage is not paginated. Archive
+      // pagination (/category/:slug/page/:n etc.) is served natively.
+      { source: '/page/:n(\\d+)', destination: '/', permanent: true },
       // RSS — WordPress used /feed/ and /<archive>/feed/. Point everything
       // at the single /feed.xml route.
       { source: '/feed', destination: '/feed.xml', permanent: true },

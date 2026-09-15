@@ -1,17 +1,15 @@
-# Builds the Next.js app and ships the standalone server to SiteGround.
+# Builds the public site as static files and uploads them to SiteGround.
 #
-# The admin CMS publishes by committing to main, so every publish/edit/delete
-# lands here. Building happens on GitHub's runners (the 7,500-post build needs
-# ~4 GB of heap, more than shared hosting allows); SiteGround only runs server.js.
+# The admin CMS (on Vercel) publishes by committing to main, so every
+# publish/edit/delete lands here and goes live once this job finishes.
 #
 # Disabled until the repo variable SITEGROUND_DEPLOY_ENABLED is set to "true".
 #
 # Required secrets:
-#   SITEGROUND_SSH_KEY      private key from Site Tools > Devs > SSH Keys Manager
-#   SITEGROUND_SSH_HOST     SSH hostname from the same screen
-#   SITEGROUND_SSH_USER     SSH username from the same screen
-#   SITEGROUND_APP_PATH     absolute path of the Node.js app directory
-#   SITEGROUND_RESTART_CMD  shell command that restarts the Node.js app
+#   SITEGROUND_SSH_KEY    private key from Site Tools > Devs > SSH Keys Manager
+#   SITEGROUND_SSH_HOST   SSH hostname from the same screen
+#   SITEGROUND_SSH_USER   SSH username from the same screen
+#   SITEGROUND_WEBROOT    absolute path of the site's public_html
 #   NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_GTAG_ID, NEXT_PUBLIC_NEWSLETTER_ENDPOINT,
 #   NEXT_PUBLIC_ADSENSE_CLIENT, NEXT_PUBLIC_ADSENSE_SLOT_INARTICLE,
 #   NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END, NEXT_PUBLIC_ADSENSE_SLOT_LISTING,
@@ -34,7 +32,7 @@ jobs:
   deploy:
     if: vars.SITEGROUND_DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     defaults:
       run:
         working-directory: web
@@ -51,8 +49,8 @@ jobs:
 
       - run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Build static site
+        run: node scripts/build-static.mjs
         env:
           NEXT_TELEMETRY_DISABLED: '1'
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
@@ -63,14 +61,6 @@ jobs:
           NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END: ${{ secrets.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END }}
           NEXT_PUBLIC_ADSENSE_SLOT_LISTING: ${{ secrets.NEXT_PUBLIC_ADSENSE_SLOT_LISTING }}
           NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR: ${{ secrets.NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR }}
-
-      - name: Assemble standalone bundle
-        run: |
-          cp -r public .next/standalone/
-          cp -r .next/static .next/standalone/.next/
-          # data/ (read from process.cwd()/data at runtime) is already copied
-          # in by outputFileTracingIncludes in next.config.ts.
-          test -f .next/standalone/data/index.json
 
       - name: Configure SSH
         env:
@@ -86,19 +76,11 @@ jobs:
         env:
           SSH_HOST: ${{ secrets.SITEGROUND_SSH_HOST }}
           SSH_USER: ${{ secrets.SITEGROUND_SSH_USER }}
-          APP_PATH: ${{ secrets.SITEGROUND_APP_PATH }}
+          WEBROOT: ${{ secrets.SITEGROUND_WEBROOT }}
         run: |
-          # .env holds server-only secrets on the host; .next/cache holds
-          # pages rendered on demand. Neither is part of the build output.
+          # .well-known holds SiteGround's SSL challenges. contact-config.php
+          # sits above public_html, so --delete never reaches it.
           rsync -az --delete \
-            --exclude '.env' \
-            --exclude '.next/cache' \
+            --exclude '.well-known' \
             -e "ssh -i ~/.ssh/siteground -p $SSH_PORT" \
-            .next/standalone/ "$SSH_USER@$SSH_HOST:$APP_PATH/"
-
-      - name: Restart app
-        env:
-          SSH_HOST: ${{ secrets.SITEGROUND_SSH_HOST }}
-          SSH_USER: ${{ secrets.SITEGROUND_SSH_USER }}
-          RESTART_CMD: ${{ secrets.SITEGROUND_RESTART_CMD }}
-        run: ssh -i ~/.ssh/siteground -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "$RESTART_CMD"
+            out/ "$SSH_USER@$SSH_HOST:$WEBROOT/"

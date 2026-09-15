@@ -15,6 +15,8 @@ import { readRepoFileOrNull } from './admin/repo-read';
 
 const DATA_DIR = join(process.cwd(), 'data');
 
+export const PER_PAGE = 24;
+
 export interface PostFull {
   slug: string;
   postId: number;
@@ -62,18 +64,36 @@ export interface AuthorRecord {
   lastName: string;
 }
 
-// ---- low-level cached file readers (per-request memoization via React cache) ----
+export type ListingKind = 'category' | 'tag' | 'author';
 
-const loadIndex = cache(async (): Promise<PostListEntry[]> => {
-  const raw = await readFile(join(DATA_DIR, 'index.json'), 'utf8');
-  return JSON.parse(raw) as PostListEntry[];
-});
+// ---- low-level file readers ----
 
-// Prefer GitHub over local disk for runtime listing reads. The deployed
-// build's disk lags the latest commit by ~60-120s while Vercel rebuilds,
-// so a freshly-published post is in GitHub before it's on disk. Mirrors
-// the resolvePost fallback in app/[slug]/page.tsx. Disk fallback keeps
-// local dev working without GITHUB_TOKEN, and covers GitHub failures.
+// Files on disk only change with a new build, so each is parsed once per
+// process. The static export renders ~22k pages; re-parsing the 5 MB index
+// for every one of them would add many minutes to each deploy.
+function once<T>(load: () => Promise<T>): () => Promise<T> {
+  let promise: Promise<T> | null = null;
+  return () =>
+    (promise ??= load().catch((err) => {
+      promise = null;
+      throw err;
+    }));
+}
+
+async function readJson<T>(file: string): Promise<T> {
+  return JSON.parse(await readFile(join(DATA_DIR, file), 'utf8')) as T;
+}
+
+const loadIndex = once(() => readJson<PostListEntry[]>('index.json'));
+const loadCategories = once(() => readJson<CategoryRecord[]>('categories.json'));
+const loadTags = once(() => readJson<TagRecord[]>('tags.json'));
+const loadAuthors = once(() => readJson<AuthorRecord[]>('authors.json'));
+
+// Prefer GitHub over local disk for runtime listing reads when a token is
+// configured. The deployed build's disk lags the latest commit while a new
+// build runs, so a freshly-published post is in GitHub before it's on disk.
+// Disk fallback keeps local dev and the static export working without
+// GITHUB_TOKEN, and covers GitHub failures.
 const loadIndexFresh = cache(async (): Promise<PostListEntry[]> => {
   if (process.env.GITHUB_TOKEN && process.env.GITHUB_REPO) {
     try {
@@ -83,31 +103,30 @@ const loadIndexFresh = cache(async (): Promise<PostListEntry[]> => {
       // fall through to disk
     }
   }
-  const raw = await readFile(join(DATA_DIR, 'index.json'), 'utf8');
-  return JSON.parse(raw) as PostListEntry[];
+  return loadIndex();
 });
 
-const loadCategories = cache(async (): Promise<CategoryRecord[]> => {
-  const raw = await readFile(join(DATA_DIR, 'categories.json'), 'utf8');
-  return JSON.parse(raw) as CategoryRecord[];
-});
-
-const loadTags = cache(async (): Promise<TagRecord[]> => {
-  const raw = await readFile(join(DATA_DIR, 'tags.json'), 'utf8');
-  return JSON.parse(raw) as TagRecord[];
-});
-
-const loadAuthors = cache(async (): Promise<AuthorRecord[]> => {
-  const raw = await readFile(join(DATA_DIR, 'authors.json'), 'utf8');
-  return JSON.parse(raw) as AuthorRecord[];
+// Tag membership lives in each post file, not the index. Build the full
+// tag -> posts map in one pass instead of opening every post for every tag
+// page (~13,700 tags x ~7,500 posts).
+const loadTagIndex = once(async (): Promise<Map<string, PostListEntry[]>> => {
+  const map = new Map<string, PostListEntry[]>();
+  for (const entry of await loadIndex()) {
+    const post = await getPost(entry.slug);
+    for (const slug of new Set(post?.tags.map((t) => t.slug))) {
+      const posts = map.get(slug);
+      if (posts) posts.push(entry);
+      else map.set(slug, [entry]);
+    }
+  }
+  return map;
 });
 
 // ---- public API ----
 
 export async function getPost(slug: string): Promise<PostFull | null> {
   try {
-    const raw = await readFile(join(DATA_DIR, 'posts', `${slug}.json`), 'utf8');
-    return JSON.parse(raw) as PostFull;
+    return await readJson<PostFull>(join('posts', `${slug}.json`));
   } catch {
     return null;
   }
@@ -130,7 +149,7 @@ export interface PaginatedPosts {
 }
 
 export async function listPosts(opts: ListPostsOptions = {}): Promise<PaginatedPosts> {
-  const { categorySlug, tagSlug, authorSlug, page = 1, perPage = 24 } = opts;
+  const { categorySlug, tagSlug, authorSlug, page = 1, perPage = PER_PAGE } = opts;
   const all = await loadIndexFresh();
 
   let filtered = all;
@@ -140,14 +159,9 @@ export async function listPosts(opts: ListPostsOptions = {}): Promise<PaginatedP
   if (authorSlug) {
     filtered = filtered.filter((p) => p.author.slug === authorSlug);
   }
-  // tag filtering requires loading the full post; do it lazily
   if (tagSlug) {
-    const matched: PostListEntry[] = [];
-    for (const entry of filtered) {
-      const post = await getPost(entry.slug);
-      if (post?.tags.some((t) => t.slug === tagSlug)) matched.push(entry);
-    }
-    filtered = matched;
+    const tagged = new Set((await loadTagIndex()).get(tagSlug)?.map((p) => p.slug));
+    filtered = filtered.filter((p) => tagged.has(p.slug));
   }
 
   const totalPosts = filtered.length;
@@ -161,6 +175,32 @@ export async function listPosts(opts: ListPostsOptions = {}): Promise<PaginatedP
     totalPosts,
     totalPages,
   };
+}
+
+/**
+ * Every category / tag / author that has at least one post, with its page
+ * count at PER_PAGE. Drives generateStaticParams for the archive pages.
+ */
+export async function getListingPageCounts(
+  kind: ListingKind
+): Promise<{ slug: string; totalPages: number }[]> {
+  const counts = new Map<string, number>();
+  if (kind === 'tag') {
+    for (const [slug, posts] of await loadTagIndex()) counts.set(slug, posts.length);
+  } else {
+    for (const p of await loadIndex()) {
+      const slug = kind === 'category' ? p.primaryCategory?.slug : p.author.slug;
+      if (slug) counts.set(slug, (counts.get(slug) ?? 0) + 1);
+    }
+  }
+
+  const records =
+    kind === 'category' ? await loadCategories() : kind === 'tag' ? await loadTags() : await loadAuthors();
+  const known = new Set(records.map((r) => r.slug));
+
+  return Array.from(counts)
+    .filter(([slug]) => known.has(slug))
+    .map(([slug, n]) => ({ slug, totalPages: Math.ceil(n / PER_PAGE) }));
 }
 
 export async function getRelatedPosts(post: PostFull, limit = 3): Promise<PostListEntry[]> {
