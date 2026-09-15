@@ -78,9 +78,15 @@ jobs:
           SSH_USER: ${{ secrets.SITEGROUND_SSH_USER }}
           WEBROOT: ${{ secrets.SITEGROUND_WEBROOT }}
         run: |
+          SSH="ssh -i ~/.ssh/siteground -p $SSH_PORT"
+          # /home/<user> on SiteGround is a symlink to /home/customer, and the
+          # receiving rsync resolves it before creating directories — which
+          # fails. Ask the server for the canonical path and send there.
+          TARGET=$($SSH "$SSH_USER@$SSH_HOST" "readlink -f '$WEBROOT'")
+          test -n "$TARGET"
           # .well-known holds SiteGround's SSL challenges. contact-config.php
           # sits above public_html, so --delete never reaches it.
           rsync -az --delete \
             --exclude '.well-known' \
-            -e "ssh -i ~/.ssh/siteground -p $SSH_PORT" \
-            out/ "$SSH_USER@$SSH_HOST:$WEBROOT/"
+            -e "$SSH" \
+            out/ "$SSH_USER@$SSH_HOST:$TARGET/"
