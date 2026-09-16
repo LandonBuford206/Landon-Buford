@@ -233,7 +233,8 @@ export function EditPostForm({
         {error && <p className="text-sm text-[var(--color-accent)]">{error}</p>}
         {savedAt && (
           <p className="text-sm text-[var(--color-ink-soft)]">
-            Saved at {savedAt}. Live in ~60–120 seconds (Vercel redeploy).
+            Saved at {savedAt}. Live in ~10–15 minutes (site rebuild + upload
+            to SiteGround).
           </p>
         )}
 

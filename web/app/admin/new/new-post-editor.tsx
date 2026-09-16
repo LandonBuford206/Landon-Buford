@@ -183,7 +183,8 @@ export function NewPostEditor({
           <a href={published.url} className="text-[var(--color-accent)] underline">
             {published.url}
           </a>{' '}
-          in ~60–120 seconds (after Vercel finishes deploying).
+          in ~10–15 minutes, once GitHub has rebuilt the site and uploaded it
+          to SiteGround. The link 404s until then — that is normal.
         </p>
         <div className="mt-6 flex gap-3">
           <button
