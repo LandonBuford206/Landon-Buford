@@ -89,13 +89,18 @@ jobs:
           # keeps the path out of a masked secret, so it prints in the log.
           TARGET=$($SSH "$SSH_USER@$SSH_HOST" 'readlink -f ~/www/*/public_html | head -1')
           echo "resolved web root: $TARGET"
-          test -n "$TARGET"
+          # --delete must never run against a path we haven't confirmed: an
+          # empty or wrong variable here once pointed it at the SSH jail root.
+          case "$TARGET" in
+            /home/*/www/*/public_html) ;;
+            *) echo "refusing to deploy to unexpected target: [$TARGET]"; exit 1 ;;
+          esac
           # .well-known holds SiteGround's SSL challenges. contact-config.php
           # sits above public_html, so --delete never reaches it.
           rsync -az --delete \
             --exclude '.well-known' \
             -e "$SSH" \
-            out/ "$SSH_USER@$SSH_HOST:$REL/"
+            out/ "$SSH_USER@$SSH_HOST:$TARGET/"
 
       - name: Flush SiteGround cache
         env:
